@@ -1,0 +1,26 @@
+disease,precaution_1,precaution_2,precaution_3,precaution_4
+Flu,Consult a doctor,Take prescribed medicines,Avoid junk food,Follow healthy diet
+Cold,Exercise regularly,Drink plenty of fluids,Take proper rest,Avoid junk food
+COVID-19,Follow healthy diet,Consult a doctor,Avoid crowded places,Drink plenty of fluids
+Malaria,Monitor health regularly,Take proper rest,Maintain hygiene,Consult a doctor
+Dengue,Consult a doctor,Follow healthy diet,Monitor health regularly,Take prescribed medicines
+Typhoid,Monitor health regularly,Consult a doctor,Take prescribed medicines,Take proper rest
+Asthma,Monitor health regularly,Maintain hygiene,Take prescribed medicines,Follow healthy diet
+Diabetes,Take proper rest,Consult a doctor,Drink plenty of fluids,Maintain hygiene
+Migraine,Consult a doctor,Maintain hygiene,Monitor health regularly,Follow healthy diet
+Food Poisoning,Drink plenty of fluids,Avoid crowded places,Follow healthy diet,Take proper rest
+Jaundice,Take proper rest,Drink plenty of fluids,Consult a doctor,Monitor health regularly
+Chickenpox,Follow healthy diet,Monitor health regularly,Avoid junk food,Consult a doctor
+Measles,Avoid crowded places,Exercise regularly,Maintain hygiene,Avoid junk food
+Arthritis,Avoid crowded places,Drink plenty of fluids,Follow healthy diet,Take prescribed medicines
+Hypertension,Maintain hygiene,Consult a doctor,Exercise regularly,Avoid crowded places
+Heart Disease,Take proper rest,Take prescribed medicines,Consult a doctor,Exercise regularly
+Tuberculosis,Avoid junk food,Exercise regularly,Drink plenty of fluids,Monitor health regularly
+Pneumonia,Take prescribed medicines,Maintain hygiene,Avoid crowded places,Monitor health regularly
+Allergy,Avoid crowded places,Exercise regularly,Maintain hygiene,Consult a doctor
+Kidney Stones,Take prescribed medicines,Exercise regularly,Monitor health regularly,Follow healthy diet
+Hepatitis,Take proper rest,Exercise regularly,Avoid crowded places,Take prescribed medicines
+Depression,Take proper rest,Monitor health regularly,Drink plenty of fluids,Take prescribed medicines
+Anxiety,Avoid junk food,Monitor health regularly,Exercise regularly,Drink plenty of fluids
+Bronchitis,Monitor health regularly,Take proper rest,Avoid crowded places,Take prescribed medicines
+Sinusitis,Consult a doctor,Exercise regularly,Follow healthy diet,Avoid junk food

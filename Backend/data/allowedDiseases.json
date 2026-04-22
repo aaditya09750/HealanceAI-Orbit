@@ -1,0 +1,2569 @@
+{
+  "version": "1.0.0",
+  "source": "Curated from public MedlinePlus, CDC, WHO, and NIH condition pages. English-only, adult-focused. Not a clinical reference — consumer education only.",
+  "diseases": [
+    {
+      "name": "Common Cold",
+      "icd10": "J00",
+      "aliases": ["Cold", "Acute Nasopharyngitis"],
+      "description": "A mild viral infection of the nose and throat caused by several virus families, most commonly rhinoviruses. It spreads easily through droplets and shared surfaces, which is why colds are so common in autumn and winter. Typical symptoms include a runny or blocked nose, sneezing, mild cough and a low-grade fever, and most adults recover fully within 7-10 days without treatment. Rest, fluids and simple over-the-counter remedies are usually enough.",
+      "precautions": [
+        "Rest and stay hydrated",
+        "Wash hands frequently",
+        "Avoid close contact with others while symptomatic"
+      ],
+      "medications": [
+        "Acetaminophen",
+        "Ibuprofen",
+        "Decongestants (short-term)",
+        "Saline nasal spray"
+      ],
+      "diets": ["Warm soups and broths", "Ginger and honey tea", "Citrus fruits rich in vitamin C"],
+      "workouts": [
+        "Gentle walking if no fever",
+        "Avoid strenuous exercise until recovered",
+        "Breathing exercises"
+      ],
+      "redFlagHints": ["Mild fever, runny nose, sore throat, cough lasting under 10 days"]
+    },
+    {
+      "name": "Influenza (Flu)",
+      "icd10": "J11",
+      "aliases": ["Seasonal Flu"],
+      "description": "Influenza is a contagious respiratory illness caused by influenza A and B viruses, typically peaking during cold months. Unlike a common cold it tends to come on suddenly, with high fever, body aches, fatigue and dry cough lasting five to seven days. Most healthy adults recover with rest and fluids, but older adults, pregnant women and people with chronic conditions can develop complications like pneumonia. Annual vaccination and early antiviral treatment within 48 hours significantly reduce severity.",
+      "precautions": [
+        "Get annual flu vaccine",
+        "Rest for at least 3-5 days",
+        "Cover cough and wash hands",
+        "Isolate from vulnerable contacts"
+      ],
+      "medications": [
+        "Oseltamivir (if started within 48h)",
+        "Acetaminophen",
+        "Ibuprofen",
+        "Cough suppressants"
+      ],
+      "diets": ["Electrolyte-rich fluids", "Light digestible meals", "Avoid alcohol and smoking"],
+      "workouts": [
+        "Complete bed rest for 3-5 days",
+        "Resume light activity only after fever resolves",
+        "Gentle stretching"
+      ],
+      "redFlagHints": [
+        "High fever (above 102°F), severe body aches, fatigue lasting 5-7 days, dry cough"
+      ]
+    },
+    {
+      "name": "COVID-19",
+      "icd10": "U07.1",
+      "aliases": ["SARS-CoV-2 infection", "Coronavirus"],
+      "description": "COVID-19 is an illness caused by the SARS-CoV-2 coronavirus that primarily affects the respiratory system but can involve many organs. Symptoms range from mild (cough, loss of smell, sore throat) to severe (breathlessness, low oxygen, confusion), and risk of severe disease rises with age, obesity and chronic conditions. Most people recover at home within one to two weeks with rest and symptomatic care. Vaccination dramatically lowers the chance of hospitalisation, and antivirals like Paxlovid can help high-risk patients if started early.",
+      "precautions": [
+        "Isolate for at least 5 days",
+        "Wear a mask around others",
+        "Monitor oxygen saturation",
+        "Stay hydrated"
+      ],
+      "medications": [
+        "Paxlovid (high-risk patients)",
+        "Acetaminophen",
+        "Ibuprofen",
+        "Cough suppressants"
+      ],
+      "diets": [
+        "High-protein, high-calorie meals",
+        "Electrolyte drinks",
+        "Vitamin C and zinc-rich foods"
+      ],
+      "workouts": [
+        "Rest during acute illness",
+        "Gradual return to activity",
+        "Breathing exercises after recovery"
+      ],
+      "redFlagHints": [
+        "Loss of smell or taste, persistent cough, shortness of breath, low oxygen saturation"
+      ]
+    },
+    {
+      "name": "Pneumonia",
+      "icd10": "J18",
+      "aliases": ["Lung infection"],
+      "description": "Pneumonia is an infection that inflames the air sacs in one or both lungs, causing them to fill with fluid or pus. It can be triggered by bacteria (most commonly Streptococcus pneumoniae), viruses or fungi, and often develops after a cold or flu. Typical signs include a productive cough, fever, chills, chest pain on deep breaths and breathlessness, and severity can range from mild and walk-around to life-threatening. Prompt antibiotics (for bacterial causes), supportive care and pneumococcal vaccination are the main lines of defence.",
+      "precautions": [
+        "Seek medical evaluation promptly",
+        "Complete full antibiotic course if prescribed",
+        "Use a humidifier",
+        "Get pneumococcal vaccine if eligible"
+      ],
+      "medications": [
+        "Antibiotics (for bacterial pneumonia)",
+        "Antivirals (for viral)",
+        "Acetaminophen",
+        "Expectorants"
+      ],
+      "diets": ["Plenty of fluids to thin mucus", "Protein-rich foods for recovery", "Warm soups"],
+      "workouts": [
+        "Complete rest in acute phase",
+        "Deep-breathing exercises during recovery",
+        "Gradual resumption of walking"
+      ],
+      "redFlagHints": [
+        "Productive cough with green/yellow mucus, chest pain on deep breath, fever, breathlessness"
+      ],
+      "emergency": false
+    },
+    {
+      "name": "Acute Bronchitis",
+      "icd10": "J20",
+      "aliases": ["Chest cold"],
+      "description": "Acute bronchitis is a short-lived inflammation of the bronchial tubes, the airways that carry air to the lungs. It almost always follows a viral cold or flu and features a persistent cough that starts dry and later produces mucus, often with mild chest discomfort and low-grade fever. Most cases resolve on their own within three weeks without antibiotics. Staying hydrated, avoiding tobacco smoke and using cough suppressants at night for sleep are usually enough to get through it.",
+      "precautions": ["Avoid smoking and secondhand smoke", "Use a humidifier", "Stay hydrated"],
+      "medications": ["Cough suppressants", "Bronchodilators if wheezing", "Acetaminophen"],
+      "diets": ["Warm fluids", "Honey-based teas", "Avoid cold drinks"],
+      "workouts": [
+        "Light walking once acute phase passes",
+        "Avoid strenuous activity",
+        "Deep breathing"
+      ],
+      "redFlagHints": ["Persistent cough with mucus lasting 2-3 weeks after a cold"]
+    },
+    {
+      "name": "Chronic Bronchitis",
+      "icd10": "J42",
+      "aliases": ["Chronic obstructive bronchitis"],
+      "description": "Chronic bronchitis is a long-term form of chronic obstructive pulmonary disease (COPD) in which the airways are continuously inflamed and produce excess mucus. It is defined clinically by a productive cough present on most days for at least three months in two consecutive years. Smoking is by far the commonest cause, with air pollutants and occupational dust also contributing. Quitting smoking, inhaled bronchodilators, pulmonary rehabilitation and vaccination against flu and pneumococcus slow decline and reduce flare-ups.",
+      "precautions": [
+        "Stop smoking completely",
+        "Avoid air pollutants",
+        "Get flu and pneumonia vaccines"
+      ],
+      "medications": [
+        "Bronchodilators",
+        "Inhaled corticosteroids",
+        "Mucolytics",
+        "Antibiotics during flare-ups"
+      ],
+      "diets": [
+        "Antioxidant-rich vegetables and fruits",
+        "Omega-3 fatty acids",
+        "Adequate hydration"
+      ],
+      "workouts": [
+        "Pulmonary rehabilitation",
+        "Paced walking",
+        "Breathing exercises (pursed-lip, diaphragmatic)"
+      ],
+      "redFlagHints": ["Smoker or ex-smoker, daily productive cough over months/years"]
+    },
+    {
+      "name": "Asthma",
+      "icd10": "J45",
+      "aliases": ["Bronchial asthma"],
+      "description": "Asthma is a chronic condition in which the airways narrow, swell and produce extra mucus, making breathing difficult. Triggers include allergens (dust mites, pollen, pets), viral infections, cold air, exercise and emotional stress. Typical symptoms are wheezing, chest tightness, breathlessness and cough, often worse at night or early morning. Most people manage asthma well with a daily controller inhaler plus a rescue inhaler for flare-ups and by identifying and avoiding personal triggers.",
+      "precautions": [
+        "Identify and avoid triggers",
+        "Use inhaler as prescribed",
+        "Keep a peak flow diary",
+        "Have an asthma action plan"
+      ],
+      "medications": [
+        "Short-acting bronchodilators (salbutamol)",
+        "Inhaled corticosteroids",
+        "Leukotriene antagonists"
+      ],
+      "diets": ["Anti-inflammatory foods", "Avoid known food triggers", "Vitamin D-rich foods"],
+      "workouts": [
+        "Swimming is often well tolerated",
+        "Warm up gradually",
+        "Use inhaler before exercise if prescribed"
+      ],
+      "redFlagHints": [
+        "Wheezing, breathlessness worse at night or on exertion, dry cough, triggered by allergens"
+      ]
+    },
+    {
+      "name": "Chronic Obstructive Pulmonary Disease (COPD)",
+      "icd10": "J44",
+      "aliases": ["COPD", "Emphysema"],
+      "description": "COPD is a progressive lung disease that limits airflow and makes breathing increasingly difficult over time. It is nearly always caused by long-term exposure to irritants — most commonly cigarette smoke — and results from chronic bronchitis, emphysema, or both. Key symptoms are breathlessness on exertion that worsens with years, a chronic cough and frequent chest infections. While there is no cure, quitting smoking, inhalers, pulmonary rehabilitation and vaccines can dramatically improve quality of life and slow progression.",
+      "precautions": [
+        "Quit smoking immediately",
+        "Avoid air pollutants and respiratory infections",
+        "Get vaccinated against flu and pneumococcus"
+      ],
+      "medications": [
+        "Long-acting bronchodilators",
+        "Inhaled corticosteroids",
+        "Supplemental oxygen if prescribed"
+      ],
+      "diets": [
+        "Small frequent meals to reduce breathlessness",
+        "High-protein, high-calorie foods",
+        "Avoid excess salt"
+      ],
+      "workouts": [
+        "Supervised pulmonary rehabilitation",
+        "Walking program",
+        "Resistance training for limbs"
+      ],
+      "redFlagHints": [
+        "Long smoking history, chronic breathlessness on exertion, barrel chest, productive cough"
+      ]
+    },
+    {
+      "name": "Tuberculosis",
+      "icd10": "A15",
+      "aliases": ["TB", "Pulmonary tuberculosis"],
+      "description": "Tuberculosis is a potentially serious bacterial infection caused by Mycobacterium tuberculosis that most often affects the lungs. It spreads through airborne droplets when an infected person coughs, sneezes or speaks, especially in crowded or poorly ventilated settings. Classic features include a cough lasting more than three weeks, unintentional weight loss, drenching night sweats and low-grade fever. TB is fully curable with a supervised 6-month antibiotic regimen, and completing the full course is critical to prevent drug resistance.",
+      "precautions": [
+        "Complete the full 6+ month antibiotic course",
+        "Isolate early in treatment",
+        "Notify close contacts for screening"
+      ],
+      "medications": [
+        "Isoniazid",
+        "Rifampin",
+        "Ethambutol",
+        "Pyrazinamide (first-line 4-drug regimen)"
+      ],
+      "diets": [
+        "High-protein, high-calorie meals",
+        "Vitamin B6 supplementation with isoniazid",
+        "Avoid alcohol"
+      ],
+      "workouts": [
+        "Rest during infectious phase",
+        "Gradual return to light activity",
+        "Breathing exercises"
+      ],
+      "redFlagHints": [
+        "Night sweats with unintentional weight loss, chronic cough (>3 weeks), low-grade fever"
+      ]
+    },
+    {
+      "name": "Sinusitis",
+      "icd10": "J32",
+      "aliases": ["Sinus infection", "Rhinosinusitis"],
+      "description": "Sinusitis is inflammation or infection of the sinus cavities in the face, usually triggered by a cold, allergic reaction or a structural issue like a deviated septum. It produces facial pressure or pain (especially over the forehead and cheeks), thick nasal discharge, reduced smell and sometimes a headache that worsens on bending forward. Most cases are viral and resolve within 10 days using saline rinses, steam inhalation and simple pain relief. Antibiotics are reserved for bacterial infections that last longer than 10 days or worsen after initial improvement.",
+      "precautions": ["Use saline irrigation", "Steam inhalation", "Avoid known allergens"],
+      "medications": [
+        "Decongestants",
+        "Antihistamines",
+        "Nasal corticosteroid sprays",
+        "Antibiotics if bacterial"
+      ],
+      "diets": ["Warm fluids", "Spicy foods can thin mucus", "Avoid dairy if it thickens mucus"],
+      "workouts": [
+        "Gentle cardio once acute pain subsides",
+        "Yoga inversions can help drainage",
+        "Avoid swimming in pools"
+      ],
+      "redFlagHints": [
+        "Facial pain/pressure, nasal discharge, reduced smell, headache worse when bending forward"
+      ]
+    },
+    {
+      "name": "Pharyngitis",
+      "icd10": "J02",
+      "aliases": ["Sore throat"],
+      "description": "Pharyngitis is inflammation of the throat that causes pain, scratchiness and difficulty swallowing. Most cases are viral and clear up within a week with rest, warm fluids and lozenges. A smaller portion are caused by group A streptococcus (strep throat), which requires antibiotics to prevent complications like rheumatic fever. Warning signs that suggest strep include severe pain on swallowing, white patches on the tonsils, fever above 101°F and swollen lymph nodes in the neck.",
+      "precautions": [
+        "Rest the voice",
+        "Gargle with warm salt water",
+        "Get tested for strep if symptoms severe"
+      ],
+      "medications": [
+        "Acetaminophen or ibuprofen",
+        "Throat lozenges",
+        "Antibiotics if strep confirmed"
+      ],
+      "diets": [
+        "Warm liquids, honey, broth",
+        "Avoid acidic or spicy foods",
+        "Ice cream or cold drinks can soothe"
+      ],
+      "workouts": ["Rest", "Avoid strenuous activity while feverish"],
+      "redFlagHints": [
+        "Severe sore throat, white patches or pus in throat, fever, swollen lymph nodes"
+      ]
+    },
+    {
+      "name": "Tonsillitis",
+      "icd10": "J03",
+      "aliases": ["Tonsil infection"],
+      "description": "Tonsillitis is inflammation of the tonsils — the two oval pads at the back of the throat — most often caused by viruses but sometimes by bacteria. It presents with sore throat, painful swallowing, swollen tender glands in the neck and sometimes fever. Viral tonsillitis usually clears with supportive care and cool soft foods, while bacterial tonsillitis responds to a course of antibiotics. Recurrent severe tonsillitis may lead a specialist to recommend tonsillectomy.",
+      "precautions": ["Rest", "Avoid spreading via shared utensils", "Seek care if recurrent"],
+      "medications": ["Antibiotics if bacterial", "Acetaminophen", "Throat lozenges"],
+      "diets": ["Cool, soft foods", "Popsicles for soothing", "Avoid crunchy foods"],
+      "workouts": ["Rest until fever resolves", "Gentle walking after recovery"],
+      "redFlagHints": ["Severe pain on swallowing, enlarged tonsils with white patches, fever"]
+    },
+    {
+      "name": "Laryngitis",
+      "icd10": "J04.0",
+      "aliases": ["Voice box inflammation"],
+      "description": "Laryngitis is inflammation of the voice box (larynx), most often from overuse, a cold, or irritants like smoke and alcohol. The hallmark symptom is hoarseness or complete voice loss, sometimes with a dry cough and mild sore throat. Acute laryngitis resolves within a week with voice rest, humidified air and adequate hydration. Hoarseness lasting more than three weeks should be evaluated by a doctor to rule out chronic irritation, reflux or other causes.",
+      "precautions": [
+        "Rest the voice entirely",
+        "Avoid whispering (strains cords more)",
+        "Avoid smoking"
+      ],
+      "medications": ["Acetaminophen", "Throat lozenges", "Humidified air"],
+      "diets": ["Warm water with honey", "Avoid caffeine and alcohol", "Avoid cold drinks"],
+      "workouts": ["Light activity allowed", "Avoid shouting or strenuous vocal use"],
+      "redFlagHints": ["Hoarseness or voice loss, dry cough, mild sore throat"]
+    },
+    {
+      "name": "Pulmonary Embolism",
+      "icd10": "I26",
+      "aliases": ["PE", "Blood clot in lung"],
+      "description": "A pulmonary embolism is a sudden blockage in a pulmonary artery, usually from a clot that has traveled from a deep vein in the leg. It is a life-threatening emergency because it can quickly reduce oxygen delivery to the body and strain the heart. Warning signs include sudden sharp chest pain worse with breathing, breathlessness, a rapid heart rate and sometimes fainting or coughing up blood. Immediate hospital evaluation with imaging and anticoagulant therapy is essential — survival depends on rapid recognition and treatment.",
+      "precautions": ["Call emergency services immediately", "Do not delay treatment"],
+      "medications": ["Anticoagulants (heparin, warfarin, DOACs)", "Thrombolytics in severe cases"],
+      "diets": ["As directed by cardiology team", "Avoid foods that interact with anticoagulants"],
+      "workouts": [
+        "No exercise until cleared by physician",
+        "Gradual mobilization under supervision"
+      ],
+      "redFlagHints": [
+        "Sudden sharp chest pain, breathlessness, rapid heart rate, leg swelling, recent immobilization"
+      ],
+      "emergency": true
+    },
+    {
+      "name": "Pleurisy",
+      "icd10": "R09.1",
+      "aliases": ["Pleuritis"],
+      "description": "Pleurisy is inflammation of the pleura, the two thin layers of tissue that line the lungs and chest wall. It produces a sharp, stabbing chest pain that worsens with deep breathing, coughing or sneezing. Common causes include viral infections, pneumonia, pulmonary embolism and autoimmune disease, so evaluating the underlying cause is important. Treatment focuses on the underlying condition and relieving pain with NSAIDs.",
+      "precautions": ["Identify and treat underlying cause", "Rest"],
+      "medications": ["NSAIDs", "Treat underlying infection or cause"],
+      "diets": ["No specific diet; maintain hydration"],
+      "workouts": ["Rest until pain subsides", "Deep breathing during recovery"],
+      "redFlagHints": ["Sharp chest pain worsening with deep breath or cough"]
+    },
+    {
+      "name": "Respiratory Syncytial Virus (RSV)",
+      "icd10": "B97.4",
+      "aliases": ["RSV bronchiolitis"],
+      "description": "RSV is a very common respiratory virus that causes mild cold-like symptoms in most adults but can be severe in infants under one year and in older adults with chronic illness. Symptoms include runny nose, cough, wheezing and sometimes fever. In vulnerable patients it can progress to bronchiolitis or pneumonia and require hospitalisation for oxygen and fluids. Newer monoclonal antibody and vaccine options now exist for high-risk groups.",
+      "precautions": [
+        "Good hand hygiene",
+        "Isolate from vulnerable contacts",
+        "Monitor for worsening breathing"
+      ],
+      "medications": ["Supportive care", "Acetaminophen", "Bronchodilators if wheezing"],
+      "diets": ["Small frequent fluid intake", "Easy-to-swallow foods"],
+      "workouts": ["Rest during acute illness"],
+      "redFlagHints": ["Wheezing, cough, fever, breathlessness in infants or elderly"]
+    },
+    {
+      "name": "Gastroenteritis",
+      "icd10": "A09",
+      "aliases": ["Stomach flu", "Viral gastroenteritis"],
+      "description": "Gastroenteritis is inflammation of the stomach and intestines, most often caused by viruses like norovirus or rotavirus and typically spread by contaminated food, water or close contact. It produces watery diarrhoea, vomiting, abdominal cramps and sometimes a low-grade fever. Most healthy adults recover in 1-3 days with rest and oral rehydration solutions, which prevent dehydration. Seek medical care if diarrhoea contains blood, vomiting prevents any fluid intake or if signs of dehydration such as dizziness or very dark urine develop.",
+      "precautions": [
+        "Prevent dehydration with oral rehydration salts",
+        "Wash hands thoroughly",
+        "Isolate to prevent spread"
+      ],
+      "medications": [
+        "Oral rehydration solutions",
+        "Loperamide (short-term for adults)",
+        "Ondansetron for vomiting"
+      ],
+      "diets": [
+        "BRAT diet (bananas, rice, applesauce, toast)",
+        "Clear broths",
+        "Avoid dairy and fatty foods"
+      ],
+      "workouts": ["Complete rest", "Light walking after symptoms resolve"],
+      "redFlagHints": [
+        "Watery diarrhea, vomiting, low-grade fever, recent contact with sick person"
+      ]
+    },
+    {
+      "name": "Food Poisoning",
+      "icd10": "A05",
+      "aliases": ["Bacterial gastroenteritis", "Foodborne illness"],
+      "description": "Food poisoning is an acute illness that follows eating food or drink contaminated with bacteria, viruses, parasites or their toxins. Common culprits include improperly stored leftovers, undercooked meat or eggs, unclean street food and raw seafood. Typical symptoms start within hours to a day and include nausea, vomiting, watery diarrhoea and abdominal cramps. Most cases resolve in 1-3 days with fluid replacement, though certain bacterial infections need antibiotics and severe dehydration always warrants urgent medical care.",
+      "precautions": [
+        "Replace fluids aggressively",
+        "Seek care if unable to keep fluids down",
+        "Practice food safety"
+      ],
+      "medications": [
+        "Oral rehydration salts",
+        "Antibiotics only for specific bacteria",
+        "Antiemetics"
+      ],
+      "diets": [
+        "Clear fluids first, then bland foods",
+        "Electrolyte drinks",
+        "Avoid dairy, caffeine, alcohol"
+      ],
+      "workouts": ["Complete rest until recovered"],
+      "redFlagHints": [
+        "Vomiting/diarrhea after suspect meal (street food, seafood, leftovers), abdominal cramps"
+      ]
+    },
+    {
+      "name": "Gastroesophageal Reflux Disease (GERD)",
+      "icd10": "K21",
+      "aliases": ["Acid reflux", "Heartburn"],
+      "description": "GERD is a chronic condition in which stomach acid repeatedly backs up into the oesophagus, causing burning chest pain (heartburn), sour regurgitation and sometimes a chronic cough. Risk factors include obesity, pregnancy, hiatal hernia, smoking and certain foods. Most people improve with lifestyle changes — avoiding large late meals, elevating the head of the bed and losing weight — combined with acid-reducing medications like proton pump inhibitors. Long-term untreated GERD can lead to oesophagitis and, rarely, changes in the oesophageal lining that raise cancer risk.",
+      "precautions": [
+        "Avoid eating 2-3 hours before lying down",
+        "Elevate head of bed",
+        "Lose weight if overweight"
+      ],
+      "medications": ["Proton pump inhibitors (omeprazole)", "H2 blockers", "Antacids"],
+      "diets": [
+        "Avoid spicy, fatty, citrus, chocolate, caffeine",
+        "Small frequent meals",
+        "Low-fat dairy"
+      ],
+      "workouts": [
+        "Avoid exercise immediately after eating",
+        "Upright exercise preferred",
+        "Yoga (avoid inversions)"
+      ],
+      "redFlagHints": [
+        "Heartburn worse after meals or lying down, sour taste, chronic cough at night"
+      ]
+    },
+    {
+      "name": "Peptic Ulcer Disease",
+      "icd10": "K27",
+      "aliases": ["Stomach ulcer", "Duodenal ulcer"],
+      "description": "Peptic ulcers are open sores in the lining of the stomach or the first part of the small intestine, most often caused by Helicobacter pylori infection or long-term NSAID use. The classic symptom is burning upper abdominal pain, often worse on an empty stomach and relieved by eating or antacids. Complications include bleeding, perforation and obstruction, which are medical emergencies. Diagnosis is confirmed by endoscopy or H. pylori testing, and treatment combines acid suppression with targeted antibiotics when infection is present.",
+      "precautions": [
+        "Stop NSAIDs if possible",
+        "Avoid alcohol and smoking",
+        "Treat H. pylori if positive"
+      ],
+      "medications": [
+        "Proton pump inhibitors",
+        "H. pylori eradication therapy (triple or quadruple)",
+        "Antacids"
+      ],
+      "diets": [
+        "Avoid spicy, acidic foods",
+        "Avoid caffeine and alcohol",
+        "Eat small frequent meals"
+      ],
+      "workouts": ["Moderate exercise is fine", "Avoid exercise on empty stomach with pain"],
+      "redFlagHints": [
+        "Burning upper abdominal pain, worse on empty stomach, black tarry stools (emergency)"
+      ]
+    },
+    {
+      "name": "Gastritis",
+      "icd10": "K29",
+      "aliases": ["Stomach inflammation"],
+      "description": "Gastritis is inflammation of the stomach lining, which can develop suddenly (acute) or build up over time (chronic). Common triggers are alcohol, NSAIDs, stress, bile reflux and Helicobacter pylori infection. It usually causes upper abdominal discomfort, nausea, early fullness after meals and sometimes vomiting. Treatment focuses on removing the trigger, acid suppression with proton pump inhibitors and eradicating H. pylori when present.",
+      "precautions": [
+        "Avoid irritants (alcohol, NSAIDs, smoking)",
+        "Manage stress",
+        "Treat H. pylori if present"
+      ],
+      "medications": ["Proton pump inhibitors", "H2 blockers", "Antacids", "Sucralfate"],
+      "diets": ["Bland low-fat diet", "Avoid spicy and acidic foods", "Small frequent meals"],
+      "workouts": ["Light exercise only", "Stress-reducing activities like yoga"],
+      "redFlagHints": ["Upper abdominal pain, nausea, loss of appetite, indigestion"]
+    },
+    {
+      "name": "Irritable Bowel Syndrome (IBS)",
+      "icd10": "K58",
+      "aliases": ["IBS"],
+      "description": "IBS is a common functional bowel disorder causing recurrent abdominal pain linked to changes in bowel habit — diarrhoea, constipation or alternating patterns — without any structural damage. Symptoms are often triggered by certain foods, stress or hormonal changes. While the exact cause isn't fully understood, a combination of gut hypersensitivity, motility changes and gut-brain signaling is involved. Most patients find relief through dietary changes (such as the low-FODMAP diet), stress management and targeted medications for the dominant symptom.",
+      "precautions": ["Identify trigger foods", "Manage stress", "Maintain regular meal times"],
+      "medications": [
+        "Antispasmodics",
+        "Laxatives (IBS-C) or loperamide (IBS-D)",
+        "Low-dose antidepressants"
+      ],
+      "diets": ["Low-FODMAP diet", "Adequate fiber (soluble)", "Avoid trigger foods"],
+      "workouts": ["Regular moderate exercise", "Yoga and stress reduction", "Walking after meals"],
+      "redFlagHints": ["Recurrent abdominal pain with bowel changes, bloating, no weight loss"]
+    },
+    {
+      "name": "Inflammatory Bowel Disease (IBD)",
+      "icd10": "K50",
+      "aliases": ["Crohn's disease", "Ulcerative colitis"],
+      "description": "IBD encompasses Crohn's disease and ulcerative colitis — chronic autoimmune conditions that cause inflammation of the digestive tract. Symptoms include recurrent diarrhoea (sometimes bloody), abdominal pain, fatigue and unintentional weight loss, and can flare and remit over years. Uncontrolled inflammation can lead to serious complications like strictures, fistulas and bowel cancer, so close specialist follow-up is essential. Modern treatment ranges from 5-ASA drugs and steroids for mild disease to immunomodulators and biologics for moderate-to-severe cases.",
+      "precautions": ["Follow gastroenterologist's plan", "Monitor for flares", "Avoid smoking"],
+      "medications": [
+        "5-ASA agents",
+        "Corticosteroids for flares",
+        "Immunomodulators",
+        "Biologics"
+      ],
+      "diets": [
+        "Low-residue diet during flares",
+        "Adequate protein and calories",
+        "Identify and avoid triggers"
+      ],
+      "workouts": ["Regular moderate exercise when in remission", "Gentle yoga during flares"],
+      "redFlagHints": ["Chronic diarrhea (sometimes bloody), weight loss, abdominal pain, fatigue"]
+    },
+    {
+      "name": "Appendicitis",
+      "icd10": "K37",
+      "aliases": ["Acute appendicitis"],
+      "description": "Appendicitis is inflammation of the appendix, a small pouch attached to the large intestine, and it is a surgical emergency. The classic pattern is pain starting around the belly button that shifts to the right lower abdomen within 12-24 hours, along with nausea, loss of appetite and low-grade fever. Without treatment the appendix can rupture, causing peritonitis, a serious infection of the abdominal cavity. Treatment is usually urgent surgical removal (appendectomy), though selected cases can be managed with antibiotics alone.",
+      "precautions": [
+        "Seek emergency evaluation immediately",
+        "Do not eat or drink",
+        "Do not use laxatives or heating pads"
+      ],
+      "medications": ["Preoperative antibiotics", "Pain control as directed"],
+      "diets": ["Nothing by mouth until evaluated", "Gradual return to solids after surgery"],
+      "workouts": ["No exercise until cleared after surgery"],
+      "redFlagHints": [
+        "Pain starting near navel, moving to right lower abdomen, nausea, low-grade fever"
+      ],
+      "emergency": true
+    },
+    {
+      "name": "Cholecystitis",
+      "icd10": "K81",
+      "aliases": ["Gallbladder inflammation"],
+      "description": "Cholecystitis is inflammation of the gallbladder, most often from a gallstone obstructing the cystic duct. It typically causes severe right-upper-abdominal pain that may radiate to the right shoulder, nausea, vomiting and fever, often triggered by a fatty meal. Untreated cases can progress to infection, gangrene or perforation of the gallbladder. Treatment usually involves antibiotics, pain control and laparoscopic removal of the gallbladder within days of the acute episode.",
+      "precautions": ["Seek evaluation for right-upper abdominal pain", "Avoid high-fat meals"],
+      "medications": ["Antibiotics", "Pain control", "Definitive treatment usually surgical"],
+      "diets": ["Low-fat diet", "Avoid fried and fatty foods", "Small frequent meals"],
+      "workouts": ["Rest during acute phase", "Gradual return after treatment"],
+      "redFlagHints": ["Right-upper abdominal pain after fatty meals, nausea, fever"]
+    },
+    {
+      "name": "Hepatitis A",
+      "icd10": "B15",
+      "aliases": ["HAV"],
+      "description": "Hepatitis A is a highly contagious liver infection caused by the hepatitis A virus, spread through food or water contaminated with infected faeces. Symptoms appear 2-6 weeks after exposure and include fatigue, nausea, abdominal pain, jaundice and dark urine. Unlike hepatitis B and C it does not become chronic, and most people recover fully within a few weeks to months. A safe effective vaccine is available and widely recommended for travelers and people in outbreak areas.",
+      "precautions": [
+        "Vaccination",
+        "Hand hygiene",
+        "Safe food and water",
+        "Notify close contacts"
+      ],
+      "medications": [
+        "Supportive care only; no specific antiviral",
+        "Avoid liver-stressing medications"
+      ],
+      "diets": ["Easily digestible meals", "Adequate hydration", "Avoid alcohol"],
+      "workouts": ["Rest during acute illness", "Gradual return to activity"],
+      "redFlagHints": ["Jaundice, fatigue, nausea, dark urine, recent travel or food exposure"]
+    },
+    {
+      "name": "Hepatitis B",
+      "icd10": "B16",
+      "aliases": ["HBV"],
+      "description": "Hepatitis B is a liver infection caused by the hepatitis B virus, spread through blood, unprotected sex, shared needles and from mother to baby at birth. Acute infection may cause fatigue, jaundice and abdominal pain, while many people develop chronic infection that silently damages the liver over decades, raising risk of cirrhosis and liver cancer. Safe effective vaccination provides lifelong protection and is recommended for all infants and at-risk adults. Chronic cases are managed with antiviral drugs that suppress the virus and reduce complications.",
+      "precautions": [
+        "Vaccination available",
+        "Avoid unsafe needles, unprotected sex, sharing razors"
+      ],
+      "medications": [
+        "Antivirals for chronic disease (tenofovir, entecavir)",
+        "Interferon in select cases"
+      ],
+      "diets": ["Balanced liver-friendly diet", "Avoid alcohol entirely", "Adequate protein"],
+      "workouts": ["Moderate exercise as tolerated", "Avoid extreme exertion"],
+      "redFlagHints": [
+        "Jaundice, fatigue, abdominal pain, history of unprotected contact or transfusion"
+      ]
+    },
+    {
+      "name": "Hepatitis C",
+      "icd10": "B17.1",
+      "aliases": ["HCV"],
+      "description": "Hepatitis C is a bloodborne viral infection of the liver that spreads mainly through shared needles, unscreened transfusions and, less commonly, unprotected sex. Most people have no symptoms for years, so screening is crucial in at-risk groups, since chronic infection can quietly lead to cirrhosis and liver cancer over decades. Unlike hepatitis B, there is no vaccine, but modern direct-acting antiviral medications cure more than 95% of cases with an 8-12 week oral course. Early diagnosis and treatment prevent the long-term complications.",
+      "precautions": [
+        "Avoid sharing needles, razors, toothbrushes",
+        "Get tested if risk factors present"
+      ],
+      "medications": [
+        "Direct-acting antivirals (sofosbuvir/velpatasvir) — 8-12 week curative regimens"
+      ],
+      "diets": [
+        "Liver-friendly diet",
+        "Avoid alcohol entirely",
+        "Limit iron-rich foods if indicated"
+      ],
+      "workouts": ["Moderate activity is beneficial", "Avoid injury-prone contact sports"],
+      "redFlagHints": [
+        "Often asymptomatic, fatigue, possible mild jaundice, risk factors for bloodborne exposure"
+      ]
+    },
+    {
+      "name": "Jaundice",
+      "icd10": "R17",
+      "aliases": ["Icterus"],
+      "description": "Jaundice is not a disease itself but a sign of an underlying problem, recognised by yellowing of the skin and the whites of the eyes from excess bilirubin in the blood. Causes range from liver infections (hepatitis), bile duct obstruction (gallstones, tumors) and excessive red blood cell breakdown (haemolysis) to certain medications. Accompanying clues like dark urine, pale stools, itching or abdominal pain point toward the cause. Any new jaundice warrants prompt medical evaluation with liver tests and imaging.",
+      "precautions": [
+        "Seek prompt medical evaluation to identify cause",
+        "Avoid alcohol",
+        "Hepatitis testing"
+      ],
+      "medications": ["Depends on underlying cause"],
+      "diets": ["Liver-friendly light diet", "Avoid fatty and fried foods", "Adequate hydration"],
+      "workouts": ["Rest until cause identified", "Gentle activity during recovery"],
+      "redFlagHints": ["Yellow skin or eyes, dark urine, pale stool, itching"]
+    },
+    {
+      "name": "Pancreatitis",
+      "icd10": "K85",
+      "aliases": ["Acute pancreatitis"],
+      "description": "Pancreatitis is inflammation of the pancreas, an organ that makes digestive enzymes and insulin. The two most common triggers are gallstones and heavy alcohol use, but high triglycerides, certain drugs and infections also cause it. Symptoms include severe upper-abdominal pain that often radiates to the back, nausea, vomiting and fever, and severe cases can progress to organ failure. Treatment involves hospital admission for IV fluids, pain control, removing the trigger and monitoring for complications.",
+      "precautions": [
+        "Avoid alcohol completely",
+        "Treat gallstones if present",
+        "Seek urgent care for severe abdominal pain"
+      ],
+      "medications": ["IV fluids", "Pain control", "Treat underlying cause"],
+      "diets": ["Nothing by mouth during acute phase", "Low-fat diet on recovery", "No alcohol"],
+      "workouts": ["Rest during acute phase", "Gradual reintroduction"],
+      "redFlagHints": [
+        "Severe upper abdominal pain radiating to back, nausea, vomiting, recent heavy alcohol"
+      ]
+    },
+    {
+      "name": "Constipation",
+      "icd10": "K59.0",
+      "aliases": ["Functional constipation"],
+      "description": "Constipation describes infrequent bowel movements, hard stools or difficult passage, usually defined as fewer than three stools a week or persistent straining. Common causes include low-fibre diets, inadequate fluids, inactivity, ignoring the urge to go, medications and some hormonal conditions. Most cases respond well to lifestyle changes like increasing fibre gradually, drinking more water, regular exercise and fixed toilet times. Persistent or worsening constipation, especially with weight loss or blood in stool, needs medical evaluation to rule out structural causes.",
+      "precautions": [
+        "Increase fiber and fluids gradually",
+        "Regular physical activity",
+        "Do not ignore the urge"
+      ],
+      "medications": [
+        "Bulk-forming laxatives (psyllium)",
+        "Osmotic laxatives (PEG)",
+        "Stimulant laxatives (short-term)"
+      ],
+      "diets": [
+        "High-fiber foods (whole grains, fruits, vegetables)",
+        "8+ glasses of water daily",
+        "Prunes"
+      ],
+      "workouts": ["Daily walking", "Abdominal massage", "Yoga poses that promote gut motility"],
+      "redFlagHints": ["Infrequent stools, hard stools, straining, bloating"]
+    },
+    {
+      "name": "Hemorrhoids",
+      "icd10": "K64",
+      "aliases": ["Piles"],
+      "description": "Hemorrhoids are swollen veins in the lower rectum and anus that can cause itching, discomfort and painless bright-red bleeding with bowel movements. They're extremely common, especially during pregnancy and with chronic constipation, heavy lifting or prolonged sitting. Most mild cases improve with high-fibre diet, adequate fluids, warm sitz baths and topical creams. Larger or thrombosed hemorrhoids may require office procedures or, rarely, surgery.",
+      "precautions": ["Avoid straining", "Treat constipation", "Don't sit on toilet too long"],
+      "medications": ["Topical hydrocortisone", "Witch hazel pads", "Stool softeners"],
+      "diets": ["High-fiber diet", "Plenty of water", "Avoid spicy foods if they aggravate"],
+      "workouts": ["Moderate walking", "Kegel exercises", "Avoid heavy lifting"],
+      "redFlagHints": ["Painless rectal bleeding, itching, swelling around anus"]
+    },
+    {
+      "name": "Diverticulitis",
+      "icd10": "K57",
+      "aliases": ["Colonic diverticulitis"],
+      "description": "Diverticulitis occurs when small pouches (diverticula) that form in the colon wall become inflamed or infected. It most commonly presents after age 50 with left lower abdominal pain, fever and a change in bowel habits. Mild episodes can often be treated at home with clear fluids and oral antibiotics, while severe cases may need hospitalisation for IV antibiotics or surgery. Long-term prevention focuses on a high-fibre diet and avoiding smoking.",
+      "precautions": [
+        "Stay hydrated during flares",
+        "Fiber for prevention after recovery",
+        "Avoid smoking"
+      ],
+      "medications": ["Antibiotics for acute infection", "Pain control"],
+      "diets": [
+        "Clear liquid diet during acute flare",
+        "High-fiber diet for prevention",
+        "Adequate fluids"
+      ],
+      "workouts": ["Rest during acute flare", "Regular moderate exercise for prevention"],
+      "redFlagHints": ["Left lower abdominal pain, fever, change in bowel habits, over age 50"]
+    },
+    {
+      "name": "Hypertension",
+      "icd10": "I10",
+      "aliases": ["High blood pressure"],
+      "description": "Hypertension (high blood pressure) is persistently elevated pressure in the arteries, generally 130/80 mmHg or higher. It is often called a silent disease because it typically causes no symptoms until it has damaged the heart, kidneys, brain or eyes. Major risk factors include obesity, high-salt diet, physical inactivity, excess alcohol and family history. Regular monitoring, weight control, a low-salt DASH-style diet and — when needed — medications like ACE inhibitors or diuretics significantly reduce the risk of stroke and heart attack.",
+      "precautions": [
+        "Monitor BP regularly",
+        "Limit salt intake",
+        "Maintain healthy weight",
+        "Don't skip medications"
+      ],
+      "medications": ["ACE inhibitors", "ARBs", "Calcium channel blockers", "Thiazide diuretics"],
+      "diets": [
+        "DASH diet",
+        "Reduce salt below 1500-2000 mg/day",
+        "Increase potassium (bananas, leafy greens)",
+        "Limit alcohol"
+      ],
+      "workouts": [
+        "150 minutes moderate exercise per week",
+        "Brisk walking, swimming, cycling",
+        "Avoid heavy isometric lifts"
+      ],
+      "redFlagHints": ["Often silent; sometimes headaches, nosebleeds, dizziness when severe"]
+    },
+    {
+      "name": "Myocardial Infarction (Heart Attack)",
+      "icd10": "I21",
+      "aliases": ["Heart attack", "MI", "Acute coronary syndrome"],
+      "description": "A heart attack occurs when blood flow to part of the heart muscle is blocked long enough for the tissue to start dying, usually because of a ruptured cholesterol plaque in a coronary artery. Classic warning signs include pressure-like chest pain that may radiate to the left arm or jaw, sweating, nausea and breathlessness, though women and diabetics often present atypically. Every minute of delay means more heart muscle lost, so call emergency services immediately at the first suspicion. Early clot-busting drugs or emergency angioplasty can save significant amounts of heart muscle.",
+      "precautions": [
+        "Call emergency services immediately",
+        "Chew aspirin 325 mg unless allergic",
+        "Do not drive yourself to hospital"
+      ],
+      "medications": [
+        "Aspirin",
+        "Nitroglycerin",
+        "Thrombolytics",
+        "Long-term beta-blockers, statins, ACE inhibitors"
+      ],
+      "diets": [
+        "Heart-healthy diet (Mediterranean)",
+        "Limit saturated fat, salt, added sugar",
+        "Omega-3 fatty acids"
+      ],
+      "workouts": [
+        "Cardiac rehabilitation program",
+        "Gradual return to aerobic exercise under supervision"
+      ],
+      "redFlagHints": [
+        "Pressure/squeezing chest pain, radiating to arm/jaw, sweating, nausea, exertional trigger"
+      ],
+      "emergency": true
+    },
+    {
+      "name": "Angina Pectoris",
+      "icd10": "I20",
+      "aliases": ["Stable angina", "Unstable angina"],
+      "description": "Angina is chest pain or pressure that comes from reduced blood flow to the heart, usually due to narrowed coronary arteries. Stable angina is triggered predictably by exertion or emotional stress and relieved by rest or nitroglycerin, while unstable angina occurs unpredictably, even at rest, and is a warning sign for a possible heart attack. Management combines lifestyle changes, anti-anginal medication (beta-blockers, calcium channel blockers, nitrates), aggressive risk-factor control and — for some patients — stents or bypass surgery.",
+      "precautions": [
+        "Rest at onset",
+        "Use prescribed nitroglycerin",
+        "Identify and avoid triggers"
+      ],
+      "medications": [
+        "Nitroglycerin",
+        "Beta-blockers",
+        "Calcium channel blockers",
+        "Aspirin",
+        "Statins"
+      ],
+      "diets": [
+        "Heart-healthy low-saturated-fat diet",
+        "Limit salt",
+        "Plenty of vegetables and whole grains"
+      ],
+      "workouts": [
+        "Gradual conditioning program under medical guidance",
+        "Avoid sudden heavy exertion"
+      ],
+      "redFlagHints": [
+        "Pressure-like chest discomfort on exertion, relieved by rest or nitroglycerin"
+      ]
+    },
+    {
+      "name": "Heart Failure",
+      "icd10": "I50",
+      "aliases": ["Congestive heart failure", "CHF"],
+      "description": "Heart failure is a chronic condition in which the heart cannot pump blood efficiently enough to meet the body's needs. It develops from coronary artery disease, long-standing hypertension, valve problems or prior heart attacks. Typical symptoms include breathlessness on exertion or lying flat, swelling in the ankles, unexplained fatigue and weight gain from fluid retention. Modern therapy — ACE inhibitors/ARNI, beta-blockers, SGLT2 inhibitors and diuretics combined with salt restriction and daily weight tracking — significantly extends life and reduces hospitalisations.",
+      "precautions": [
+        "Daily weight monitoring",
+        "Salt and fluid restriction",
+        "Take medications exactly as prescribed"
+      ],
+      "medications": [
+        "ACE inhibitors or ARBs/ARNI",
+        "Beta-blockers",
+        "Diuretics",
+        "SGLT2 inhibitors",
+        "Mineralocorticoid antagonists"
+      ],
+      "diets": [
+        "Low-salt diet",
+        "Limit fluids if advised",
+        "Heart-healthy foods",
+        "Avoid excess alcohol"
+      ],
+      "workouts": [
+        "Supervised cardiac rehabilitation",
+        "Low-intensity aerobic activity",
+        "Balance and flexibility work"
+      ],
+      "redFlagHints": [
+        "Breathlessness on exertion or lying flat, leg swelling, fatigue, weight gain"
+      ]
+    },
+    {
+      "name": "Atrial Fibrillation",
+      "icd10": "I48",
+      "aliases": ["AFib"],
+      "description": "Atrial fibrillation (AFib) is an irregular and often rapid heart rhythm caused by chaotic electrical activity in the upper chambers of the heart. It increases the risk of stroke five-fold because blood can pool and clot in the atria. Common triggers and causes include hypertension, heart failure, thyroid disease and heavy alcohol use. Treatment focuses on controlling the heart rate or restoring normal rhythm, and — most importantly — preventing strokes with anticoagulants in patients whose risk score justifies it.",
+      "precautions": [
+        "Adhere to anticoagulants",
+        "Regular rhythm monitoring",
+        "Treat underlying causes (thyroid, hypertension)"
+      ],
+      "medications": [
+        "Anticoagulants (apixaban, rivaroxaban, warfarin)",
+        "Rate control (beta-blockers, diltiazem)",
+        "Rhythm control if needed"
+      ],
+      "diets": [
+        "Limit caffeine and alcohol",
+        "Heart-healthy diet",
+        "Consistent vitamin K if on warfarin"
+      ],
+      "workouts": ["Moderate aerobic exercise", "Avoid extreme endurance training"],
+      "redFlagHints": ["Irregular pulse, palpitations, fatigue, breathlessness"]
+    },
+    {
+      "name": "Deep Vein Thrombosis (DVT)",
+      "icd10": "I82",
+      "aliases": ["DVT", "Venous thromboembolism"],
+      "description": "Deep vein thrombosis is a blood clot that forms in a deep vein, most commonly in the leg. It typically presents with unilateral leg swelling, calf pain or tenderness and warmth of the affected limb. Major risks include prolonged immobility (long flights, surgery, hospitalisation), pregnancy, cancer and certain clotting disorders. Untreated DVTs can break off and travel to the lungs, causing a life-threatening pulmonary embolism, so prompt anticoagulation with heparin or DOACs is essential.",
+      "precautions": [
+        "Seek urgent evaluation",
+        "Avoid prolonged immobility",
+        "Compression stockings as prescribed"
+      ],
+      "medications": ["Anticoagulants (DOACs or warfarin)", "Thrombolytics in severe cases"],
+      "diets": ["Consistent vitamin K intake if on warfarin", "Adequate hydration"],
+      "workouts": [
+        "Gentle walking once anticoagulated",
+        "Avoid long periods sitting",
+        "Calf exercises during travel"
+      ],
+      "redFlagHints": [
+        "Unilateral leg swelling, calf pain or tenderness, warmth, recent surgery or long travel"
+      ]
+    },
+    {
+      "name": "Aortic Dissection",
+      "icd10": "I71.0",
+      "aliases": ["Thoracic aortic dissection"],
+      "description": "Aortic dissection is a tear in the inner wall of the aorta, the large artery carrying blood from the heart, allowing blood to force the layers apart. It is a surgical emergency with high mortality if not recognised and treated quickly. The classic symptom is sudden severe tearing or ripping chest or back pain, sometimes with pulse differences between the two arms or signs of stroke. Rapid imaging (CT angiography) and urgent surgical or medical management of blood pressure are critical.",
+      "precautions": ["Call emergency services immediately", "Do not delay transport"],
+      "medications": ["IV beta-blockers", "Blood pressure control", "Surgical repair"],
+      "diets": ["Strict cardiovascular diet post-recovery", "Low salt"],
+      "workouts": ["Only cleared light activity post-recovery"],
+      "redFlagHints": ["Sudden severe tearing chest or back pain, pulse differences between arms"],
+      "emergency": true
+    },
+    {
+      "name": "Pericarditis",
+      "icd10": "I30",
+      "aliases": ["Pericardial inflammation"],
+      "description": "Pericarditis is inflammation of the pericardium, the thin sac that surrounds the heart, most often following a viral infection. It typically produces sharp chest pain that worsens when lying flat and improves when sitting forward, and may be accompanied by low-grade fever. Most cases are self-limited and respond to NSAIDs or colchicine over several weeks. Complications like pericardial effusion or cardiac tamponade are uncommon but require urgent care.",
+      "precautions": ["Rest", "Follow-up echocardiogram"],
+      "medications": ["NSAIDs (ibuprofen)", "Colchicine", "Steroids in resistant cases"],
+      "diets": ["Balanced diet; no specific restrictions"],
+      "workouts": ["Avoid strenuous exercise for 3 months", "Gradual return after clearance"],
+      "redFlagHints": ["Sharp chest pain worse lying flat and better sitting forward"]
+    },
+    {
+      "name": "Ischemic Stroke",
+      "icd10": "I63",
+      "aliases": ["Cerebral infarction", "Brain attack"],
+      "description": "An ischemic stroke occurs when a blood clot or narrowed artery blocks blood flow to part of the brain, starving brain cells of oxygen. Every minute without blood flow destroys about two million neurons, so the phrase 'time is brain' guides treatment. Warning signs follow the BE-FAST pattern — balance loss, eye changes, face droop, arm weakness, speech difficulty and time to call emergency services. IV clot-busters within 4.5 hours and mechanical thrombectomy for large clots can restore function and limit disability.",
+      "precautions": ["Call emergency services immediately (time is brain)", "Note time of onset"],
+      "medications": ["IV thrombolytics (tPA)", "Antiplatelets", "Long-term statins, BP control"],
+      "diets": ["Heart-healthy low-sodium diet", "DASH or Mediterranean"],
+      "workouts": ["Neurorehabilitation program", "Gradual physical therapy"],
+      "redFlagHints": ["Sudden face droop, arm weakness, speech difficulty, vision changes"],
+      "emergency": true
+    },
+    {
+      "name": "Hemorrhagic Stroke",
+      "icd10": "I61",
+      "aliases": ["Intracerebral hemorrhage"],
+      "description": "A hemorrhagic stroke is bleeding into or around the brain, most commonly from a ruptured small vessel damaged by chronic hypertension, or from an aneurysm. Classic features include sudden severe headache, nausea, loss of consciousness and rapidly-progressing neurological deficits. Early emergency-department care focuses on controlling blood pressure, reversing any anticoagulation and urgently imaging the brain to decide if neurosurgical intervention is needed. Rehabilitation plays a central role in the long recovery.",
+      "precautions": ["Call emergency services immediately"],
+      "medications": [
+        "Blood pressure control",
+        "Reversal of anticoagulants if applicable",
+        "Neurosurgery in select cases"
+      ],
+      "diets": ["Heart-healthy low-sodium"],
+      "workouts": ["Neurorehabilitation"],
+      "redFlagHints": [
+        "Sudden severe headache, vomiting, neurological deficits, high blood pressure"
+      ],
+      "emergency": true
+    },
+    {
+      "name": "Transient Ischemic Attack (TIA)",
+      "icd10": "G45",
+      "aliases": ["Mini-stroke"],
+      "description": "A transient ischemic attack is a temporary interruption of blood flow to the brain that produces stroke-like symptoms, which resolve within minutes to a few hours. While the episode itself passes, it is a major warning — about 1 in 10 people who have a TIA will have a full stroke within 90 days, many in the first few days. Urgent evaluation with imaging, cardiac monitoring and aggressive risk-factor control can dramatically reduce that risk. Antiplatelet drugs, statins and blood pressure control form the backbone of prevention.",
+      "precautions": ["Urgent medical evaluation", "Aggressive risk-factor control"],
+      "medications": ["Antiplatelets (aspirin, clopidogrel)", "Statins", "BP control"],
+      "diets": ["Heart-healthy diet"],
+      "workouts": ["Regular moderate cardiovascular exercise"],
+      "redFlagHints": ["Temporary face droop, weakness, speech difficulty lasting minutes to hours"]
+    },
+    {
+      "name": "Postural Hypotension",
+      "icd10": "I95.1",
+      "aliases": ["Orthostatic hypotension"],
+      "description": "Postural (orthostatic) hypotension is a drop in blood pressure of 20/10 mmHg or more within three minutes of standing, causing dizziness or lightheadedness. It is common in older adults, those with diabetes or Parkinson's disease, and anyone dehydrated or on blood-pressure medications. Practical strategies — rising slowly, wearing compression stockings, increasing fluid intake, avoiding hot showers — often help. Persistent symptoms may require reviewing medications or starting drugs like fludrocortisone or midodrine.",
+      "precautions": [
+        "Rise slowly from lying/sitting",
+        "Stay hydrated",
+        "Avoid hot environments",
+        "Compression stockings"
+      ],
+      "medications": ["Review offending drugs", "Fludrocortisone or midodrine in severe cases"],
+      "diets": ["Increase salt if advised", "Adequate hydration", "Small frequent meals"],
+      "workouts": ["Leg-strengthening exercises", "Avoid sudden position changes"],
+      "redFlagHints": ["Dizziness or lightheadedness on standing, often in older adults"]
+    },
+    {
+      "name": "Hyperlipidemia",
+      "icd10": "E78",
+      "aliases": ["High cholesterol", "Dyslipidemia"],
+      "description": "Hyperlipidemia means elevated levels of cholesterol or triglycerides in the blood, which accelerate atherosclerosis and raise risk of heart attack and stroke. It is usually silent, detected on routine lipid screening triggered by age, family history or other risk factors. Lifestyle changes — a Mediterranean-style diet, regular exercise, weight control and quitting smoking — are first-line, with statins and newer agents added when targets are not reached. Routine lipid panels track progress and guide therapy.",
+      "precautions": ["Regular lipid panels", "Weight management", "Avoid smoking"],
+      "medications": ["Statins", "Ezetimibe", "PCSK9 inhibitors in select cases"],
+      "diets": [
+        "Mediterranean diet",
+        "Limit saturated and trans fats",
+        "Increase soluble fiber",
+        "Omega-3 rich fish"
+      ],
+      "workouts": ["Aerobic exercise 150+ min/week", "Strength training twice weekly"],
+      "redFlagHints": ["Often asymptomatic; detected via lipid panel"]
+    },
+    {
+      "name": "Migraine",
+      "icd10": "G43",
+      "aliases": ["Migraine headache"],
+      "description": "Migraine is a recurrent neurological disorder that causes moderate-to-severe throbbing headaches, often on one side, lasting 4-72 hours. Common features include nausea, vomiting and sensitivity to light and sound, and about one in three sufferers experience aura (visual zigzags, tingling, speech changes) beforehand. Triggers vary by person and include specific foods, hormonal changes, lack of sleep and stress. Modern treatment combines acute relief (triptans, NSAIDs, gepants) with preventive therapy (CGRP inhibitors, beta-blockers, topiramate) when attacks are frequent.",
+      "precautions": [
+        "Identify and avoid triggers",
+        "Keep a headache diary",
+        "Maintain regular sleep and meals"
+      ],
+      "medications": [
+        "NSAIDs or acetaminophen (acute)",
+        "Triptans (acute)",
+        "CGRP inhibitors, beta-blockers, topiramate (preventive)"
+      ],
+      "diets": [
+        "Avoid personal triggers (aged cheese, wine, MSG)",
+        "Regular meals",
+        "Adequate hydration"
+      ],
+      "workouts": ["Regular moderate exercise (preventive)", "Avoid overexertion during attacks"],
+      "redFlagHints": [
+        "Throbbing one-sided headache, nausea, light sensitivity, sometimes visual aura"
+      ]
+    },
+    {
+      "name": "Tension-Type Headache",
+      "icd10": "G44.2",
+      "aliases": ["Tension headache"],
+      "description": "Tension-type headache is the most common type of headache, described as a dull pressure or tight band around the head affecting both sides. It typically builds gradually and lasts hours to days, often worse toward the end of the workday. Contributors include stress, poor posture, lack of sleep and eye strain, and the headache is usually milder than migraine and not associated with nausea. Most cases respond to over-the-counter analgesics, good sleep, stress-reduction techniques and regular aerobic exercise.",
+      "precautions": ["Stress management", "Good posture", "Regular sleep"],
+      "medications": ["Acetaminophen", "Ibuprofen", "Avoid daily overuse"],
+      "diets": ["Regular meals", "Adequate hydration", "Limit caffeine swings"],
+      "workouts": [
+        "Regular aerobic exercise",
+        "Stretching and yoga",
+        "Neck and shoulder exercises"
+      ],
+      "redFlagHints": ["Mild to moderate bilateral pressure headache without nausea"]
+    },
+    {
+      "name": "Cluster Headache",
+      "icd10": "G44.0",
+      "aliases": ["Cluster headaches"],
+      "description": "Cluster headaches are among the most painful headaches known, striking as sudden severe one-sided attacks around the eye or temple lasting 15 minutes to three hours. Accompanying symptoms include tearing, nasal congestion or a drooping eyelid on the affected side, and attacks often come in 'clusters' of daily episodes over weeks, then remit. Men are more commonly affected and alcohol is a classic trigger during a cluster period. Acute treatment is high-flow oxygen or subcutaneous sumatriptan; verapamil helps prevent attacks.",
+      "precautions": ["Avoid alcohol during cluster periods", "Recognize pattern"],
+      "medications": [
+        "High-flow oxygen (acute)",
+        "Subcutaneous sumatriptan",
+        "Verapamil (preventive)"
+      ],
+      "diets": ["Avoid alcohol during active cluster"],
+      "workouts": ["Regular exercise during remission"],
+      "redFlagHints": ["Severe one-sided eye pain with tearing, congestion, agitation"]
+    },
+    {
+      "name": "Subarachnoid Hemorrhage",
+      "icd10": "I60",
+      "aliases": ["SAH", "Brain aneurysm rupture"],
+      "description": "Subarachnoid hemorrhage is bleeding into the space between the brain and its protective membranes, most often from a ruptured brain aneurysm. The hallmark is a sudden 'thunderclap' — the worst headache of the person's life — reaching peak intensity within seconds, often with vomiting, neck stiffness, light sensitivity or brief loss of consciousness. Without rapid diagnosis by CT scan and urgent neurosurgical or endovascular treatment, mortality is very high. Any unusually severe sudden-onset headache should be treated as an emergency.",
+      "precautions": ["Call emergency services immediately", "Do not delay imaging"],
+      "medications": [
+        "Nimodipine to prevent vasospasm",
+        "BP control",
+        "Neurosurgical clipping or coiling"
+      ],
+      "diets": ["As directed during recovery"],
+      "workouts": ["Neurorehabilitation under supervision"],
+      "redFlagHints": [
+        "Sudden 'thunderclap' worst-ever headache, vomiting, neck stiffness, loss of consciousness"
+      ],
+      "emergency": true
+    },
+    {
+      "name": "Bacterial Meningitis",
+      "icd10": "G00",
+      "aliases": ["Meningitis"],
+      "description": "Bacterial meningitis is a life-threatening infection of the membranes surrounding the brain and spinal cord, most commonly caused by Streptococcus pneumoniae, Neisseria meningitidis or Haemophilus influenzae. The classic triad is severe headache with fever and neck stiffness, often accompanied by light sensitivity, vomiting, rash and confusion. Every hour of delay significantly worsens outcomes, so immediate IV antibiotics and dexamethasone are started even before lab confirmation. Vaccination against meningococcal, pneumococcal and Hib organisms has greatly reduced incidence.",
+      "precautions": [
+        "Call emergency services immediately",
+        "Vaccination (meningococcal, pneumococcal, Hib)"
+      ],
+      "medications": ["IV broad-spectrum antibiotics", "Dexamethasone", "Supportive care"],
+      "diets": ["As tolerated during recovery"],
+      "workouts": ["Rest during acute illness", "Gradual rehabilitation"],
+      "redFlagHints": [
+        "Severe headache with fever, neck stiffness, light sensitivity, rash, altered mental status"
+      ],
+      "emergency": true
+    },
+    {
+      "name": "Viral Encephalitis",
+      "icd10": "A86",
+      "aliases": ["Encephalitis"],
+      "description": "Viral encephalitis is inflammation of the brain tissue itself, most often caused by herpes simplex virus but also by arboviruses (e.g., Japanese encephalitis) and others. Symptoms range from mild flu-like illness to severe neurological impairment — fever with confusion, altered personality, seizures or focal weakness are all warning signs. Diagnosis is urgent and involves MRI, lumbar puncture and PCR testing; empiric acyclovir is usually started immediately pending results. Recovery is often incomplete and cognitive rehabilitation may be needed.",
+      "precautions": ["Prompt medical evaluation"],
+      "medications": [
+        "Acyclovir for HSV encephalitis",
+        "Antivirals as indicated",
+        "Supportive care"
+      ],
+      "diets": ["Nutrition support as needed"],
+      "workouts": ["Cognitive and physical rehabilitation"],
+      "redFlagHints": ["Fever with confusion, seizures, personality changes, focal deficits"]
+    },
+    {
+      "name": "Epilepsy",
+      "icd10": "G40",
+      "aliases": ["Seizure disorder"],
+      "description": "Epilepsy is a neurological disorder characterised by recurrent unprovoked seizures due to abnormal bursts of electrical activity in the brain. Seizures can range from brief staring spells (absence) to generalised convulsions with loss of consciousness. Causes include prior brain injury, stroke, brain tumors and genetic factors, but in many patients no cause is identified. Most people achieve good seizure control with a single antiseizure medication, and lifestyle measures — consistent sleep, avoiding alcohol, medication adherence — are crucial.",
+      "precautions": [
+        "Take medications consistently",
+        "Avoid triggers (sleep deprivation, alcohol)",
+        "Wear medical ID"
+      ],
+      "medications": ["Antiseizure medications (levetiracetam, lamotrigine, valproate)"],
+      "diets": ["Consistent meals", "Ketogenic diet in select refractory cases"],
+      "workouts": [
+        "Most activities are safe with controlled seizures",
+        "Avoid unsupervised swimming/climbing"
+      ],
+      "redFlagHints": ["Recurrent convulsions, staring spells, or brief loss of awareness"]
+    },
+    {
+      "name": "Bell's Palsy",
+      "icd10": "G51.0",
+      "aliases": ["Facial nerve palsy"],
+      "description": "Bell's palsy is a sudden, typically unilateral weakness or paralysis of the muscles of the face, caused by inflammation of the facial nerve. The cause is often linked to reactivation of herpes simplex virus, and onset is rapid — frequently overnight. Most people recover fully within three to six months, and early treatment (within 72 hours) with oral corticosteroids improves recovery rates. Protecting the affected eye with artificial tears and a patch at night prevents corneal damage during the weakness phase.",
+      "precautions": [
+        "Protect affected eye (artificial tears, eye patch at night)",
+        "Seek evaluation for sudden facial weakness"
+      ],
+      "medications": ["Oral corticosteroids (prednisone) within 72h", "Antivirals in select cases"],
+      "diets": ["No restrictions"],
+      "workouts": ["Facial exercises during recovery"],
+      "redFlagHints": [
+        "Sudden unilateral face droop, usually without limb weakness or speech change"
+      ]
+    },
+    {
+      "name": "Multiple Sclerosis",
+      "icd10": "G35",
+      "aliases": ["MS"],
+      "description": "Multiple sclerosis is an autoimmune disease in which the immune system attacks the protective myelin sheath around nerve fibers in the brain and spinal cord. This disrupts signals and produces episodic neurological symptoms — vision changes, weakness, numbness, fatigue, balance problems — that can remit and relapse. It most commonly affects adults 20-40 and is more common in women. Modern disease-modifying therapies have dramatically changed prognosis, reducing relapse rates and slowing disability progression.",
+      "precautions": [
+        "Adhere to disease-modifying therapy",
+        "Avoid heat intolerance triggers",
+        "Regular neurology follow-up"
+      ],
+      "medications": [
+        "Disease-modifying therapies (interferons, glatiramer, B-cell depleters)",
+        "Corticosteroids for relapses"
+      ],
+      "diets": ["Balanced diet, adequate vitamin D", "Mediterranean-style"],
+      "workouts": ["Regular moderate exercise", "Stretching", "Aquatic therapy"],
+      "redFlagHints": [
+        "Episodic neurological symptoms (vision, weakness, numbness) in young adults"
+      ]
+    },
+    {
+      "name": "Parkinson's Disease",
+      "icd10": "G20",
+      "aliases": ["PD"],
+      "description": "Parkinson's disease is a progressive neurological disorder caused by loss of dopamine-producing brain cells in the substantia nigra. The cardinal features are resting tremor, muscle rigidity, slow movement (bradykinesia) and postural instability, often preceded by years of subtle signs like reduced smell and REM sleep behaviour disorder. Symptoms are well controlled for many years with levodopa-based medication, dopamine agonists and physical therapy. Deep brain stimulation is a valuable option for advanced disease with significant motor fluctuations.",
+      "precautions": ["Adhere to medication schedule precisely", "Prevent falls", "Speech therapy"],
+      "medications": ["Levodopa/carbidopa", "Dopamine agonists", "MAO-B inhibitors"],
+      "diets": [
+        "High-fiber to prevent constipation",
+        "Protein timing with levodopa",
+        "Adequate fluids"
+      ],
+      "workouts": ["Daily walking", "Tai chi", "Boxing-style rehabilitation programs"],
+      "redFlagHints": ["Resting tremor, slowness, stiffness, small handwriting"]
+    },
+    {
+      "name": "Peripheral Neuropathy",
+      "icd10": "G62.9",
+      "aliases": ["Nerve damage"],
+      "description": "Peripheral neuropathy is damage to the peripheral nerves, producing numbness, tingling, burning pain or weakness — most commonly in a stocking-glove pattern in the hands and feet. The most frequent causes are diabetes, vitamin B12 deficiency, heavy alcohol use, chemotherapy and certain autoimmune diseases. Treatment addresses the underlying cause and manages pain with agents like gabapentin, pregabalin or duloxetine. Daily foot care is particularly important for diabetics because loss of sensation raises the risk of unnoticed injuries and ulcers.",
+      "precautions": [
+        "Identify and treat underlying cause (diabetes, B12 deficiency)",
+        "Check feet daily",
+        "Avoid alcohol"
+      ],
+      "medications": ["Gabapentin", "Pregabalin", "Duloxetine", "Topical capsaicin"],
+      "diets": ["B-vitamin rich foods", "Control blood sugar if diabetic", "Avoid alcohol"],
+      "workouts": ["Balance training", "Low-impact aerobic exercise", "Tai chi"],
+      "redFlagHints": [
+        "Numbness/tingling/pain in hands or feet, often symmetric, often in diabetics"
+      ]
+    },
+    {
+      "name": "Dengue Fever",
+      "icd10": "A90",
+      "aliases": ["Dengue"],
+      "description": "Dengue is a mosquito-borne viral infection transmitted by Aedes mosquitoes, common in tropical and subtropical regions. It typically causes sudden high fever, intense headache, severe body and joint aches (sometimes called 'breakbone fever'), retro-orbital eye pain and a rash. A small portion of patients develop severe dengue with warning signs like abdominal pain, persistent vomiting, bleeding and plasma leakage that require urgent hospital care. Treatment is supportive with fluids and paracetamol — aspirin and NSAIDs should be avoided because of bleeding risk.",
+      "precautions": [
+        "Use mosquito nets and repellents",
+        "Remove standing water",
+        "Avoid NSAIDs (bleeding risk)"
+      ],
+      "medications": [
+        "Acetaminophen for fever/pain",
+        "IV fluids for severe dengue",
+        "Avoid aspirin and ibuprofen"
+      ],
+      "diets": [
+        "Plenty of fluids (ORS, papaya leaf in tradition)",
+        "Easily digestible meals",
+        "Iron-rich foods"
+      ],
+      "workouts": ["Complete rest during illness", "Gradual return after recovery"],
+      "redFlagHints": [
+        "High fever 2-7 days, severe body aches, retro-orbital pain, recent travel to dengue-endemic area"
+      ]
+    },
+    {
+      "name": "Malaria",
+      "icd10": "B54",
+      "aliases": ["Plasmodium infection"],
+      "description": "Malaria is a mosquito-borne parasitic infection caused by Plasmodium species, with falciparum being the most dangerous. Typical presentation is cyclic fevers with chills and sweating, often with headache, body aches and fatigue, appearing one to several weeks after travel or residence in endemic areas. Severe malaria can cause cerebral complications, kidney failure and death, especially in children and pregnant women. Artemisinin-based combination therapy is first-line, and prevention relies on mosquito-avoidance measures and, where appropriate, chemoprophylaxis during travel.",
+      "precautions": [
+        "Mosquito prevention when traveling",
+        "Take prophylaxis in endemic areas",
+        "Seek care early if symptoms"
+      ],
+      "medications": [
+        "Artemisinin-based combinations",
+        "Chloroquine (where sensitive)",
+        "Primaquine for relapse prevention"
+      ],
+      "diets": [
+        "Adequate fluids",
+        "Light easily digestible meals",
+        "Iron-rich foods during recovery"
+      ],
+      "workouts": ["Complete rest during illness", "Gradual return after recovery"],
+      "redFlagHints": [
+        "Cyclic fevers with chills and sweats, travel or residence in malaria-endemic area"
+      ]
+    },
+    {
+      "name": "Typhoid Fever",
+      "icd10": "A01",
+      "aliases": ["Enteric fever"],
+      "description": "Typhoid fever is a systemic bacterial infection by Salmonella typhi, spread through food and water contaminated with faeces from an infected person. It presents with progressive stepwise fever over several days, abdominal pain, either constipation or diarrhoea, relative bradycardia and sometimes a rose-coloured rash on the trunk. Without antibiotics, up to 20% of cases develop serious complications like intestinal perforation. Early diagnosis, appropriate antibiotics (azithromycin, ceftriaxone or fluoroquinolones where sensitive) and good food and water hygiene are key.",
+      "precautions": [
+        "Safe food and water practices",
+        "Typhoid vaccination for travelers",
+        "Good hand hygiene"
+      ],
+      "medications": ["Antibiotics (azithromycin, ceftriaxone, fluoroquinolones if sensitive)"],
+      "diets": ["Easily digestible soft foods", "Avoid raw foods", "Adequate fluids"],
+      "workouts": ["Complete rest", "Gradual return over weeks"],
+      "redFlagHints": [
+        "Progressive fever over days, abdominal pain, constipation or diarrhea, relative bradycardia"
+      ]
+    },
+    {
+      "name": "Cholera",
+      "icd10": "A00",
+      "aliases": ["Vibrio cholerae infection"],
+      "description": "Cholera is an acute diarrhoeal illness caused by Vibrio cholerae, acquired mainly from contaminated water or food in areas with poor sanitation. The illness produces sudden profuse painless watery diarrhoea — often described as 'rice-water' — with rapid onset of severe dehydration within hours. Aggressive oral rehydration, and IV fluids when severe, are life-saving; many patients who reach treatment quickly make full recoveries. Vaccination is available for travelers and in outbreak response.",
+      "precautions": [
+        "Safe water and food",
+        "Vaccination in outbreak areas",
+        "Aggressive rehydration"
+      ],
+      "medications": [
+        "Oral rehydration solutions",
+        "IV fluids if severe",
+        "Doxycycline or azithromycin"
+      ],
+      "diets": ["Continuous ORS replacement", "Light foods as tolerated"],
+      "workouts": ["Rest during acute illness"],
+      "redFlagHints": ["Profuse watery 'rice-water' diarrhea, rapid dehydration, outbreak area"]
+    },
+    {
+      "name": "Chikungunya",
+      "icd10": "A92.0",
+      "aliases": ["Chikungunya virus"],
+      "description": "Chikungunya is a mosquito-borne viral infection caused by an alphavirus transmitted by Aedes mosquitoes, common in tropical regions. It produces sudden high fever with severe joint pain that often persists for weeks or months after the acute illness. Other features include headache, muscle pain, nausea and a rash. Treatment is supportive with rest, fluids and paracetamol, and mosquito-avoidance measures prevent transmission.",
+      "precautions": ["Mosquito prevention", "Rest during acute phase"],
+      "medications": [
+        "Acetaminophen (avoid NSAIDs early until dengue excluded)",
+        "Supportive care",
+        "Physical therapy for joint pain"
+      ],
+      "diets": ["Anti-inflammatory foods", "Adequate protein for recovery"],
+      "workouts": ["Rest during acute phase", "Gentle joint exercises during recovery"],
+      "redFlagHints": ["Sudden fever with severe joint pain, endemic area exposure"]
+    },
+    {
+      "name": "Measles",
+      "icd10": "B05",
+      "aliases": ["Rubeola"],
+      "description": "Measles is a highly contagious viral illness that spreads through respiratory droplets, and unvaccinated people of any age are at risk. The characteristic pattern is three days of fever, cough, runny nose and red eyes followed by a maculopapular rash starting on the face and spreading downward. Complications include pneumonia, ear infection and, rarely, encephalitis, and measles remains a major cause of child mortality globally. Two doses of the MMR vaccine provide lifelong protection and are the cornerstone of prevention.",
+      "precautions": [
+        "MMR vaccine",
+        "Isolate while contagious",
+        "Vitamin A supplementation in deficient regions"
+      ],
+      "medications": ["Supportive care", "Vitamin A", "Treat secondary bacterial infections"],
+      "diets": ["Adequate fluids", "Nutritious soft foods", "Vitamin A-rich foods"],
+      "workouts": ["Rest during illness"],
+      "redFlagHints": ["Fever, cough, runny nose, red eyes, maculopapular rash starting on face"]
+    },
+    {
+      "name": "Chickenpox",
+      "icd10": "B01",
+      "aliases": ["Varicella"],
+      "description": "Chickenpox is a highly contagious viral illness caused by varicella-zoster virus, producing an itchy rash of fluid-filled blisters that crust over in stages. It is typically mild in children but can be severe in adults and immunocompromised patients. After the initial illness the virus stays dormant in nerve ganglia and can reactivate years later as shingles. Routine childhood varicella vaccination has dramatically reduced cases in countries where it is standard.",
+      "precautions": [
+        "Varicella vaccine",
+        "Isolate until all lesions crust",
+        "Trim nails to prevent scarring"
+      ],
+      "medications": [
+        "Calamine lotion",
+        "Antihistamines for itch",
+        "Acyclovir in high-risk adults"
+      ],
+      "diets": ["Soft cool foods if mouth sores", "Plenty of fluids"],
+      "workouts": ["Rest until recovered"],
+      "redFlagHints": ["Fever with widespread itchy blistering rash at various stages"]
+    },
+    {
+      "name": "Mumps",
+      "icd10": "B26",
+      "aliases": ["Epidemic parotitis"],
+      "description": "Mumps is a viral infection that classically causes painful swelling of one or both parotid salivary glands, along with fever, headache, fatigue and loss of appetite. It spreads through respiratory droplets and close contact, and most cases resolve in about a week. Complications — more common in adults — include orchitis in post-pubertal males, meningitis and hearing loss. Two doses of the MMR vaccine provide strong, lasting protection.",
+      "precautions": ["MMR vaccination", "Isolate while symptomatic"],
+      "medications": ["Supportive care", "NSAIDs or acetaminophen"],
+      "diets": ["Soft foods", "Avoid acidic foods that trigger saliva", "Cool liquids"],
+      "workouts": ["Rest"],
+      "redFlagHints": ["Painful swelling of cheeks/jaw, fever, headache, fatigue"]
+    },
+    {
+      "name": "Rubella",
+      "icd10": "B06",
+      "aliases": ["German measles"],
+      "description": "Rubella (German measles) is typically a mild viral illness in children and adults, producing a low-grade fever, swollen lymph nodes behind the ears and a fine pink rash spreading from the face. Its importance lies in its severe consequences during pregnancy — infection in the first trimester can cause congenital rubella syndrome with cardiac defects, deafness and cataracts in the baby. Universal MMR vaccination has eliminated endemic transmission in many countries. Pregnant women who haven't been vaccinated should avoid anyone suspected of having rubella.",
+      "precautions": ["MMR vaccination", "Pregnant women must avoid exposure"],
+      "medications": ["Supportive care"],
+      "diets": ["Adequate fluids", "Light meals"],
+      "workouts": ["Rest during illness"],
+      "redFlagHints": [
+        "Mild fever with fine pink rash spreading from face, posterior cervical lymphadenopathy"
+      ]
+    },
+    {
+      "name": "HIV/AIDS",
+      "icd10": "B20",
+      "aliases": ["Human Immunodeficiency Virus"],
+      "description": "HIV (human immunodeficiency virus) attacks CD4 T-cells, progressively weakening the immune system; untreated it can progress over years to AIDS, defined by severe immune suppression and opportunistic infections. It spreads through unprotected sex, sharing needles and mother-to-child during birth or breastfeeding. Modern antiretroviral therapy (ART) suppresses the virus to undetectable levels, protects the immune system and prevents transmission to partners. Early testing, daily ART and routine monitoring allow people living with HIV to have near-normal life expectancy.",
+      "precautions": ["Safe sex practices", "Avoid needle sharing", "Regular monitoring"],
+      "medications": [
+        "Combination antiretroviral therapy (ART)",
+        "Opportunistic infection prophylaxis"
+      ],
+      "diets": ["Balanced nutrient-rich diet", "Food safety important", "Adequate protein"],
+      "workouts": ["Regular moderate exercise supports immune function"],
+      "redFlagHints": ["Recurrent infections, unexplained weight loss, night sweats, risk exposure"]
+    },
+    {
+      "name": "Hand, Foot and Mouth Disease",
+      "icd10": "B08.4",
+      "aliases": ["HFMD"],
+      "description": "Hand, foot and mouth disease is a common viral illness in children under five, caused by enteroviruses such as coxsackievirus A16. It produces painful mouth ulcers, fever and a typical blister-like rash on the palms and soles, sometimes on the buttocks. It spreads easily in daycare and school settings, and most children recover within 7-10 days with rest, fluids and pain relief. Adults occasionally get it, usually with milder symptoms.",
+      "precautions": ["Hand hygiene", "Isolate children during illness"],
+      "medications": ["Supportive care", "Acetaminophen for pain"],
+      "diets": ["Cool soft foods", "Avoid acidic foods", "Plenty of fluids"],
+      "workouts": ["Rest until recovered"],
+      "redFlagHints": ["Mouth sores with rash on palms and soles in children"]
+    },
+    {
+      "name": "Leptospirosis",
+      "icd10": "A27",
+      "aliases": ["Weil's disease"],
+      "description": "Leptospirosis is a bacterial infection transmitted through water or soil contaminated with urine from infected animals, especially rats. It often spikes after floods and monsoon rains, and presents with sudden high fever, severe muscle aches (especially in the calves), headache, red eyes and jaundice. Severe cases (Weil's disease) cause liver failure, kidney injury and bleeding. Early doxycycline or penicillin is effective, and prevention involves avoiding contact with contaminated water and covering skin wounds.",
+      "precautions": ["Avoid contact with contaminated water", "Cover cuts when in flooded areas"],
+      "medications": ["Doxycycline", "Penicillin in severe cases"],
+      "diets": ["Liver-friendly diet", "Adequate hydration"],
+      "workouts": ["Rest during illness"],
+      "redFlagHints": [
+        "High fever, severe muscle pain (calves), red eyes, jaundice after flood/water exposure"
+      ]
+    },
+    {
+      "name": "Rabies",
+      "icd10": "A82",
+      "aliases": ["Hydrophobia"],
+      "description": "Rabies is a viral infection of the nervous system transmitted through bites or scratches from infected mammals, most commonly dogs in low-income regions and bats in high-income ones. Once symptoms appear — hydrophobia, agitation, paralysis — the disease is almost universally fatal. Post-exposure prophylaxis (PEP) with rabies immunoglobulin plus a four-dose vaccine series is nearly 100% effective if started promptly after an exposure. Any bite from an unknown animal should be washed thoroughly and assessed urgently.",
+      "precautions": [
+        "Wash bite wound immediately",
+        "Seek post-exposure prophylaxis urgently",
+        "Avoid contact with stray animals"
+      ],
+      "medications": ["Rabies immunoglobulin + vaccine series after exposure"],
+      "diets": ["Supportive care only"],
+      "workouts": ["Not applicable"],
+      "redFlagHints": ["Recent animal bite, later progressive neurological symptoms"],
+      "emergency": true
+    },
+    {
+      "name": "Scrub Typhus",
+      "icd10": "A75.3",
+      "aliases": ["Orientia tsutsugamushi infection"],
+      "description": "Scrub typhus is a bacterial infection caused by Orientia tsutsugamushi, transmitted through the bite of chigger mites found in scrub vegetation. It presents with fever, severe headache, myalgia and a characteristic painless black ulcer (eschar) at the bite site, often with regional lymph node enlargement and a rash. Untreated cases can progress to severe multiorgan involvement. Doxycycline or azithromycin are the treatments of choice and produce rapid improvement.",
+      "precautions": ["Use insect repellents in endemic areas", "Wear long clothing in tall grass"],
+      "medications": ["Doxycycline", "Azithromycin as alternative"],
+      "diets": ["Adequate fluids and nutrition during illness"],
+      "workouts": ["Rest during illness"],
+      "redFlagHints": [
+        "Fever with headache, rash, and characteristic black eschar, rural area exposure"
+      ]
+    },
+    {
+      "name": "Lyme Disease",
+      "icd10": "A69.2",
+      "aliases": ["Borreliosis"],
+      "description": "Lyme disease is caused by the bacterium Borrelia burgdorferi, transmitted by the bite of certain ticks in wooded areas of North America and Europe. Early disease features an expanding 'bullseye' rash (erythema migrans) around the bite site, often with fever, fatigue and joint aches. If untreated, later stages can involve arthritis, neurological and cardiac complications. A short course of oral doxycycline or amoxicillin cures most cases when started early; prevention focuses on tick checks and permethrin-treated clothing.",
+      "precautions": [
+        "Tick checks after outdoor activity",
+        "Use repellents and protective clothing"
+      ],
+      "medications": ["Doxycycline", "Amoxicillin", "Ceftriaxone for late disease"],
+      "diets": ["Balanced diet", "Anti-inflammatory foods for joint symptoms"],
+      "workouts": ["Moderate exercise as tolerated", "Low-impact for joint involvement"],
+      "redFlagHints": ["Expanding bullseye rash after tick bite, fever, fatigue, joint pain"]
+    },
+    {
+      "name": "Infectious Mononucleosis",
+      "icd10": "B27",
+      "aliases": ["Mono", "Glandular fever", "EBV infection"],
+      "description": "Infectious mononucleosis, commonly called mono, is caused by Epstein-Barr virus and typically affects teens and young adults. The classic presentation is prolonged sore throat, high fever, extreme fatigue and widespread lymph node swelling, often with an enlarged spleen. Because of the spleen enlargement, contact sports and heavy lifting should be avoided for 4-6 weeks to prevent rupture. Treatment is supportive; antibiotics (especially ampicillin) should be avoided because they commonly cause a rash in mono.",
+      "precautions": [
+        "Avoid contact sports for 4-6 weeks (spleen rupture risk)",
+        "Avoid sharing drinks/utensils"
+      ],
+      "medications": ["Supportive care", "Corticosteroids only for airway obstruction"],
+      "diets": ["Cool soft foods if sore throat", "Adequate fluids"],
+      "workouts": ["Rest during acute phase", "Avoid contact sports until cleared"],
+      "redFlagHints": ["Prolonged sore throat, fatigue, fever, swollen lymph nodes in young adult"]
+    },
+    {
+      "name": "Norovirus Gastroenteritis",
+      "icd10": "A08.1",
+      "aliases": ["Stomach bug"],
+      "description": "Norovirus is a highly contagious virus and the leading cause of outbreaks of acute gastroenteritis, notorious on cruise ships and in schools, nursing homes and restaurants. It causes the abrupt onset of vomiting and watery diarrhoea, usually lasting 24-72 hours. Strict hand hygiene with soap and water (alcohol gels are less effective) and surface disinfection with bleach are key to limiting spread. Treatment is supportive with oral rehydration.",
+      "precautions": [
+        "Strict hand hygiene (soap and water, alcohol gel less effective)",
+        "Disinfect surfaces"
+      ],
+      "medications": ["Oral rehydration", "Antiemetics if needed"],
+      "diets": ["Clear fluids first, bland foods after", "Avoid dairy initially"],
+      "workouts": ["Rest during illness"],
+      "redFlagHints": ["Sudden onset vomiting and diarrhea, outbreak at workplace/school/cruise"]
+    },
+    {
+      "name": "Yellow Fever",
+      "icd10": "A95",
+      "aliases": ["Yellow jack"],
+      "description": "Yellow fever is a mosquito-borne viral hemorrhagic fever prevalent in parts of Africa and South America. Many cases are mild with fever and body aches, but a severe 'toxic' phase can develop with jaundice, bleeding and multi-organ failure. There is no specific antiviral treatment, so supportive care is the mainstay. A single dose of the yellow fever vaccine provides lifelong protection and is required for travel to many endemic countries.",
+      "precautions": ["Vaccine before travel to endemic areas", "Mosquito protection"],
+      "medications": ["Supportive care; no specific antiviral"],
+      "diets": ["Nutritious foods", "Adequate fluids"],
+      "workouts": ["Rest during illness"],
+      "redFlagHints": ["Fever, jaundice, bleeding after travel to endemic area"]
+    },
+    {
+      "name": "Zika Virus Infection",
+      "icd10": "A92.5",
+      "aliases": ["Zika"],
+      "description": "Zika is a mosquito-borne viral infection, usually mild in adults with symptoms such as low-grade fever, fine rash, conjunctivitis and joint pain for about a week. Its major concern is in pregnancy — infection can cause microcephaly and other severe birth defects in the fetus. Sexual transmission is also possible, so couples planning pregnancy should take precautions after travel to endemic areas. Prevention relies on mosquito-avoidance measures and condom use.",
+      "precautions": ["Mosquito prevention", "Avoid travel to outbreak areas during pregnancy"],
+      "medications": ["Supportive care", "Acetaminophen (avoid NSAIDs until dengue excluded)"],
+      "diets": ["Adequate fluids and nutrition"],
+      "workouts": ["Rest during acute phase"],
+      "redFlagHints": ["Mild fever, rash, red eyes, joint pain after travel to endemic area"]
+    },
+    {
+      "name": "Type 1 Diabetes Mellitus",
+      "icd10": "E10",
+      "aliases": ["Type 1 diabetes", "Juvenile diabetes"],
+      "description": "Type 1 diabetes is an autoimmune condition in which the pancreas produces little or no insulin, typically starting in childhood or young adulthood. Classic symptoms are rapid-onset increased thirst, frequent urination, unintended weight loss and fatigue, and untreated the condition can progress to diabetic ketoacidosis, a medical emergency. Lifelong insulin therapy — increasingly via insulin pumps paired with continuous glucose monitors — is required. Good glycemic control delays or prevents long-term complications affecting eyes, kidneys and nerves.",
+      "precautions": ["Regular glucose monitoring", "Carry emergency sugar", "Medical ID"],
+      "medications": ["Insulin (basal + bolus)", "Glucagon for severe hypoglycemia"],
+      "diets": ["Carbohydrate counting", "Consistent meal timing", "Balanced macronutrients"],
+      "workouts": [
+        "Regular exercise with careful glucose monitoring",
+        "Adjust insulin/food around exercise"
+      ],
+      "redFlagHints": ["New onset thirst, frequent urination, weight loss, usually younger age"]
+    },
+    {
+      "name": "Type 2 Diabetes Mellitus",
+      "icd10": "E11",
+      "aliases": ["Type 2 diabetes"],
+      "description": "Type 2 diabetes is a chronic metabolic disorder characterised by insulin resistance and progressive insulin deficiency, with strong ties to obesity, inactivity and genetic predisposition. Many patients are asymptomatic and diagnosed only by screening, while others present with fatigue, thirst, frequent urination or blurred vision. Lifestyle modification — weight loss, regular activity, balanced diet — is the foundation of treatment, supported by medications like metformin, SGLT2 inhibitors and GLP-1 agonists. Tight control reduces risk of heart disease, stroke, kidney disease and nerve damage.",
+      "precautions": [
+        "Regular glucose and HbA1c monitoring",
+        "Annual eye and foot checks",
+        "Weight management"
+      ],
+      "medications": ["Metformin", "SGLT2 inhibitors", "GLP-1 agonists", "Insulin when needed"],
+      "diets": [
+        "Low glycemic index",
+        "High fiber",
+        "Limit sugary drinks and refined carbs",
+        "Portion control"
+      ],
+      "workouts": ["150+ minutes moderate activity per week", "Resistance training twice weekly"],
+      "redFlagHints": [
+        "Thirst, frequent urination, fatigue, blurred vision, often overweight adult"
+      ]
+    },
+    {
+      "name": "Hypoglycemia",
+      "icd10": "E16.2",
+      "aliases": ["Low blood sugar"],
+      "description": "Hypoglycemia means abnormally low blood glucose, typically below 70 mg/dL, and is most commonly seen in diabetics treated with insulin or sulfonylureas. Early symptoms are adrenergic — sweating, shakiness, palpitations and hunger — while lower levels produce confusion, slurred speech and, if untreated, loss of consciousness and seizures. The 'rule of 15' — consuming 15g of fast-acting carbohydrate and rechecking in 15 minutes — is the standard immediate treatment. Recurrent episodes need review of diabetes medications and meal timing.",
+      "precautions": [
+        "Carry fast sugar (glucose tablets, juice)",
+        "Avoid skipping meals",
+        "Educate family on glucagon"
+      ],
+      "medications": ["Glucose tablets", "Glucagon injection for severe episodes"],
+      "diets": ["Regular meals and snacks", "Balance carbs with protein"],
+      "workouts": ["Monitor glucose before and after exercise", "Have fast sugar available"],
+      "redFlagHints": [
+        "Sweating, shakiness, palpitations, confusion, hunger, often in treated diabetics"
+      ]
+    },
+    {
+      "name": "Hyperthyroidism",
+      "icd10": "E05",
+      "aliases": ["Overactive thyroid", "Graves' disease"],
+      "description": "Hyperthyroidism is an overactive thyroid gland producing excess thyroid hormone, most commonly from autoimmune Graves' disease or a toxic nodule. Typical features include weight loss despite a good appetite, palpitations, heat intolerance, tremor, anxiety and — in Graves' — bulging eyes. Untreated hyperthyroidism increases cardiovascular risk and can trigger a life-threatening thyroid storm. Treatment options include antithyroid drugs (methimazole), radioactive iodine and surgery, with beta-blockers used for symptom control.",
+      "precautions": ["Regular thyroid function tests", "Avoid excess iodine"],
+      "medications": [
+        "Methimazole",
+        "Propylthiouracil",
+        "Beta-blockers for symptoms",
+        "Radioactive iodine or surgery"
+      ],
+      "diets": ["Adequate calcium and vitamin D", "Avoid excess iodine"],
+      "workouts": ["Avoid overexertion until controlled", "Moderate exercise when stable"],
+      "redFlagHints": [
+        "Weight loss despite appetite, palpitations, heat intolerance, tremor, bulging eyes"
+      ]
+    },
+    {
+      "name": "Hypothyroidism",
+      "icd10": "E03",
+      "aliases": ["Underactive thyroid"],
+      "description": "Hypothyroidism is an underactive thyroid gland that fails to produce enough thyroid hormone, most commonly from autoimmune Hashimoto's thyroiditis. It causes fatigue, weight gain, cold intolerance, dry skin, constipation and slow mental processing, symptoms that often develop so gradually they are missed. Diagnosis is straightforward with a TSH blood test, and treatment with daily levothyroxine is simple and highly effective. Routine monitoring ensures the dose stays correct over time.",
+      "precautions": [
+        "Take thyroid medication consistently on empty stomach",
+        "Regular monitoring"
+      ],
+      "medications": ["Levothyroxine"],
+      "diets": ["Balanced diet", "Adequate iodine (iodized salt)", "Separate from calcium/iron"],
+      "workouts": ["Regular aerobic exercise", "Strength training"],
+      "redFlagHints": ["Fatigue, weight gain, cold intolerance, constipation, dry skin"]
+    },
+    {
+      "name": "Diabetic Ketoacidosis (DKA)",
+      "icd10": "E10.1",
+      "aliases": ["DKA"],
+      "description": "Diabetic ketoacidosis is a life-threatening complication of diabetes marked by severe insulin deficiency, high blood sugar, ketone buildup and metabolic acidosis. It usually develops over hours to a day in type 1 diabetics — sometimes in undiagnosed cases — often triggered by illness, missed insulin doses or infection. Warning signs are nausea, vomiting, abdominal pain, deep rapid breathing, fruity breath and eventually confusion. Urgent hospital care with IV fluids, insulin and electrolyte correction is required.",
+      "precautions": [
+        "Do not skip insulin",
+        "Check ketones when sick or hyperglycemic",
+        "Seek urgent care"
+      ],
+      "medications": ["IV fluids", "IV insulin", "Electrolyte replacement"],
+      "diets": ["Nothing by mouth until stable; then small frequent meals"],
+      "workouts": ["No exercise until resolved"],
+      "redFlagHints": [
+        "Known diabetic with vomiting, abdominal pain, deep rapid breathing, fruity breath"
+      ],
+      "emergency": true
+    },
+    {
+      "name": "Obesity",
+      "icd10": "E66",
+      "aliases": ["Overweight", "Adiposity"],
+      "description": "Obesity is defined clinically as a body mass index of 30 or higher, reflecting excess body fat that raises the risk of many diseases — type 2 diabetes, cardiovascular disease, certain cancers, sleep apnea and joint problems. It arises from complex interactions of genetics, environment, behaviour and biology, and is not simply a matter of willpower. Treatment combines dietary changes, regular physical activity, behaviour therapy and — for many — medications like GLP-1 agonists or bariatric surgery. Even modest sustained weight loss of 5-10% improves metabolic health.",
+      "precautions": ["Annual health screenings", "Focus on sustainable changes"],
+      "medications": [
+        "GLP-1 agonists (semaglutide)",
+        "Orlistat",
+        "Bariatric surgery in select cases"
+      ],
+      "diets": [
+        "Calorie deficit",
+        "Whole foods",
+        "Limit ultra-processed foods",
+        "Mediterranean or DASH patterns"
+      ],
+      "workouts": [
+        "Gradual increase to 150+ min/week",
+        "Strength training twice weekly",
+        "Start with walking"
+      ],
+      "redFlagHints": ["BMI > 30 with multiple metabolic risk factors"]
+    },
+    {
+      "name": "Addison's Disease",
+      "icd10": "E27.1",
+      "aliases": ["Primary adrenal insufficiency"],
+      "description": "Addison's disease is primary adrenal insufficiency in which the adrenal glands fail to produce enough cortisol, and often aldosterone. It develops gradually with fatigue, weight loss, low blood pressure, salt craving and characteristic skin darkening (hyperpigmentation). During physical stress — infection, injury or surgery — patients can develop a life-threatening adrenal crisis, so they must carry emergency hydrocortisone and wear a medical ID. Daily steroid replacement restores normal function and lifespan.",
+      "precautions": [
+        "Always carry emergency hydrocortisone",
+        "Medical ID bracelet",
+        "Stress-dose steroids during illness"
+      ],
+      "medications": ["Hydrocortisone", "Fludrocortisone"],
+      "diets": ["Adequate salt intake", "Regular meals"],
+      "workouts": ["Moderate exercise as tolerated"],
+      "redFlagHints": ["Fatigue, weight loss, skin hyperpigmentation, low blood pressure"]
+    },
+    {
+      "name": "Cushing's Syndrome",
+      "icd10": "E24",
+      "aliases": ["Hypercortisolism"],
+      "description": "Cushing's syndrome results from prolonged exposure to excess cortisol, most commonly from long-term corticosteroid therapy (iatrogenic) but sometimes from adrenal or pituitary tumors. Classic features include central weight gain with thin arms and legs, moon-shaped face, purple stretch marks, easy bruising and high blood pressure. Untreated it raises the risk of diabetes, osteoporosis and infection. Treatment targets the cause — tapering steroids when possible, or surgery for tumors.",
+      "precautions": [
+        "Identify cause (iatrogenic steroids vs tumor)",
+        "Monitor blood pressure and glucose"
+      ],
+      "medications": [
+        "Treat cause (surgery for tumor)",
+        "Ketoconazole or metyrapone in select cases"
+      ],
+      "diets": ["Low sodium", "Low refined carbohydrate", "Adequate calcium"],
+      "workouts": ["Gentle resistance training to preserve muscle"],
+      "redFlagHints": ["Central weight gain, moon face, purple striae, easy bruising"]
+    },
+    {
+      "name": "Atopic Dermatitis (Eczema)",
+      "icd10": "L20",
+      "aliases": ["Eczema"],
+      "description": "Atopic dermatitis, commonly called eczema, is a chronic relapsing inflammatory skin condition causing very itchy, dry patches that often affect the elbows, knees, wrists and neck. It usually starts in childhood and tends to run in families along with asthma and allergic rhinitis (the 'atopic triad'). Triggers include harsh soaps, dry air, stress and certain allergens. Daily moisturising, gentle skin care and topical corticosteroids or calcineurin inhibitors control most cases, with newer biologics available for severe disease.",
+      "precautions": ["Identify triggers", "Daily moisturizing", "Short lukewarm showers"],
+      "medications": [
+        "Emollients",
+        "Topical corticosteroids",
+        "Topical calcineurin inhibitors",
+        "Dupilumab for severe"
+      ],
+      "diets": ["Only eliminate foods if proven trigger", "Omega-3 rich foods"],
+      "workouts": ["Any type; shower and moisturize after sweating"],
+      "redFlagHints": ["Itchy dry patches, flexural distribution, personal/family atopy"]
+    },
+    {
+      "name": "Psoriasis",
+      "icd10": "L40",
+      "aliases": ["Plaque psoriasis"],
+      "description": "Psoriasis is a chronic autoimmune skin disease in which skin cells multiply too quickly, forming thick, silvery-scaled plaques typically on the elbows, knees, scalp and lower back. It can also affect nails and joints (psoriatic arthritis). Triggers include stress, infections, skin trauma, smoking and certain medications. Management ranges from topical treatments and phototherapy for mild disease to systemic drugs and biologics targeting specific immune pathways for moderate to severe cases.",
+      "precautions": ["Avoid smoking and excess alcohol", "Manage stress", "Regular moisturizing"],
+      "medications": [
+        "Topical corticosteroids and vitamin D analogs",
+        "Phototherapy",
+        "Biologics for severe"
+      ],
+      "diets": ["Mediterranean or anti-inflammatory", "Maintain healthy weight"],
+      "workouts": ["Regular exercise helps reduce flares", "Avoid skin trauma"],
+      "redFlagHints": ["Well-demarcated silvery scaly plaques, nail pitting, scalp involvement"]
+    },
+    {
+      "name": "Contact Dermatitis",
+      "icd10": "L25",
+      "aliases": ["Allergic contact dermatitis"],
+      "description": "Contact dermatitis is an inflammatory skin reaction that develops where the skin touches an irritant or allergen. Irritant contact dermatitis is common in jobs with frequent handwashing or chemical exposure, while allergic contact dermatitis occurs in sensitised individuals to substances like nickel, fragrances, poison ivy or cosmetics. The rash is typically itchy and red in the pattern of the exposure. Identifying and avoiding the trigger, along with topical corticosteroids for flares, usually resolves the problem.",
+      "precautions": [
+        "Identify and avoid trigger (metals, plants, cosmetics)",
+        "Wear gloves when handling chemicals"
+      ],
+      "medications": ["Topical corticosteroids", "Antihistamines", "Emollients"],
+      "diets": ["No specific diet"],
+      "workouts": ["Any type; rinse sweat off promptly"],
+      "redFlagHints": ["Rash in pattern matching exposure (watch strap, ring, poison ivy line)"]
+    },
+    {
+      "name": "Urticaria",
+      "icd10": "L50",
+      "aliases": ["Hives"],
+      "description": "Urticaria, commonly called hives, is a skin reaction producing itchy raised welts (wheals) caused by histamine release from mast cells. Acute urticaria is often triggered by foods, medications, infections or insect stings and resolves within six weeks. Chronic urticaria lasts longer than six weeks and is often idiopathic or autoimmune. Most cases respond to non-sedating antihistamines, sometimes at higher than usual doses; severe chronic cases may require omalizumab or short steroid courses.",
+      "precautions": [
+        "Identify and avoid triggers",
+        "Seek urgent care if swelling of face or breathing difficulty"
+      ],
+      "medications": [
+        "Non-sedating antihistamines",
+        "Short corticosteroid burst for severe",
+        "Omalizumab for chronic"
+      ],
+      "diets": ["Avoid known food triggers", "Maintain food diary"],
+      "workouts": ["Exercise can trigger in some; cool-down post-exercise"],
+      "redFlagHints": ["Transient raised itchy wheals, sometimes with swelling"]
+    },
+    {
+      "name": "Acne Vulgaris",
+      "icd10": "L70",
+      "aliases": ["Acne"],
+      "description": "Acne is one of the most common skin conditions, developing when hair follicles become clogged with oil and dead skin cells and colonised by Cutibacterium acnes bacteria. It presents as blackheads, whiteheads, inflamed pimples and sometimes deeper cysts, most often on the face, chest and back. Acne is driven by hormones, genetics and lifestyle, and typically peaks in adolescence. Gentle cleansing, topical retinoids and benzoyl peroxide control most cases, with oral antibiotics or isotretinoin reserved for severe disease.",
+      "precautions": [
+        "Gentle cleansing twice daily",
+        "Don't pick or squeeze",
+        "Non-comedogenic products"
+      ],
+      "medications": [
+        "Benzoyl peroxide",
+        "Topical retinoids",
+        "Topical or oral antibiotics",
+        "Isotretinoin for severe"
+      ],
+      "diets": ["Balanced diet", "Limit high-glycemic foods and excess dairy (evidence mixed)"],
+      "workouts": ["Any type; shower promptly after"],
+      "redFlagHints": ["Face/chest/back pimples and comedones, adolescent or young adult"]
+    },
+    {
+      "name": "Rosacea",
+      "icd10": "L71",
+      "aliases": [],
+      "description": "Rosacea is a chronic skin condition that causes redness, visible blood vessels and sometimes pimple-like bumps on the central face. It typically starts in middle age and is more common in fair-skinned individuals. Common triggers include sun exposure, heat, spicy foods, alcohol and stress. Daily sunscreen, trigger avoidance, topical metronidazole or ivermectin and oral doxycycline (for inflammatory forms) are effective long-term controls.",
+      "precautions": [
+        "Identify triggers (spicy food, alcohol, sun, heat)",
+        "Daily sunscreen",
+        "Gentle skin care"
+      ],
+      "medications": [
+        "Topical metronidazole or ivermectin",
+        "Oral doxycycline",
+        "Brimonidine gel for redness"
+      ],
+      "diets": ["Avoid personal triggers"],
+      "workouts": ["Cool-down and avoid overheating"],
+      "redFlagHints": ["Central facial redness with flushing, visible vessels, papules"]
+    },
+    {
+      "name": "Fungal Skin Infection",
+      "icd10": "B35",
+      "aliases": ["Tinea", "Ringworm", "Athlete's foot"],
+      "description": "Fungal skin infections, including ringworm (tinea corporis), athlete's foot (tinea pedis) and jock itch (tinea cruris), are caused by dermatophyte fungi that thrive in warm moist environments. They cause itchy scaly patches, often with central clearing and an advancing edge. Topical antifungal creams like clotrimazole or terbinafine for 2-4 weeks cure most localised infections. Keeping skin dry, changing socks frequently and not sharing towels prevent recurrence and spread.",
+      "precautions": ["Keep areas dry", "Don't share towels or footwear", "Treat pets if ringworm"],
+      "medications": [
+        "Topical antifungals (clotrimazole, terbinafine)",
+        "Oral antifungals for extensive or nail infections"
+      ],
+      "diets": ["No specific diet"],
+      "workouts": ["Dry thoroughly after exercise", "Wear moisture-wicking clothing"],
+      "redFlagHints": ["Itchy scaly patches, ring-shaped lesions, between-toes maceration"]
+    },
+    {
+      "name": "Scabies",
+      "icd10": "B86",
+      "aliases": ["Sarcoptes scabiei infestation"],
+      "description": "Scabies is a skin infestation by the tiny mite Sarcoptes scabiei, which burrows into the upper skin layer to lay eggs. The hallmark symptom is intense itching that is worse at night, with a bumpy rash often seen in the finger webs, wrists, armpits, belt line and genitals. It spreads easily through prolonged skin-to-skin contact and within households. Treatment with permethrin 5% cream or oral ivermectin, applied to all household members simultaneously plus washing bedding and clothing in hot water, eliminates infestation.",
+      "precautions": [
+        "Treat all close contacts simultaneously",
+        "Wash bedding/clothing in hot water",
+        "Bag non-washable items for 72h"
+      ],
+      "medications": ["Permethrin 5% cream", "Oral ivermectin for severe or crusted cases"],
+      "diets": ["No specific diet"],
+      "workouts": ["Any"],
+      "redFlagHints": ["Severe itching worse at night, rash in webs of fingers, wrists, waist"]
+    },
+    {
+      "name": "Herpes Zoster (Shingles)",
+      "icd10": "B02",
+      "aliases": ["Shingles"],
+      "description": "Shingles is a painful rash caused by reactivation of the varicella-zoster virus that stayed dormant in nerve tissue after childhood chickenpox. The rash appears as a cluster of blisters in a band on one side of the body or face, often preceded by tingling or burning pain. Complications include postherpetic neuralgia — persistent nerve pain lasting months — and, if it involves the eye, possible vision loss. Antivirals started within 72 hours of rash onset shorten duration, and the shingles vaccine is recommended for adults over 50.",
+      "precautions": [
+        "Shingles vaccination for older adults",
+        "Avoid contact with pregnant women/newborns/immunocompromised"
+      ],
+      "medications": [
+        "Acyclovir, valacyclovir, or famciclovir within 72h",
+        "Pain control",
+        "Gabapentin for postherpetic neuralgia"
+      ],
+      "diets": ["Balanced diet; lysine-rich foods sometimes recommended"],
+      "workouts": ["Rest during acute phase"],
+      "redFlagHints": ["Unilateral painful vesicular rash in a band, often with prodromal tingling"]
+    },
+    {
+      "name": "Impetigo",
+      "icd10": "L01",
+      "aliases": [],
+      "description": "Impetigo is a highly contagious superficial skin infection caused most often by Staphylococcus aureus or Streptococcus pyogenes, affecting children more than adults. It typically produces red sores around the nose and mouth that quickly rupture and form honey-coloured crusts. Good hand hygiene, covering lesions and keeping fingernails short limit spread. Topical mupirocin treats localised cases, while oral antibiotics are needed for widespread or bullous impetigo.",
+      "precautions": ["Cover lesions", "Hand hygiene", "Don't share towels"],
+      "medications": ["Topical mupirocin or fusidic acid", "Oral antibiotics for extensive cases"],
+      "diets": ["No specific diet"],
+      "workouts": ["Rest from contact activities until healed"],
+      "redFlagHints": ["Golden-crusted sores around nose and mouth, often in children"]
+    },
+    {
+      "name": "Cellulitis",
+      "icd10": "L03",
+      "aliases": ["Skin infection"],
+      "description": "Cellulitis is a bacterial infection of the skin and soft tissue, producing a red, warm, tender and rapidly-spreading area of skin, usually on a lower limb. It typically enters through a crack, cut, insect bite or athlete's foot fissure and is most often caused by streptococci or staphylococci. Untreated it can progress to abscess, sepsis or, rarely, necrotising fasciitis. Oral antibiotics suffice for mild cases; IV antibiotics and hospitalisation are needed for severe or rapidly-progressing infections.",
+      "precautions": [
+        "Keep skin clean and moisturized",
+        "Treat fungal infections promptly",
+        "Seek care early"
+      ],
+      "medications": ["Oral or IV antibiotics depending on severity"],
+      "diets": ["Balanced diet to support healing"],
+      "workouts": ["Elevate affected limb during acute phase"],
+      "redFlagHints": ["Red, warm, tender, spreading skin area, often with fever"]
+    },
+    {
+      "name": "Rheumatoid Arthritis",
+      "icd10": "M06",
+      "aliases": ["RA"],
+      "description": "Rheumatoid arthritis is a chronic autoimmune disease that causes symmetrical inflammation and swelling of the small joints, most commonly the hands, wrists and feet. Typical symptoms include morning stiffness lasting more than an hour, joint pain, fatigue and, over time, joint deformity if untreated. Early aggressive treatment with disease-modifying antirheumatic drugs (DMARDs) like methotrexate, often combined with biologics, preserves joint function and substantially reduces long-term disability. Regular rheumatology follow-up and lifestyle adjustments are important.",
+      "precautions": ["Adhere to DMARDs", "Regular monitoring for side effects", "Stop smoking"],
+      "medications": [
+        "Methotrexate",
+        "Biologics (TNF inhibitors)",
+        "JAK inhibitors",
+        "NSAIDs for symptoms"
+      ],
+      "diets": ["Mediterranean pattern", "Omega-3s", "Limit red meat and ultra-processed foods"],
+      "workouts": ["Low-impact aerobic", "Gentle range-of-motion", "Aquatic therapy"],
+      "redFlagHints": ["Symmetric small-joint stiffness worse in the morning, over 30 minutes"]
+    },
+    {
+      "name": "Osteoarthritis",
+      "icd10": "M19",
+      "aliases": ["Degenerative joint disease"],
+      "description": "Osteoarthritis is a degenerative joint disease caused by gradual wear and loss of cartilage, most commonly affecting the knees, hips, hands and spine in adults over 50. It produces joint pain that worsens with activity and improves with rest, morning stiffness lasting under 30 minutes, reduced range of motion and sometimes joint grinding. Weight management, low-impact exercise and physical therapy are central to management, supported by simple analgesics, topical NSAIDs and targeted intra-articular injections. Joint replacement is considered when conservative measures fail.",
+      "precautions": ["Weight management", "Joint protection", "Supportive footwear"],
+      "medications": [
+        "Acetaminophen",
+        "Topical NSAIDs",
+        "Intra-articular steroid or hyaluronate injections"
+      ],
+      "diets": [
+        "Mediterranean pattern",
+        "Maintain healthy weight",
+        "Adequate vitamin D and calcium"
+      ],
+      "workouts": ["Low-impact aerobic (swimming, cycling)", "Strength training", "Tai chi"],
+      "redFlagHints": ["Joint pain worse with activity, stiffness under 30 minutes, older adult"]
+    },
+    {
+      "name": "Gout",
+      "icd10": "M10",
+      "aliases": ["Gouty arthritis"],
+      "description": "Gout is a form of inflammatory arthritis caused by crystallisation of excess uric acid in the joints, classically producing sudden severe pain, redness and swelling at the base of the big toe. Attacks often come on at night and are triggered by alcohol, high-purine foods (organ meats, shellfish) or sudden dehydration. Acute flares respond to NSAIDs, colchicine or corticosteroids, while long-term urate-lowering therapy with allopurinol or febuxostat prevents recurrence. Dietary moderation also helps.",
+      "precautions": ["Adhere to urate-lowering therapy", "Limit alcohol and high-purine foods"],
+      "medications": [
+        "NSAIDs or colchicine for flares",
+        "Allopurinol or febuxostat for long-term lowering"
+      ],
+      "diets": [
+        "Limit red meat, organ meats, shellfish, beer",
+        "Cherries may help",
+        "Adequate hydration"
+      ],
+      "workouts": ["Low-impact exercise", "Avoid exercise during flares"],
+      "redFlagHints": ["Sudden severe pain, redness, swelling of a single joint (often big toe)"]
+    },
+    {
+      "name": "Fibromyalgia",
+      "icd10": "M79.7",
+      "aliases": [],
+      "description": "Fibromyalgia is a chronic condition characterised by widespread musculoskeletal pain, profound fatigue, sleep disturbance and cognitive difficulties (often called 'fibro fog'). It is thought to involve altered pain processing in the central nervous system. Symptoms often fluctuate and can significantly affect quality of life. Treatment combines regular low-impact exercise, sleep hygiene, cognitive behavioural therapy and medications like duloxetine, pregabalin or low-dose amitriptyline to reduce symptom burden.",
+      "precautions": ["Sleep hygiene", "Stress management", "Gentle regular activity"],
+      "medications": ["Duloxetine", "Milnacipran", "Pregabalin", "Low-dose amitriptyline"],
+      "diets": ["Balanced anti-inflammatory diet", "Limit caffeine and alcohol"],
+      "workouts": ["Low-impact aerobic (walking, water)", "Yoga", "Tai chi"],
+      "redFlagHints": [
+        "Widespread pain, fatigue, sleep disturbance, tender points, often women 20-50"
+      ]
+    },
+    {
+      "name": "Lower Back Pain",
+      "icd10": "M54.5",
+      "aliases": ["Low back pain", "Lumbago"],
+      "description": "Lower back pain is one of the most common complaints in primary care, typically arising from muscle strain, poor posture, prolonged sitting or a minor disc problem. Most episodes are mechanical and resolve within four to six weeks with staying active, simple analgesics and gentle core-strengthening exercises. Red flags requiring urgent evaluation include pain with fever, unexplained weight loss, history of cancer, trauma or loss of bowel/bladder control. Chronic cases benefit from physical therapy, ergonomic changes and occasionally targeted injections.",
+      "precautions": ["Stay active", "Good lifting technique", "Ergonomic workspace"],
+      "medications": ["NSAIDs", "Acetaminophen", "Short muscle relaxants if needed"],
+      "diets": ["Anti-inflammatory", "Maintain healthy weight"],
+      "workouts": ["Core strengthening", "Walking", "Yoga or pilates"],
+      "redFlagHints": [
+        "Localized low back pain after lifting or prolonged sitting, improving with movement"
+      ]
+    },
+    {
+      "name": "Tendinitis",
+      "icd10": "M77",
+      "aliases": ["Tendonitis"],
+      "description": "Tendinitis is inflammation of a tendon, usually from repetitive overuse — think 'tennis elbow', 'rotator cuff tendinitis' or 'Achilles tendinitis'. It causes pain, tenderness and sometimes mild swelling right at the tendon, aggravated by the activity that caused it. Treatment combines relative rest, ice, NSAIDs and a gradual progressive loading program (eccentric exercises). Recovery can take weeks to months, and resuming activity too quickly is the most common cause of setback.",
+      "precautions": [
+        "Rest affected tendon",
+        "Proper technique/ergonomics",
+        "Gradual training progression"
+      ],
+      "medications": ["NSAIDs", "Topical analgesics", "Corticosteroid injection in select cases"],
+      "diets": ["Anti-inflammatory foods"],
+      "workouts": ["Rest, then progressive eccentric loading", "Physical therapy"],
+      "redFlagHints": ["Pain at a specific tendon with activity, sometimes swelling"]
+    },
+    {
+      "name": "Sprains and Strains",
+      "icd10": "T14.3",
+      "aliases": ["Soft tissue injury"],
+      "description": "Sprains are injuries to ligaments (the bands connecting bones), while strains affect muscles or tendons. Both typically follow a sudden twist, fall or over-stretching and produce pain, swelling, bruising and reduced movement. The RICE approach — rest, ice, compression, elevation — in the first 48-72 hours limits swelling. Gradual progressive rehabilitation restores strength and flexibility; moderate to severe sprains may benefit from formal physical therapy.",
+      "precautions": ["RICE (Rest, Ice, Compression, Elevation)", "Gradual return to activity"],
+      "medications": ["NSAIDs", "Acetaminophen"],
+      "diets": ["Adequate protein", "Anti-inflammatory foods"],
+      "workouts": ["Early protected motion", "Progressive strengthening", "Physical therapy"],
+      "redFlagHints": ["Acute pain, swelling, sometimes bruising after twist or fall"]
+    },
+    {
+      "name": "Osteoporosis",
+      "icd10": "M81",
+      "aliases": ["Bone thinning"],
+      "description": "Osteoporosis is a skeletal disease in which bone mineral density drops and bone architecture deteriorates, leaving bones fragile and fracture-prone. It is most common in postmenopausal women and older adults of either sex, and is typically silent until a fracture occurs — often of the hip, spine or wrist. DEXA scanning identifies at-risk patients, and treatment combines calcium and vitamin D, weight-bearing and resistance exercise, and bone-strengthening drugs like bisphosphonates or denosumab. Fall prevention is equally important.",
+      "precautions": [
+        "Fall prevention",
+        "Adequate calcium and vitamin D",
+        "Avoid smoking and excess alcohol"
+      ],
+      "medications": ["Bisphosphonates (alendronate)", "Denosumab", "Teriparatide in severe cases"],
+      "diets": ["Calcium-rich foods (dairy, leafy greens)", "Vitamin D", "Adequate protein"],
+      "workouts": ["Weight-bearing and resistance training", "Balance exercises (tai chi)"],
+      "redFlagHints": ["Height loss, kyphosis, fragility fracture, postmenopausal woman"]
+    },
+    {
+      "name": "Sciatica",
+      "icd10": "M54.3",
+      "aliases": ["Lumbar radiculopathy"],
+      "description": "Sciatica is pain that radiates along the sciatic nerve — from the lower back down the buttock and the back of the leg, often below the knee. The usual cause is a herniated lumbar disc compressing the nerve root, though spinal stenosis and piriformis syndrome can also produce similar symptoms. Most cases improve within six weeks with staying active (not strict bed rest), NSAIDs and targeted physiotherapy. Persistent pain, significant weakness or bowel/bladder symptoms warrant imaging and possible surgical evaluation.",
+      "precautions": ["Avoid prolonged sitting", "Good posture", "Gentle activity"],
+      "medications": [
+        "NSAIDs",
+        "Neuropathic pain agents (gabapentin)",
+        "Short oral steroids in select cases"
+      ],
+      "diets": ["Anti-inflammatory", "Maintain healthy weight"],
+      "workouts": ["McKenzie extension exercises", "Core strengthening", "Walking"],
+      "redFlagHints": ["Low back pain radiating down one leg, worse with sitting or coughing"]
+    },
+    {
+      "name": "Urinary Tract Infection",
+      "icd10": "N39.0",
+      "aliases": ["UTI", "Cystitis"],
+      "description": "A urinary tract infection is a bacterial infection anywhere in the urinary tract, but most commonly the bladder (cystitis). It typically causes burning on urination, frequency, urgency, lower abdominal discomfort and sometimes cloudy or blood-tinged urine. UTIs are especially common in women because of a shorter urethra. A short course of oral antibiotics like nitrofurantoin or trimethoprim-sulfamethoxazole cures most cases quickly; prompt treatment prevents upward spread to the kidneys.",
+      "precautions": ["Drink plenty of water", "Urinate after intercourse", "Wipe front to back"],
+      "medications": ["Nitrofurantoin", "Trimethoprim-sulfamethoxazole", "Fosfomycin"],
+      "diets": ["Adequate water intake", "Cranberry may help prevention (evidence mixed)"],
+      "workouts": ["Any; good hygiene after"],
+      "redFlagHints": ["Burning on urination, frequency, urgency, cloudy urine"]
+    },
+    {
+      "name": "Kidney Stones",
+      "icd10": "N20",
+      "aliases": ["Nephrolithiasis", "Renal calculi"],
+      "description": "Kidney stones are hard deposits of minerals and salts that form in the kidneys, most commonly calcium oxalate. When a stone tries to pass through the ureter it can cause sudden severe flank pain that radiates to the groin (renal colic), often with nausea, vomiting and blood in the urine. Small stones usually pass on their own with fluids and pain control, sometimes aided by alpha-blockers like tamsulosin. Larger or obstructing stones may need lithotripsy or endoscopic removal, and long-term prevention focuses on hydration and dietary adjustments.",
+      "precautions": [
+        "Plenty of water (2-3 L/day)",
+        "Limit salt and animal protein",
+        "Follow stone-specific dietary advice"
+      ],
+      "medications": [
+        "NSAIDs or opioids for pain",
+        "Tamsulosin to aid passage",
+        "Thiazides for calcium stones"
+      ],
+      "diets": [
+        "High fluid intake",
+        "Limit sodium",
+        "Moderate calcium (from food)",
+        "Limit oxalate-rich foods if calcium oxalate stones"
+      ],
+      "workouts": ["Activity can help pass stones", "Stay well hydrated during exercise"],
+      "redFlagHints": ["Severe flank pain radiating to groin, hematuria, nausea"]
+    },
+    {
+      "name": "Acute Kidney Injury",
+      "icd10": "N17",
+      "aliases": ["AKI", "Acute renal failure"],
+      "description": "Acute kidney injury is a sudden drop in kidney function measured in hours to days, often reversible when recognised and treated early. Causes fall into three groups: reduced blood flow (dehydration, blood loss), direct kidney damage (drugs, toxins, glomerulonephritis) and obstruction (enlarged prostate, stones). Warning signs include reduced urine output, swelling, nausea and confusion. Treatment addresses the cause, stops nephrotoxic drugs and supports the patient through recovery; severe cases may require temporary dialysis.",
+      "precautions": [
+        "Avoid nephrotoxic drugs",
+        "Maintain hydration",
+        "Treat underlying cause urgently"
+      ],
+      "medications": [
+        "Treat underlying cause",
+        "Avoid NSAIDs, contrast agents",
+        "Dialysis in severe cases"
+      ],
+      "diets": ["Restrict sodium, potassium, phosphorus as advised", "Controlled protein"],
+      "workouts": ["Rest until recovery"],
+      "redFlagHints": [
+        "Reduced urine output, swelling, fatigue, recent illness or medication start"
+      ],
+      "emergency": true
+    },
+    {
+      "name": "Chronic Kidney Disease",
+      "icd10": "N18",
+      "aliases": ["CKD"],
+      "description": "Chronic kidney disease is a progressive long-term loss of kidney function, most commonly caused by diabetes and hypertension. Early disease is usually silent, detected only by blood tests (creatinine, estimated GFR) and urine tests (albumin). As disease advances, patients develop fatigue, anaemia, fluid retention and electrolyte disturbances. Management focuses on tight BP and glucose control, newer agents like SGLT2 inhibitors that protect the kidney, and avoiding nephrotoxic drugs; advanced disease may require dialysis or transplantation.",
+      "precautions": ["BP and glucose control", "Avoid nephrotoxic drugs", "Regular labs"],
+      "medications": [
+        "ACE inhibitors or ARBs",
+        "SGLT2 inhibitors",
+        "Phosphate binders",
+        "Erythropoietin for anemia"
+      ],
+      "diets": [
+        "Low sodium, controlled protein",
+        "Limit potassium and phosphorus if advanced",
+        "Fluid balance"
+      ],
+      "workouts": ["Moderate regular exercise as tolerated"],
+      "redFlagHints": ["Fatigue, swelling, nausea, itching, often diabetic or hypertensive"]
+    },
+    {
+      "name": "Pyelonephritis",
+      "icd10": "N10",
+      "aliases": ["Kidney infection"],
+      "description": "Pyelonephritis is an infection of the upper urinary tract that involves the kidney itself, usually from bacteria ascending from a lower UTI. Typical features are high fever with chills, flank pain, nausea and vomiting, often with urinary symptoms. Untreated it can cause bacteremia, sepsis or scarring of the kidney. Most cases need at least oral antibiotics like fluoroquinolones or cephalosporins; severe cases require hospitalisation for IV antibiotics and fluids.",
+      "precautions": [
+        "Complete full antibiotic course",
+        "Hydration",
+        "Follow-up imaging if recurrent"
+      ],
+      "medications": ["Fluoroquinolones", "Cephalosporins", "IV antibiotics for severe cases"],
+      "diets": ["Plenty of fluids", "Light meals as tolerated"],
+      "workouts": ["Rest during acute illness"],
+      "redFlagHints": ["Flank pain, fever, chills, nausea, urinary symptoms"]
+    },
+    {
+      "name": "Benign Prostatic Hyperplasia",
+      "icd10": "N40",
+      "aliases": ["BPH", "Enlarged prostate"],
+      "description": "Benign prostatic hyperplasia is a common non-cancerous enlargement of the prostate gland in men, especially after age 50. As the prostate grows it can compress the urethra and cause troublesome lower urinary tract symptoms — weak stream, hesitancy, nocturia, incomplete emptying and urgency. Alpha-blockers (tamsulosin) relax bladder-neck muscle quickly, while 5-alpha reductase inhibitors (finasteride) shrink the gland over months. Persistent or severe cases may benefit from minimally invasive procedures or surgery.",
+      "precautions": [
+        "Limit fluid before bedtime",
+        "Avoid bladder irritants (caffeine, alcohol)",
+        "Monitor PSA"
+      ],
+      "medications": ["Alpha-blockers (tamsulosin)", "5-alpha reductase inhibitors (finasteride)"],
+      "diets": ["Limit caffeine and alcohol", "Heart-healthy diet"],
+      "workouts": ["Regular moderate exercise", "Pelvic floor exercises"],
+      "redFlagHints": ["Older man, weak stream, urinary frequency, nocturia, incomplete emptying"]
+    },
+    {
+      "name": "Urinary Incontinence",
+      "icd10": "R32",
+      "aliases": [],
+      "description": "Urinary incontinence is the involuntary leakage of urine. The main types are stress incontinence (leakage with coughing or lifting), urge incontinence (sudden uncontrollable need), overflow incontinence and mixed forms. It is more common in women after childbirth and in older adults of both sexes, though not a normal part of aging. Pelvic floor exercises, bladder training, weight management and targeted medications — antimuscarinics, mirabegron or topical estrogen — help most patients, with surgical options for refractory stress incontinence.",
+      "precautions": [
+        "Treat underlying conditions (UTI, BPH)",
+        "Manage fluids and bladder training"
+      ],
+      "medications": [
+        "Antimuscarinics (oxybutynin)",
+        "Mirabegron",
+        "Topical estrogen for some women"
+      ],
+      "diets": ["Limit caffeine and alcohol", "Adequate but not excess fluids"],
+      "workouts": ["Pelvic floor exercises (Kegels)", "Weight management"],
+      "redFlagHints": ["Involuntary urine leakage with activity, urgency, or overflow"]
+    },
+    {
+      "name": "Primary Dysmenorrhea",
+      "icd10": "N94.4",
+      "aliases": ["Menstrual cramps"],
+      "description": "Primary dysmenorrhea refers to painful menstrual cramps that occur in otherwise normal pelvic anatomy, caused by prostaglandin-driven uterine contractions. Pain typically begins a few hours before or at the start of menstruation and lasts 1-3 days, sometimes with nausea, fatigue and diarrhoea. NSAIDs started at the first sign of pain are the most effective relief, and combined oral contraceptives reduce both pain and flow. Heat, regular aerobic exercise and anti-inflammatory foods may also help.",
+      "precautions": ["Track cycles", "Heat and rest during painful days"],
+      "medications": ["NSAIDs (ibuprofen, naproxen)", "Oral contraceptives for severe cases"],
+      "diets": ["Anti-inflammatory foods", "Limit caffeine and salt premenstrually"],
+      "workouts": ["Gentle yoga", "Walking", "Aerobic exercise can reduce pain"],
+      "redFlagHints": ["Lower abdominal cramping with menstruation, sometimes with nausea"]
+    },
+    {
+      "name": "Polycystic Ovary Syndrome",
+      "icd10": "E28.2",
+      "aliases": ["PCOS"],
+      "description": "Polycystic ovary syndrome is a common hormonal disorder in reproductive-aged women, characterised by irregular periods, signs of excess androgens (acne, hirsutism, scalp hair loss) and — on ultrasound — multiple small ovarian follicles. It is strongly associated with insulin resistance and raises long-term risk of type 2 diabetes, metabolic syndrome and endometrial cancer. Management is tailored to individual goals: combined oral contraceptives regulate cycles, metformin improves insulin resistance, and letrozole helps with fertility. Weight management significantly improves symptoms.",
+      "precautions": [
+        "Weight management",
+        "Regular cycle monitoring",
+        "Screen for diabetes and lipid abnormalities"
+      ],
+      "medications": [
+        "Combined oral contraceptives",
+        "Metformin",
+        "Spironolactone",
+        "Letrozole for fertility"
+      ],
+      "diets": ["Low glycemic index", "Mediterranean pattern", "Weight reduction if overweight"],
+      "workouts": ["Combined aerobic + resistance training", "150+ min/week"],
+      "redFlagHints": ["Irregular periods, hirsutism, acne, difficulty with weight or fertility"]
+    },
+    {
+      "name": "Endometriosis",
+      "icd10": "N80",
+      "aliases": [],
+      "description": "Endometriosis is a chronic gynecological condition in which endometrial-like tissue grows outside the uterus, most often on the ovaries, fallopian tubes and pelvic peritoneum. It commonly causes severe menstrual pain, deep pelvic pain with intercourse, chronic pelvic pain and infertility. Diagnosis is often delayed by years because symptoms overlap with other conditions. Treatment ranges from NSAIDs and hormonal therapy (combined pills, progestins, GnRH analogs) for pain control to laparoscopic surgery for refractory cases or fertility.",
+      "precautions": ["Pelvic specialist follow-up", "Track symptoms"],
+      "medications": ["NSAIDs", "Hormonal therapy (OCPs, progestins, GnRH agonists)"],
+      "diets": ["Anti-inflammatory diet", "Limit trans fats"],
+      "workouts": ["Regular moderate exercise", "Yoga"],
+      "redFlagHints": ["Severe menstrual pain, pain with intercourse, infertility, pelvic pain"]
+    },
+    {
+      "name": "Ectopic Pregnancy",
+      "icd10": "O00",
+      "aliases": ["Tubal pregnancy"],
+      "description": "Ectopic pregnancy occurs when a fertilised egg implants outside the uterus, most often in a fallopian tube. It is a life-threatening emergency because the growing pregnancy can rupture the tube and cause massive internal bleeding. Warning signs in a pregnant woman are one-sided pelvic pain, vaginal bleeding and sometimes shoulder-tip pain from diaphragmatic irritation. Early detection by ultrasound and beta-hCG allows either medical treatment with methotrexate or surgical removal, preserving the woman's future fertility when possible.",
+      "precautions": [
+        "Urgent medical evaluation for any pregnant woman with abdominal pain or bleeding"
+      ],
+      "medications": ["Methotrexate in early stable cases", "Surgical treatment"],
+      "diets": ["As tolerated during recovery"],
+      "workouts": ["Rest and gradual return after treatment"],
+      "redFlagHints": [
+        "Pregnancy with one-sided pelvic pain, vaginal bleeding, sometimes shoulder-tip pain"
+      ],
+      "emergency": true
+    },
+    {
+      "name": "Uterine Fibroids",
+      "icd10": "D25",
+      "aliases": ["Leiomyoma"],
+      "description": "Uterine fibroids are non-cancerous smooth-muscle tumors of the uterus that affect a large proportion of women by age 50. Many are asymptomatic, but larger fibroids can cause heavy or prolonged menstrual bleeding, pelvic pressure, urinary frequency, and subfertility. Management depends on symptoms and fertility goals, ranging from watchful waiting and iron supplementation to hormonal medications, uterine artery embolisation, myomectomy and, in some cases, hysterectomy. Most fibroids shrink after menopause.",
+      "precautions": ["Monitor with ultrasound", "Iron supplementation if anemic"],
+      "medications": [
+        "Hormonal therapies",
+        "Tranexamic acid for heavy bleeding",
+        "GnRH analogs",
+        "Surgical options"
+      ],
+      "diets": ["Iron-rich foods", "Balanced diet"],
+      "workouts": ["Regular moderate exercise"],
+      "redFlagHints": ["Heavy prolonged periods, pelvic pressure, reproductive-age woman"]
+    },
+    {
+      "name": "Menopausal Syndrome",
+      "icd10": "N95.1",
+      "aliases": ["Menopause"],
+      "description": "Menopause is the natural cessation of menstrual periods for 12 consecutive months, typically occurring between ages 45 and 55 as ovarian estrogen production declines. The transition can bring hot flashes, night sweats, sleep disturbance, vaginal dryness and mood changes, with long-term effects on bone and cardiovascular health. Lifestyle measures (regular exercise, weight management, adequate calcium and vitamin D) help; symptomatic women may benefit from hormone therapy, SSRIs or topical estrogen for vaginal symptoms. Routine screening for osteoporosis becomes important.",
+      "precautions": ["Bone density screening", "Cardiovascular risk assessment"],
+      "medications": [
+        "Menopausal hormone therapy (if appropriate)",
+        "SSRIs for hot flashes",
+        "Vaginal estrogen"
+      ],
+      "diets": [
+        "Adequate calcium and vitamin D",
+        "Phytoestrogen-rich foods",
+        "Limit alcohol and caffeine"
+      ],
+      "workouts": ["Weight-bearing and strength training", "Yoga"],
+      "redFlagHints": ["Hot flashes, night sweats, irregular or absent periods in women 45-55"]
+    },
+    {
+      "name": "Generalized Anxiety Disorder",
+      "icd10": "F41.1",
+      "aliases": ["GAD"],
+      "description": "Generalized anxiety disorder is a common mental health condition characterised by persistent and excessive worry about everyday concerns lasting six months or more, along with physical symptoms like restlessness, muscle tension, poor sleep and difficulty concentrating. It frequently coexists with depression and can significantly impair work and relationships. First-line treatment is cognitive behavioural therapy, often combined with SSRIs or SNRIs. Reducing caffeine, regular exercise, mindfulness practice and adequate sleep form the foundation of self-management.",
+      "precautions": ["Reduce caffeine", "Consistent sleep schedule", "Psychotherapy"],
+      "medications": [
+        "SSRIs (escitalopram, sertraline)",
+        "SNRIs",
+        "Short-term benzodiazepines only if necessary"
+      ],
+      "diets": ["Balanced diet", "Limit caffeine and alcohol"],
+      "workouts": ["Regular aerobic exercise", "Yoga", "Mindfulness practice"],
+      "redFlagHints": [
+        "Persistent worry for 6+ months, restlessness, sleep disturbance, muscle tension"
+      ]
+    },
+    {
+      "name": "Major Depressive Disorder",
+      "icd10": "F32",
+      "aliases": ["Depression", "Clinical depression"],
+      "description": "Major depressive disorder is a mental health condition in which low mood, loss of interest or pleasure and related symptoms persist for at least two weeks and interfere significantly with daily life. Additional features include sleep and appetite changes, fatigue, feelings of worthlessness and difficulty concentrating, with some people experiencing suicidal thoughts. Treatment typically combines psychotherapy (CBT, interpersonal therapy) with antidepressants (SSRIs, SNRIs), tailored to severity. Exercise, social connection and screening for suicide risk are integral to care.",
+      "precautions": ["Seek professional support", "Screen for suicide risk", "Social connection"],
+      "medications": ["SSRIs", "SNRIs", "Atypical antidepressants", "Psychotherapy (CBT)"],
+      "diets": ["Mediterranean pattern", "Omega-3 rich foods", "Limit alcohol"],
+      "workouts": [
+        "Regular aerobic exercise has antidepressant effect",
+        "Even 20-30 min walking daily"
+      ],
+      "redFlagHints": [
+        "Low mood most of day for 2+ weeks, anhedonia, sleep/appetite changes, hopelessness"
+      ]
+    },
+    {
+      "name": "Panic Disorder",
+      "icd10": "F41.0",
+      "aliases": ["Panic attacks"],
+      "description": "Panic disorder is characterised by recurrent unexpected panic attacks — sudden intense surges of fear with physical symptoms like palpitations, sweating, breathlessness, trembling and a sense of impending doom — usually peaking within 10 minutes. Between attacks, people often fear recurrence, and some begin avoiding places associated with past episodes (agoraphobia). Cognitive behavioural therapy focused on interoceptive exposure is highly effective, often combined with SSRIs. Benzodiazepines have a limited role due to dependence risk.",
+      "precautions": [
+        "Avoid catastrophic thinking",
+        "Controlled breathing techniques",
+        "Limit caffeine"
+      ],
+      "medications": ["SSRIs", "Cognitive behavioral therapy"],
+      "diets": ["Limit caffeine and alcohol"],
+      "workouts": ["Regular aerobic exercise reduces attack frequency"],
+      "redFlagHints": [
+        "Sudden intense fear with palpitations, sweating, breathlessness, dizziness, often under 10 min"
+      ]
+    },
+    {
+      "name": "Insomnia Disorder",
+      "icd10": "G47.0",
+      "aliases": ["Chronic insomnia"],
+      "description": "Insomnia disorder is persistent difficulty falling asleep, staying asleep or waking too early despite adequate opportunity to sleep, occurring at least three nights a week for three or more months. Daytime consequences include fatigue, poor concentration, irritability and impaired performance. Cognitive behavioural therapy for insomnia (CBT-I) is the first-line treatment — more effective and durable than sleep medications. When medications are used, short courses of melatonin, doxepin or specific hypnotics are preferred over long-term benzodiazepines.",
+      "precautions": ["Sleep hygiene", "Consistent wake time", "No screens before bed"],
+      "medications": [
+        "CBT for insomnia (first-line)",
+        "Short-term melatonin, zolpidem, or doxepin in select cases"
+      ],
+      "diets": ["Avoid caffeine after mid-afternoon", "Avoid heavy meals and alcohol before bed"],
+      "workouts": ["Regular exercise (not too close to bedtime)"],
+      "redFlagHints": ["Difficulty falling or staying asleep 3+ nights weekly for 3+ months"]
+    },
+    {
+      "name": "Burnout Syndrome",
+      "icd10": "Z73.0",
+      "aliases": ["Occupational burnout"],
+      "description": "Burnout is a state of emotional, physical and mental exhaustion caused by prolonged and excessive workplace stress. The classic triad is feelings of depletion, increased mental distance from one's work (cynicism) and reduced professional efficacy. It affects performance, relationships and physical health, increasing risk of depression, anxiety and cardiovascular disease. Recovery usually requires a combination of workplace changes, protected recovery time, reconnecting with social and personal life, and addressing any co-existing mental health conditions.",
+      "precautions": ["Work-life boundaries", "Regular breaks", "Social and professional support"],
+      "medications": ["Treat co-morbid depression/anxiety if present"],
+      "diets": ["Balanced nutrition", "Regular meals"],
+      "workouts": ["Regular exercise", "Mindfulness and relaxation practices"],
+      "redFlagHints": ["Exhaustion, cynicism, reduced professional efficacy, work-related"]
+    },
+    {
+      "name": "Post-Traumatic Stress Disorder",
+      "icd10": "F43.1",
+      "aliases": ["PTSD"],
+      "description": "PTSD can develop after exposure to actual or threatened death, serious injury or sexual violence. Core features are intrusive memories or nightmares of the trauma, active avoidance of reminders, negative changes in thoughts and mood, and hyperarousal symptoms like being easily startled or sleeping poorly. Evidence-based trauma-focused psychotherapies (prolonged exposure, cognitive processing therapy, EMDR) are the most effective treatments, often paired with SSRIs and support for co-existing conditions. Self-medication with alcohol or drugs worsens outcomes and should be avoided.",
+      "precautions": ["Trauma-focused therapy", "Avoid self-medication with alcohol/drugs"],
+      "medications": ["SSRIs (sertraline, paroxetine)", "Prazosin for nightmares", "EMDR and CBT"],
+      "diets": ["Balanced nutrition", "Limit alcohol and caffeine"],
+      "workouts": ["Regular aerobic exercise", "Yoga and mindfulness"],
+      "redFlagHints": ["Flashbacks, nightmares, hypervigilance after trauma exposure"]
+    },
+    {
+      "name": "Allergic Rhinitis",
+      "icd10": "J30",
+      "aliases": ["Hay fever"],
+      "description": "Allergic rhinitis (hay fever) is an inflammatory nasal condition triggered by an IgE-mediated response to inhaled allergens like pollen, dust mites, mold or pet dander. It produces sneezing, itchy nose and eyes, clear runny nose and congestion, either seasonally or year-round. Impact on sleep, concentration and quality of life is often underestimated. Trigger avoidance, intranasal corticosteroids, non-sedating antihistamines and — for persistent cases — allergen immunotherapy are the mainstays of treatment.",
+      "precautions": [
+        "Avoid known allergens",
+        "Use HEPA filters",
+        "Close windows during high pollen days"
+      ],
+      "medications": [
+        "Intranasal corticosteroids",
+        "Non-sedating antihistamines",
+        "Decongestants (short-term)"
+      ],
+      "diets": ["No specific diet; identify any food-pollen cross-reactions"],
+      "workouts": ["Indoor exercise on high-pollen days"],
+      "redFlagHints": ["Seasonal or perennial sneezing, itchy nose/eyes, clear runny nose"]
+    },
+    {
+      "name": "Anaphylaxis",
+      "icd10": "T78.2",
+      "aliases": ["Severe allergic reaction"],
+      "description": "Anaphylaxis is a life-threatening systemic allergic reaction that develops within minutes of exposure to a trigger like peanuts, tree nuts, shellfish, bee stings or medications. It produces a combination of skin symptoms (hives, lip/tongue swelling), airway narrowing, breathing difficulty and sometimes shock. Intramuscular epinephrine to the outer thigh is the single most important treatment and should be given at the first sign — never delayed for antihistamines. Patients with known triggers should carry two auto-injectors and wear medical ID.",
+      "precautions": ["Carry epinephrine auto-injector", "Avoid known triggers", "Medical ID"],
+      "medications": [
+        "Intramuscular epinephrine (first-line)",
+        "Antihistamines",
+        "Corticosteroids",
+        "IV fluids"
+      ],
+      "diets": ["Strict avoidance of food allergens"],
+      "workouts": ["Exercise-induced anaphylaxis: avoid known food triggers before exercise"],
+      "redFlagHints": [
+        "Sudden widespread hives, lip/tongue swelling, breathing difficulty, hypotension after exposure"
+      ],
+      "emergency": true
+    },
+    {
+      "name": "Food Allergy",
+      "icd10": "T78.1",
+      "aliases": [],
+      "description": "A food allergy is an immune-mediated reaction to specific food proteins, distinct from food intolerance. Most true allergies produce symptoms within minutes to two hours — hives, lip/tongue swelling, vomiting, wheezing — and can progress to anaphylaxis. The most common triggers are peanuts, tree nuts, milk, egg, soy, wheat, fish and shellfish. Strict avoidance is currently the mainstay, while carrying epinephrine, reading labels carefully and educating family and caregivers are essential. Oral immunotherapy programs are an emerging option for select patients.",
+      "precautions": ["Strictly avoid trigger foods", "Read labels", "Carry epinephrine if severe"],
+      "medications": ["Antihistamines for mild reactions", "Epinephrine for severe"],
+      "diets": ["Elimination diet under dietitian guidance"],
+      "workouts": ["Any; caution with exercise-induced food-dependent anaphylaxis"],
+      "redFlagHints": ["Hives, swelling, vomiting, or breathing issues after specific food"]
+    },
+    {
+      "name": "Angioedema",
+      "icd10": "T78.3",
+      "aliases": [],
+      "description": "Angioedema is rapid-onset swelling of the deeper layers of the skin, often around the eyes, lips, tongue and sometimes the airway. It can be histamine-mediated (often with hives) or bradykinin-mediated, the latter including hereditary angioedema and ACE-inhibitor-induced cases. Treatment differs: histaminergic cases respond to antihistamines, corticosteroids and epinephrine if severe, while bradykinin-mediated angioedema needs specific agents like icatibant or C1-inhibitor concentrate. Any tongue or airway swelling is a medical emergency.",
+      "precautions": ["Identify and avoid trigger", "Carry emergency medications if severe"],
+      "medications": [
+        "Antihistamines",
+        "Corticosteroids",
+        "Icatibant or C1-inhibitor for hereditary angioedema"
+      ],
+      "diets": ["Avoid trigger foods"],
+      "workouts": ["Any; caution if exercise-related"],
+      "redFlagHints": ["Swelling of lips, tongue, eyelids, sometimes airway involvement"]
+    },
+    {
+      "name": "Drug Allergy",
+      "icd10": "T88.7",
+      "aliases": ["Medication allergy"],
+      "description": "A drug allergy is an adverse immune-mediated reaction to a medication, most commonly with penicillins and sulfa drugs. Reactions can range from mild rash to severe delayed skin reactions (Stevens-Johnson syndrome) and anaphylaxis. Discontinuation of the offending drug is essential, and future exposures should be avoided or carefully tested. A documented drug allergy in the medical record helps prevent re-exposure; formal drug allergy testing and sometimes desensitisation are options for critical medications.",
+      "precautions": ["Document allergy in records and medical ID", "Avoid cross-reactive drugs"],
+      "medications": [
+        "Discontinue offending drug",
+        "Antihistamines, steroids, epinephrine if severe"
+      ],
+      "diets": ["No specific diet"],
+      "workouts": ["Any"],
+      "redFlagHints": ["Rash, swelling, or systemic symptoms after starting new medication"]
+    },
+    {
+      "name": "Otitis Media",
+      "icd10": "H66",
+      "aliases": ["Middle ear infection"],
+      "description": "Otitis media is infection or inflammation of the middle ear, most common in children because of their shorter, more horizontal eustachian tubes. It typically follows an upper respiratory infection and produces ear pain, fever and irritability in children, or reduced hearing and pressure sensation in adults. Most cases resolve within a few days with analgesics; antibiotics are used for bilateral infection in young children, severe symptoms or perforated eardrums. Repeated infections may prompt evaluation for tympanostomy tubes.",
+      "precautions": [
+        "Avoid secondhand smoke",
+        "Vaccinations (pneumococcal, flu)",
+        "Keep ears dry if perforated eardrum"
+      ],
+      "medications": [
+        "Analgesics (acetaminophen/ibuprofen)",
+        "Antibiotics (amoxicillin) in severe/certain cases"
+      ],
+      "diets": ["Soft foods if pain with chewing"],
+      "workouts": ["Rest during acute illness"],
+      "redFlagHints": ["Ear pain, sometimes with fever, often after a cold"]
+    },
+    {
+      "name": "Otitis Externa",
+      "icd10": "H60",
+      "aliases": ["Swimmer's ear"],
+      "description": "Otitis externa, or swimmer's ear, is an infection of the outer ear canal that follows water retention, trauma from cotton swabs or eczema. It causes ear pain (worse with tragal pressure), itching, canal swelling and sometimes discharge. Topical antibiotic-corticosteroid ear drops treat most cases within a week. Keeping the ear dry, avoiding cotton swabs and using ear plugs while swimming prevent recurrence.",
+      "precautions": ["Keep ears dry", "Avoid cotton swabs", "Use ear plugs while swimming"],
+      "medications": ["Topical antibiotic + steroid ear drops", "Oral antibiotics if severe"],
+      "diets": ["No specific diet"],
+      "workouts": ["Avoid swimming until healed"],
+      "redFlagHints": ["Ear pain worse with tragus pressure, itching, discharge"]
+    },
+    {
+      "name": "Benign Paroxysmal Positional Vertigo",
+      "icd10": "H81.1",
+      "aliases": ["BPPV"],
+      "description": "BPPV is the most common cause of vertigo, resulting from loose calcium carbonate crystals (otoconia) moving within the inner ear's semicircular canals. It produces brief episodes of intense spinning triggered by specific head movements — rolling over, looking up, lying down — lasting less than a minute. Hearing is normal, which helps distinguish it from Ménière's disease and labyrinthitis. Particle-repositioning manoeuvres like the Epley, typically performed by a trained clinician, resolve most cases with a single session.",
+      "precautions": ["Move slowly with position changes", "Repositioning maneuvers (Epley)"],
+      "medications": ["Meclizine for severe symptoms", "Anti-nausea medications"],
+      "diets": ["No specific diet"],
+      "workouts": ["Vestibular rehabilitation exercises"],
+      "redFlagHints": [
+        "Brief spinning sensation with head turns or rolling over, no hearing change"
+      ]
+    },
+    {
+      "name": "Labyrinthitis",
+      "icd10": "H83.0",
+      "aliases": [],
+      "description": "Labyrinthitis is inflammation of the inner ear (both cochlea and vestibular structures), usually following a viral illness. It causes sudden severe vertigo, imbalance and often new hearing changes or tinnitus on the affected side, with nausea and vomiting common in the first days. Symptoms improve over one to two weeks, though subtle balance issues may linger for a month. Vestibular suppressants like meclizine help acute symptoms, and vestibular rehabilitation therapy speeds long-term recovery.",
+      "precautions": ["Rest in a quiet environment", "Avoid rapid head movements"],
+      "medications": [
+        "Meclizine for vertigo",
+        "Anti-nausea medications",
+        "Corticosteroids in some cases"
+      ],
+      "diets": ["Bland foods during acute nausea", "Adequate hydration"],
+      "workouts": ["Vestibular rehabilitation during recovery"],
+      "redFlagHints": ["Vertigo with hearing changes or tinnitus, often after viral illness"]
+    },
+    {
+      "name": "Conjunctivitis",
+      "icd10": "H10",
+      "aliases": ["Pink eye"],
+      "description": "Conjunctivitis (pink eye) is inflammation of the thin membrane covering the white of the eye and inner eyelid. It has three main causes: viral (watery discharge, often with a cold), bacterial (sticky yellow-green discharge) and allergic (itching and watery discharge, usually bilateral). Viral and allergic forms are self-limited but highly contagious in the case of viral. Good hand hygiene, discarding contacts and makeup, and targeted treatment — antihistamine drops or bacterial antibiotics only when needed — resolve most episodes.",
+      "precautions": [
+        "Frequent hand washing",
+        "Don't share towels or pillows",
+        "Discard eye makeup"
+      ],
+      "medications": [
+        "Artificial tears",
+        "Antihistamine drops for allergic",
+        "Antibiotic drops for bacterial"
+      ],
+      "diets": ["No specific diet"],
+      "workouts": ["Any; avoid swimming"],
+      "redFlagHints": [
+        "Red itchy watery eyes, sometimes with discharge, contagious or allergen exposure"
+      ]
+    },
+    {
+      "name": "Hordeolum (Stye)",
+      "icd10": "H00.0",
+      "aliases": ["Stye"],
+      "description": "A stye is a tender red lump on the eyelid from an acute bacterial infection of an eyelash follicle or small eyelid gland. It usually points outward (external stye) and typically resolves within a week with warm compresses applied several times a day. Topical antibiotic ointment may speed recovery if a secondary infection develops, but oral antibiotics are rarely needed. Styes should not be squeezed, as this can spread infection.",
+      "precautions": ["Warm compresses", "Avoid squeezing", "Don't wear contacts or eye makeup"],
+      "medications": [
+        "Topical antibiotic ointment in select cases",
+        "Oral antibiotics if spreading"
+      ],
+      "diets": ["No specific diet"],
+      "workouts": ["Any"],
+      "redFlagHints": ["Painful red lump on eyelid margin"]
+    },
+    {
+      "name": "Acute Angle-Closure Glaucoma",
+      "icd10": "H40.2",
+      "aliases": ["Angle-closure glaucoma attack"],
+      "description": "Acute angle-closure glaucoma is an ophthalmic emergency where the drainage angle of the eye becomes suddenly blocked, causing a rapid rise in intraocular pressure. It presents with severe one-sided eye pain, blurred vision, halos around lights, a red eye with a mid-dilated non-reactive pupil and often nausea and vomiting. Without urgent pressure-lowering treatment and peripheral iridotomy, permanent vision loss can occur within hours. Any sudden eye pain with vision change needs immediate evaluation.",
+      "precautions": ["Seek emergency ophthalmology immediately", "Avoid dilating eye drops"],
+      "medications": ["Topical and systemic pressure-lowering drugs", "Laser peripheral iridotomy"],
+      "diets": ["No specific diet"],
+      "workouts": ["Restrictions until pressure controlled"],
+      "redFlagHints": ["Severe eye pain, blurred vision, halos around lights, nausea, red eye"],
+      "emergency": true
+    },
+    {
+      "name": "Dry Eye Syndrome",
+      "icd10": "H04.1",
+      "aliases": ["Keratoconjunctivitis sicca"],
+      "description": "Dry eye syndrome is a chronic condition caused by inadequate tear production or unstable tear film, producing gritty, burning discomfort, fluctuating vision and sometimes paradoxical watering. It is common with aging, long screen use, contact lens wear, certain medications and autoimmune conditions like Sjögren's. Artificial tears, warm compresses, omega-3 supplementation, humidifiers and regular screen breaks form the base of treatment, with prescription drops like cyclosporine for more significant cases. Identifying and treating any underlying condition is key.",
+      "precautions": [
+        "Reduce screen time, blink frequently",
+        "Use humidifier",
+        "Avoid direct airflow"
+      ],
+      "medications": ["Artificial tears", "Cyclosporine drops", "Warm compresses"],
+      "diets": ["Omega-3 rich foods", "Adequate hydration"],
+      "workouts": ["Any; consider swim goggles"],
+      "redFlagHints": ["Gritty, burning eyes worse at end of day, computer use"]
+    },
+    {
+      "name": "Iron Deficiency Anemia",
+      "icd10": "D50",
+      "aliases": ["Iron-deficiency anemia"],
+      "description": "Iron deficiency anemia is the most common form of anemia worldwide, caused by inadequate iron intake, poor absorption (e.g., celiac disease) or chronic blood loss (menstruation, GI bleeding). It produces fatigue, pale skin, shortness of breath, brittle nails and restless legs. Treatment combines finding the underlying cause with oral iron supplementation, taken on an empty stomach with vitamin C for absorption; IV iron is reserved for intolerance or severe cases. Any new iron deficiency in postmenopausal women or men warrants a search for GI blood loss.",
+      "precautions": [
+        "Identify cause (bleeding, poor intake, malabsorption)",
+        "Take iron with vitamin C, away from calcium"
+      ],
+      "medications": ["Oral iron (ferrous sulfate)", "IV iron if intolerant or severe"],
+      "diets": [
+        "Iron-rich foods (lean red meat, lentils, leafy greens)",
+        "Vitamin C to enhance absorption"
+      ],
+      "workouts": ["Moderate exercise as tolerated"],
+      "redFlagHints": ["Fatigue, pale skin, brittle nails, heavy periods or GI bleeding"]
+    },
+    {
+      "name": "Vitamin B12 Deficiency",
+      "icd10": "D51",
+      "aliases": ["Cobalamin deficiency"],
+      "description": "Vitamin B12 deficiency causes a large-cell (macrocytic) anemia and can produce neurological symptoms that are sometimes irreversible if untreated — numbness, tingling, weakness, balance problems and memory changes. At-risk groups include strict vegans, older adults, patients with pernicious anemia (autoimmune loss of intrinsic factor) and those who have had gastric bypass. Oral cobalamin or intramuscular injections correct the deficiency; neurological changes respond best when treatment is started early.",
+      "precautions": ["Screen at-risk patients (vegans, older adults, post-gastric surgery)"],
+      "medications": ["Oral or IM B12 supplementation"],
+      "diets": ["Meat, fish, dairy, eggs; fortified foods for vegans"],
+      "workouts": ["Moderate as tolerated"],
+      "redFlagHints": [
+        "Fatigue, pale skin, tingling hands/feet, balance problems, vegan diet or pernicious anemia"
+      ]
+    },
+    {
+      "name": "Thrombocytopenia",
+      "icd10": "D69.6",
+      "aliases": ["Low platelets"],
+      "description": "Thrombocytopenia is a platelet count below normal, which raises bleeding risk. Causes fall into three categories: reduced production (bone marrow disease, viral infection, drug effects), increased destruction (ITP, DIC, TTP) and sequestration (enlarged spleen). Features include easy bruising, tiny red dots on the skin (petechiae), mucosal bleeding and, when severe, internal bleeding. Treatment depends on cause and severity — stopping offending drugs, steroids or IVIG for ITP, and platelet transfusions for life-threatening bleeding.",
+      "precautions": [
+        "Avoid blood thinners unless prescribed",
+        "Avoid contact sports until diagnosed"
+      ],
+      "medications": ["Depends on cause (steroids, IVIG, TPO agonists)"],
+      "diets": ["Balanced; vitamin K, folate, B12"],
+      "workouts": ["Avoid contact sports until platelets adequate"],
+      "redFlagHints": ["Easy bruising, petechiae, mucosal bleeding, heavy menstrual bleeding"]
+    },
+    {
+      "name": "Sickle Cell Disease",
+      "icd10": "D57",
+      "aliases": ["Sickle cell anemia"],
+      "description": "Sickle cell disease is an inherited red blood cell disorder in which hemoglobin S distorts red cells into sickle shapes under stress, blocking small blood vessels. Patients experience recurrent painful vaso-occlusive crises, anemia, infection susceptibility and chronic organ damage over time. Triggers include dehydration, cold, high altitude and infection. Hydroxyurea reduces crises, newer agents like voxelotor and crizanlizumab add options, and allogeneic stem cell transplant is curative in selected patients.",
+      "precautions": [
+        "Avoid triggers (dehydration, cold, high altitude)",
+        "Vaccinations",
+        "Regular specialty follow-up"
+      ],
+      "medications": ["Hydroxyurea", "Pain control during crises", "Voxelotor or crizanlizumab"],
+      "diets": ["Adequate hydration", "Folate supplementation"],
+      "workouts": ["Moderate activity with adequate hydration", "Avoid extreme temperatures"],
+      "redFlagHints": ["Severe pain episodes, chest pain, splenic issues, family history"]
+    },
+    {
+      "name": "Vitamin D Deficiency",
+      "icd10": "E55.9",
+      "aliases": [],
+      "description": "Vitamin D deficiency is common, especially in people with limited sun exposure, darker skin, older age or malabsorption. Mild deficiency is often asymptomatic but can cause fatigue, muscle weakness and bone pain; severe or long-standing deficiency contributes to osteoporosis and, in extreme cases, osteomalacia. Treatment is straightforward supplementation with vitamin D3 at doses guided by the severity of deficiency, often combined with adequate calcium. Sensible sun exposure and dietary sources (oily fish, fortified foods) help maintain levels.",
+      "precautions": ["Sensible sun exposure", "Supplementation if deficient"],
+      "medications": ["Vitamin D3 (cholecalciferol) supplementation"],
+      "diets": ["Fatty fish", "Fortified foods", "Egg yolks"],
+      "workouts": ["Weight-bearing exercise", "Outdoor activity for sunlight"],
+      "redFlagHints": ["Bone pain, muscle weakness, fatigue, limited sun exposure"]
+    },
+    {
+      "name": "Dehydration",
+      "icd10": "E86.0",
+      "aliases": [],
+      "description": "Dehydration is a state in which body water loss exceeds intake, disturbing electrolyte balance and impairing cellular function. Common triggers include vomiting, diarrhoea, heavy sweating in heat, diuretic use and inadequate fluid intake, especially in older adults and young children. Early signs include thirst, dry mouth, headache and dark urine; severe dehydration causes dizziness, confusion, rapid heart rate and fainting. Oral rehydration solutions work well for mild-to-moderate dehydration, while severe cases need IV fluids.",
+      "precautions": [
+        "Drink plenty of fluids",
+        "Replace electrolytes during illness or heavy sweating"
+      ],
+      "medications": ["Oral rehydration solutions", "IV fluids for severe dehydration"],
+      "diets": ["Water-rich foods (fruits, vegetables, soups)", "Electrolyte drinks when needed"],
+      "workouts": ["Hydrate before, during, and after activity"],
+      "redFlagHints": ["Dry mouth, reduced urine, dizziness, dark urine, recent illness or heat"]
+    },
+    {
+      "name": "Heat Exhaustion",
+      "icd10": "T67.5",
+      "aliases": [],
+      "description": "Heat exhaustion is a heat-related illness that develops when the body cannot cool itself adequately in hot environments, usually after prolonged exertion. It features heavy sweating, weakness, nausea, headache, dizziness and muscle cramps, with a rising core temperature that is not yet dangerously high. Moving to a cool environment, loosening clothing, rehydrating and cooling the body actively usually resolve symptoms within hours. If left untreated, it can progress to heat stroke, which is life-threatening.",
+      "precautions": ["Move to cool area", "Rehydrate", "Cool down actively"],
+      "medications": ["Oral fluids and electrolytes"],
+      "diets": ["Electrolyte replacement"],
+      "workouts": ["Avoid exercise in extreme heat", "Acclimatize gradually"],
+      "redFlagHints": ["Heavy sweating, weakness, headache, nausea after heat exposure"]
+    },
+    {
+      "name": "Heat Stroke",
+      "icd10": "T67.0",
+      "aliases": [],
+      "description": "Heat stroke is a life-threatening emergency defined by a core body temperature above 40°C combined with neurological dysfunction — confusion, slurred speech, agitation, seizure or loss of consciousness. The skin may be either hot and dry or sweaty depending on the type. Every minute counts: call emergency services and begin active cooling immediately with cold-water immersion or continuous soaking and fanning. Delayed treatment dramatically increases mortality and risk of permanent organ damage.",
+      "precautions": ["Emergency cooling", "Call emergency services"],
+      "medications": ["Aggressive active cooling", "IV fluids"],
+      "diets": ["As tolerated during recovery"],
+      "workouts": ["No exercise until cleared"],
+      "redFlagHints": [
+        "High body temperature, confusion, hot dry skin (or still sweating), loss of consciousness"
+      ],
+      "emergency": true
+    },
+    {
+      "name": "Hypothermia",
+      "icd10": "T68",
+      "aliases": [],
+      "description": "Hypothermia occurs when core body temperature drops below 35°C, most often from prolonged cold exposure, especially in older adults, infants, and people who are wet, intoxicated or have inadequate shelter. Early features include shivering, slurred speech and confusion; severe hypothermia can cause loss of consciousness, arrhythmias and cardiac arrest. Treatment involves gentle rewarming — removing wet clothes, insulating with dry blankets, warm fluids if alert — with severe cases needing hospital-based active rewarming. Alcohol and vigorous external rubbing should be avoided.",
+      "precautions": ["Avoid prolonged cold exposure", "Layer clothing", "Recognize early signs"],
+      "medications": ["Active and passive rewarming"],
+      "diets": ["Warm fluids (not alcohol)"],
+      "workouts": ["Dress appropriately for cold exercise"],
+      "redFlagHints": ["Shivering, confusion, slurred speech, slow breathing after cold exposure"]
+    },
+    {
+      "name": "Breast Cancer Warning Signs",
+      "icd10": "C50",
+      "aliases": ["Breast cancer"],
+      "description": "This entry describes a warning-sign pattern rather than a specific diagnosis. Breast cancer is the most common cancer in women, and early detection dramatically improves outcomes. Warning features that warrant urgent specialist evaluation include a new breast lump, nipple discharge (especially bloody), skin dimpling or redness, nipple inversion or a lump in the armpit. None of these symptoms confirm cancer, but any of them should prompt clinical examination and appropriate imaging (mammography, ultrasound or MRI). Routine age-appropriate screening saves lives.",
+      "precautions": [
+        "Immediate specialist referral",
+        "Avoid hormone-containing supplements until evaluated"
+      ],
+      "medications": ["Guided by biopsy results"],
+      "diets": ["Balanced", "Maintain healthy weight"],
+      "workouts": ["Regular moderate activity"],
+      "redFlagHints": ["New breast lump, nipple discharge, skin changes, axillary lump"]
+    },
+    {
+      "name": "Colorectal Cancer Warning Signs",
+      "icd10": "C18",
+      "aliases": ["Colon cancer"],
+      "description": "This entry describes a warning-sign pattern rather than a confirmed diagnosis. Colorectal cancer is one of the most common cancers and is highly preventable with screening. Warning signs that warrant urgent evaluation include a persistent change in bowel habits, blood in stool, unexplained weight loss, iron-deficiency anaemia in a man or postmenopausal woman, and persistent abdominal pain. Colonoscopy confirms the diagnosis and can remove precancerous polyps. A high-fibre diet, limiting red and processed meats, physical activity and regular age-appropriate screening substantially reduce risk.",
+      "precautions": ["Colonoscopy referral", "Age-appropriate screening"],
+      "medications": ["Guided by biopsy results"],
+      "diets": ["High fiber, limit red/processed meat"],
+      "workouts": ["Regular physical activity"],
+      "redFlagHints": [
+        "Persistent change in bowel habits, blood in stool, unexplained weight loss, iron deficiency"
+      ]
+    },
+    {
+      "name": "Lung Cancer Warning Signs",
+      "icd10": "C34",
+      "aliases": ["Lung cancer"],
+      "description": "This entry describes a warning-sign pattern rather than a specific diagnosis. Lung cancer is the leading cause of cancer death worldwide, with smoking as the dominant risk factor. Concerning symptoms include a cough lasting more than three weeks, coughing up blood, unexplained weight loss, chest pain and persistent breathlessness, especially in current or former smokers. Prompt imaging and specialist referral are essential, and low-dose CT screening is recommended for high-risk individuals. Smoking cessation remains the single most effective preventive measure.",
+      "precautions": ["Smoking cessation", "Urgent chest imaging", "Pulmonologist referral"],
+      "medications": ["Guided by biopsy results"],
+      "diets": ["Balanced with antioxidants"],
+      "workouts": ["As tolerated"],
+      "redFlagHints": [
+        "Persistent cough over 3 weeks, hemoptysis, weight loss, heavy smoking history"
+      ]
+    },
+    {
+      "name": "Skin Cancer Warning Signs (Melanoma)",
+      "icd10": "C43",
+      "aliases": ["Melanoma"],
+      "description": "This entry describes a warning-sign pattern rather than a specific diagnosis. Melanoma is the most dangerous type of skin cancer but is highly curable when caught early. The ABCDE checklist helps evaluate suspicious moles — Asymmetry, irregular Border, varied Colour, Diameter larger than 6 mm and any Evolution in shape, size or symptoms. Daily broad-spectrum sunscreen, avoiding peak-UV sun exposure, regular self-exams and annual dermatology visits (especially with many moles or family history) substantially reduce risk and enable early diagnosis.",
+      "precautions": [
+        "Daily sunscreen SPF 30+",
+        "Self skin checks monthly",
+        "Annual dermatologist visit if risk factors"
+      ],
+      "medications": ["Guided by biopsy results"],
+      "diets": ["Antioxidant-rich foods"],
+      "workouts": ["Outdoor with sun protection"],
+      "redFlagHints": [
+        "Mole with ABCDE features — Asymmetry, Border irregularity, Color variation, Diameter >6mm, Evolution"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+node_modules
+dist
+build
+coverage
+.vite
+.cache
+*.min.js
+*.min.css
+package-lock.json
+Backend/package-lock.json
+Frontend/package-lock.json
+Backend/uploads
+ML Services/**/models/*.joblib
+ML Services/**/models/*.pkl
+ML Services/**/models/*.json
+ML Services/**/venv
