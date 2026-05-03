@@ -24,7 +24,7 @@ older build, upgrade before reporting.
 
 Instead, report privately to the maintainers by:
 
-1. **Email:** `team@metaminds.studio` with subject `SECURITY: <short summary>`.
+1. **Email:** `aadigunjal0975@gmail.com` with subject `SECURITY: <short summary>`.
 2. If email is unavailable, use
    [GitHub Private Vulnerability Reporting](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability)
    on this repository.
