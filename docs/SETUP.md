@@ -128,6 +128,8 @@ If unset, the backend defaults to `python` on Windows and `python3` elsewhere.
 
 ## Environment variables
 
+> First-time setup? See [env-setup.md](env-setup.md) for click-by-click walkthroughs of every variable (which page to open, which button to click, what to copy, where to paste).
+
 The backend reads roughly thirty variables. The complete list with inline notes is in [Backend/.env.example](../Backend/.env.example). The frontend reads a single variable, [Frontend/.env.example](../Frontend/.env.example):
 
 ```env
