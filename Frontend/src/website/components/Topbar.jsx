@@ -36,7 +36,7 @@ export default function Topbar() {
             </a>
           </div>
           <p>
-            <strong>Contact:</strong> +91 90000 12345
+            <strong>Contact:</strong> +91 84335 09521
           </p>
         </div>
       </div>

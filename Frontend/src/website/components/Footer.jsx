@@ -153,7 +153,7 @@ export default function Footer() {
                   <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#1a246f] text-xs">
                     <i className="fa-solid fa-phone" />
                   </span>
-                  <span>+91 90000 12345</span>
+                  <span>+91 84335 09521</span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#1a246f] text-xs">
