@@ -9,8 +9,15 @@
  */
 
 import 'dotenv/config';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import mongoose from 'mongoose';
 import Doctor from '../models/Doctor.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const GENERATED_PATH = path.resolve(__dirname, '../data/generatedDoctors.json');
+const NICHE_PATH = path.resolve(__dirname, '../data/nicheDoctors.json');
 
 // Coordinates = [longitude, latitude]
 const doctors = [
@@ -509,25 +516,49 @@ async function seed() {
     await mongoose.connect(uri);
     console.log('[seedDoctors] connected to MongoDB');
 
-    // Prepare records with generated slugs
-    const records = doctors.map((d) => ({
+    // Curated records (37 hand-picked) — flagged source: 'seed'
+    const curated = doctors.map((d) => ({
       ...d,
       slug: makeSlug(d.name, d.address?.city),
       source: 'seed',
       verified: true,
     }));
 
-    // Upsert by slug — safe to re-run
+    // Optional: bulk-generated records from the Groq script.
+    let generated = [];
+    if (fs.existsSync(GENERATED_PATH)) {
+      try {
+        generated = JSON.parse(fs.readFileSync(GENERATED_PATH, 'utf-8'));
+        console.log(`[seedDoctors] loaded ${generated.length} generated records`);
+      } catch (err) {
+        console.warn(`[seedDoctors] could not parse generatedDoctors.json: ${err.message}`);
+      }
+    }
+
+    // Niche-specialty records produced by the local generator (no LLM).
+    let niche = [];
+    if (fs.existsSync(NICHE_PATH)) {
+      try {
+        niche = JSON.parse(fs.readFileSync(NICHE_PATH, 'utf-8'));
+        console.log(`[seedDoctors] loaded ${niche.length} niche records`);
+      } catch (err) {
+        console.warn(`[seedDoctors] could not parse nicheDoctors.json: ${err.message}`);
+      }
+    }
+
+    // Upsert curated first, then generated, then niche. Slugs are unique by
+    // (name, city) so collisions are accidental and "last write wins" is fine.
     let upserts = 0;
-    for (const r of records) {
+    for (const r of [...curated, ...generated, ...niche]) {
+      if (!r.slug) continue;
       await mongoose.model('Doctor').updateOne({ slug: r.slug }, { $set: r }, { upsert: true });
       upserts += 1;
     }
 
-    // Ensure the 2dsphere index is built
+    // Ensure the 2dsphere + specialty indexes are built
     await mongoose.model('Doctor').createIndexes();
 
-    console.log(`[seedDoctors] upserted ${upserts} doctors`);
+    console.log(`[seedDoctors] upserted ${upserts} doctors (${curated.length} curated + ${generated.length} generated + ${niche.length} niche)`);
     const total = await mongoose.model('Doctor').countDocuments();
     console.log(`[seedDoctors] total doctors in DB: ${total}`);
   } catch (err) {

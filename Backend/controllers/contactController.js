@@ -157,7 +157,7 @@ export const submitSupportTicket = async (req, res) => {
           <div style="background: #f8fafc; padding: 30px; border-radius: 0 0 16px 16px;">
             <p>Hi <strong>${fullName}</strong>,</p>
             <p>Your support ticket has been successfully submitted. Here are the details:</p>
-            
+
             <div style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; margin: 20px 0;">
               <p style="margin: 0 0 10px 0;"><strong>Ticket ID:</strong> #${ticketId}</p>
               <p style="margin: 0 0 10px 0;"><strong>Subject:</strong> ${subject || 'General Inquiry'}</p>
@@ -169,12 +169,12 @@ export const submitSupportTicket = async (req, res) => {
             </div>
 
             <p>Our support team will review your request and respond within 24 hours. You can track the status in your dashboard.</p>
-            
+
             <p>Best regards,<br><strong>Healance Support Team</strong></p>
-            
+
             <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 20px 0;">
             <p style="color: #94a3b8; font-size: 12px;">
-              📧 support@healance.ai | 📞 +91 22 1234 5678<br>
+              📧 support@healance.ai | 📞 +91 84335 09521<br>
               © ${new Date().getFullYear()} Healance AI. BKC, Bandra East, Mumbai, Maharashtra
             </p>
           </div>

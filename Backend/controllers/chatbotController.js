@@ -600,17 +600,23 @@ function canonicalizeSpecialty(raw) {
     diabetes: 'endocrinologist',
     diabetologist: 'endocrinologist',
     hormone: 'endocrinologist',
+    thyroid: 'endocrinologist',
     gp: 'general physician',
     'family doctor': 'general physician',
     physician: 'general physician',
     internist: 'general physician',
     skin: 'dermatologist',
     dermatology: 'dermatologist',
+    acne: 'dermatologist',
     ortho: 'orthopedic',
     orthopedics: 'orthopedic',
     orthopaedic: 'orthopedic',
     orthopedist: 'orthopedic',
     bone: 'orthopedic',
+    fracture: 'orthopedic',
+    knee: 'orthopedic',
+    'back pain': 'orthopedic',
+    'shoulder pain': 'orthopedic',
     neurology: 'neurologist',
     neuro: 'neurologist',
     pediatrics: 'pediatrician',
@@ -621,21 +627,86 @@ function canonicalizeSpecialty(raw) {
     gynaecologist: 'gynecologist',
     gynaecology: 'gynecologist',
     obstetrician: 'gynecologist',
+    pregnancy: 'gynecologist',
     psychiatry: 'psychiatrist',
     mental: 'psychiatrist',
+    depression: 'psychiatrist',
+    anxiety: 'psychiatrist',
     urology: 'urologist',
     ent: 'ent',
     'ear nose throat': 'ent',
+    'ear ': 'ent',
+    'nose ': 'ent',
+    'throat ': 'ent',
     eye: 'ophthalmologist',
+    vision: 'ophthalmologist',
     ophthalmology: 'ophthalmologist',
     gastro: 'gastroenterologist',
     gastroenterology: 'gastroenterologist',
+    stomach: 'gastroenterologist',
+    digestive: 'gastroenterologist',
     pulmonology: 'pulmonologist',
     lung: 'pulmonologist',
+    asthma: 'pulmonologist',
     oncology: 'oncologist',
     cancer: 'oncologist',
+    tumor: 'oncologist',
+    // — new specialties below —
+    tooth: 'dentist',
+    teeth: 'dentist',
+    dental: 'dentist',
+    'dental surgeon': 'dentist',
+    orthodontist: 'dentist',
+    'brain surgery': 'neurosurgeon',
+    'spinal surgery': 'neurosurgeon',
+    'spine surgery': 'neurosurgeon',
+    neurosurgery: 'neurosurgeon',
+    'plastic surgery': 'plastic surgeon',
+    cosmetic: 'plastic surgeon',
+    'cosmetic surgery': 'plastic surgeon',
+    'general surgery': 'general surgeon',
+    surgeon: 'general surgeon',
+    nephrology: 'nephrologist',
+    kidney: 'nephrologist',
+    renal: 'nephrologist',
+    rheumatology: 'rheumatologist',
+    arthritis: 'rheumatologist',
+    joint: 'rheumatologist',
+    hematology: 'hematologist',
+    blood: 'hematologist',
+    leukemia: 'hematologist',
+    radiology: 'radiologist',
+    scan: 'radiologist',
+    'x-ray': 'radiologist',
+    mri: 'radiologist',
+    imaging: 'radiologist',
+    anesthesia: 'anesthesiologist',
+    anesthetist: 'anesthesiologist',
+    pathology: 'pathologist',
+    lab: 'pathologist',
+    allergy: 'allergist',
+    immunology: 'allergist',
+    sports: 'sports medicine',
+    'sports injury': 'sports medicine',
+    ayur: 'ayurveda',
+    ayurvedic: 'ayurveda',
+    homeo: 'homeopathy',
+    homeopath: 'homeopathy',
+    homoeopathy: 'homeopathy',
+    diet: 'dietitian',
+    dietician: 'dietitian',
+    nutrition: 'dietitian',
+    nutritionist: 'dietitian',
+    physio: 'physiotherapist',
+    physiotherapy: 'physiotherapist',
+    rehabilitation: 'physiotherapist',
+    rehab: 'physiotherapist',
   };
-  for (const key of Object.keys(synonyms)) {
+  // Sort keys by length descending so 'dental' wins over 'ent' (a longer
+  // substring match is more specific). Without this, 'dental' would
+  // resolve to 'ent' because 'dental'.includes('ent') is true.
+  const orderedKeys = Object.keys(synonyms).sort((a, b) => b.length - a.length);
+  for (const key of orderedKeys) {
     if (s.includes(key)) return synonyms[key];
   }
   // fallback: try singular->plural / istrimming "ist"
@@ -716,14 +787,19 @@ export const nearbyDoctors = async (req, res) => {
       };
     });
 
-    // 2. OSM Overpass fallback — always queried, but used only if we don't have
-    //    enough seeded results inside the user's actual requested radius.
+    // 2. OSM Overpass fallback — used when seed coverage is weak.
+    //    If location resolved to a known metro AND seed has ≥4 results, skip
+    //    OSM entirely: those broader-seed records ARE the metro answer, and
+    //    OSM's sparse healthcare:speciality tags would only dilute relevance.
     const nearSeed = seededNormalized.filter(
       (d) => typeof d.distanceKm === 'number' && d.distanceKm * 1000 <= radiusMeters
     );
 
+    const metroResolved = !!loc.metroKey;
+    const metroSeedSufficient = metroResolved && seededNormalized.length >= 4;
+
     let osm = [];
-    if (nearSeed.length < 4) {
+    if (nearSeed.length < 4 && !metroSeedSufficient) {
       osm = await findNearbyHealthcare({
         lat: loc.lat,
         lon: loc.lon,

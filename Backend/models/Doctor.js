@@ -16,6 +16,22 @@ const SPECIALTIES = [
   'gastroenterologist',
   'pulmonologist',
   'oncologist',
+  'dentist',
+  'neurosurgeon',
+  'plastic surgeon',
+  'general surgeon',
+  'nephrologist',
+  'rheumatologist',
+  'hematologist',
+  'radiologist',
+  'anesthesiologist',
+  'pathologist',
+  'allergist',
+  'sports medicine',
+  'ayurveda',
+  'homeopathy',
+  'dietitian',
+  'physiotherapist',
   'other',
 ];
 
@@ -68,7 +84,7 @@ const doctorSchema = new mongoose.Schema(
 
     acceptsNewPatients: { type: Boolean, default: true },
     verified: { type: Boolean, default: true }, // seeded doctors are "verified"; OSM results are not saved here
-    source: { type: String, enum: ['seed', 'partner', 'manual'], default: 'seed' },
+    source: { type: String, enum: ['seed', 'partner', 'manual', 'generated'], default: 'seed' },
   },
   { timestamps: true }
 );

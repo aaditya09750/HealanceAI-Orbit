@@ -317,7 +317,7 @@ const DashboardContact = () => {
                   <p className="text-xs font-bold text-[#6a7283] uppercase tracking-wide">
                     Phone Support
                   </p>
-                  <p className="text-[#0b1030] font-medium">+91 22 1234 5678</p>
+                  <p className="text-[#0b1030] font-medium">+91 84335 09521</p>
                   <p className="text-xs text-[#5f697a]">Mon-Fri, 9am - 6pm IST</p>
                 </div>
               </div>
