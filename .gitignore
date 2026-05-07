@@ -190,13 +190,38 @@ build/Release
 # Backend specific
 Backend/uploads/
 Backend/tests/coverage/
-ML Services/**/venv/
-ML Services/**/.venv/
-ML Services/**/__pycache__/
-ML Services/**/*.py[cod]
+
+# ==================== PYTHON ====================
+# Bytecode / cache (anywhere in the repo)
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+
+# Virtual environments (anywhere)
+**/venv/
+**/.venv/
+**/env/
+**/ENV/
+
+# Python tooling caches
 .pytest_cache/
 .ruff_cache/
 .mypy_cache/
+.tox/
+.coverage
+.coverage.*
+
+# Packaging / build artifacts
+**/*.egg-info/
+**/*.egg
+build/
+dist/
+*.whl
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Pyenv
+.python-version
 
 # Frontend specific
 Frontend/.vite/
