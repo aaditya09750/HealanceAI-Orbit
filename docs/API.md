@@ -852,13 +852,13 @@ curl -X POST http://localhost:5000/api/sms/send-login-otp \
 
 ## Predict
 
-All endpoints protected. Most spawn a Python subprocess via [`Backend/utils/mlPredictor.js`](../Backend/utils/mlPredictor.js); see [ADR-0004](ADRs/0004-ml-subprocess-bridge.md). When Python is unavailable, the controller returns a clear error.
+All endpoints protected. Most call the standalone ML service over HTTP via [`Backend/utils/mlPredictor.js`](../Backend/utils/mlPredictor.js); see [ADR-0005](ADRs/0005-ml-http-service.md). When `ML_SERVICE_URL` is unreachable or returns a non-2xx, the controller returns a clear error.
 
 ### POST /api/predict/diabetes
 
-- **Request body:** `{ age, glucose, bloodPressure, skinThickness, insulin, bmi, diabetesPedigreeFunction, pregnancies }` (numeric fields the model was trained on; see the Python script for the canonical contract).
+- **Request body:** `{ age, glucose, bloodPressure, skinThickness, insulin, bmi, diabetesPedigreeFunction, pregnancies }` (numeric fields the model was trained on; see `ML Services02/heart_diabetes_predict.py` for the canonical contract).
 - **Response (201):** `{ success: true, prediction: { ... } }`
-- **Side effects:** Persists a record; spawns Python; may call OpenAI/Groq for explanation.
+- **Side effects:** Persists a record; calls ML service; may call OpenAI/Groq for explanation.
 
 ### POST /api/predict/heart
 

@@ -18,7 +18,7 @@ Keep the existing two-app sibling layout. Each tier is an independent npm packag
 
 **Positive**
 
-- Zero migration risk. The current import paths, build configs, CI workflow, and `child_process.spawn` ML bridge keep working unchanged.
+- Zero migration risk. The current import paths, build configs, and CI workflow keep working unchanged. The ML bridge has since moved from in-process subprocess to a separate HTTP service ([ADR-0005](0005-ml-http-service.md)) without affecting the sibling layout.
 - Honors the [CLAUDE.md](../../CLAUDE.md) non-goal "Reworking entire routing structure" / "Renaming historical directories without migration planning."
 - Each tier can be cloned, installed, and run in isolation — useful for contributors who only care about one side.
 

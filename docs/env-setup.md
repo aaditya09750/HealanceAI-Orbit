@@ -15,7 +15,7 @@ If you only need a quick overview, see [SETUP.md](SETUP.md). If you get stuck on
 3. [Optional integrations](#3-optional-integrations) — every external provider (OpenAI, Groq, Twilio, WhatsApp, email, weather).
 4. [Variables with safe defaults](#4-variables-with-safe-defaults) — leave alone unless you have a reason.
 5. [Frontend variables](#5-frontend-variables)
-6. [ML / Python (`PYTHON_BIN`)](#6-ml--python-python_bin)
+6. [ML service (`ML_SERVICE_URL`, `ML_SERVICE_TOKEN`, `ML_TIMEOUT_MS`)](#6-ml-service-ml_service_url-ml_service_token-ml_timeout_ms)
 7. [Putting it all together](#7-putting-it-all-together) — a complete annotated `.env`.
 8. [Verification checklist](#8-verification-checklist)
 9. [Troubleshooting](#9-troubleshooting)
@@ -770,8 +770,10 @@ TWILIO_PHONE_NUMBER=+15551234567
 CLOUDINARY_URL=cloudinary://your_api_key:your_api_secret@your_cloud_name
 MAX_FILE_SIZE=10485760
 
-# ─── ML / Python ───────────────────────────────────────
-PYTHON_BIN=C:\path\to\.venv\Scripts\python.exe
+# ─── ML service (FastAPI) ──────────────────────────────
+ML_SERVICE_URL=http://localhost:8001
+ML_SERVICE_TOKEN=
+ML_TIMEOUT_MS=25000
 ```
 
 And `Frontend/.env`:
@@ -814,7 +816,7 @@ After filling in `.env`, run these checks. Each one isolates a different integra
 | Password-reset email never arrives | Used real Gmail password instead of app password | Generate an app password (see [§3 Email](#email--email_host-email_port-email_user-email_pass-admin_email)). |
 | SMS works to your own number, not others | Twilio trial account | Verify recipient numbers, or upgrade Twilio. |
 | WhatsApp returns `(#190) Invalid OAuth access token` | 24-hour temporary token expired | Generate a permanent token (see [§3 WhatsApp Part C](#whatsapp--whatsapp_access_token-whatsapp_phone_number_id)). |
-| `/api/predict/*` returns Python errors | `PYTHON_BIN` wrong or venv missing dependencies | Confirm path with `where python`/`which python3`; run `pip install -r requirements.txt` in the venv. |
+| `/api/predict/*` returns "ML service" errors | `ML_SERVICE_URL` unreachable or `ML_SERVICE_TOKEN` mismatch | `curl <url>/health` should return `{"status":"ok"}`; for local, ensure `uvicorn app:app --port 8001` is running in `ML Services02/`; in production, confirm both Render services share an identical `ML_SERVICE_TOKEN`. |
 | Frontend calls hit the wrong host | `VITE_API_URL` not picked up | Restart `npm run dev` in `Frontend/`. |
 | OpenWeather returns "invalid api key" minutes after creation | Newly created keys take ~10 min to activate | Wait and retry. |
 

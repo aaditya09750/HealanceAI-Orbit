@@ -54,8 +54,8 @@ In-scope for this policy:
   report analysis, prediction endpoints.
 - The Frontend SPA (`Frontend/`) — auth context, protected routes, axios
   interceptors, client-side storage.
-- The ML subprocess bridge (`Backend/utils/mlPredictor.js`) and the Python
-  predictor scripts it invokes.
+- The ML HTTP bridge (`Backend/utils/mlPredictor.js`) and the FastAPI
+  predictor service in `ML Services02/`.
 - Deployment configurations committed to this repo.
 
 Out of scope:

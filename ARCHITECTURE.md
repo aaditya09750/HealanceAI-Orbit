@@ -63,18 +63,20 @@ flowchart TB
     routes --> models
   end
 
-  subgraph ML["ML Services (Python)"]
-    heart[Heart&diabeties/predict.py<br/>scikit-learn]
-    sym[Symtums_diseas/predict.py<br/>symptom → disease]
+  subgraph ML["ML Services02 (Python / FastAPI)"]
+    app[app.py<br/>FastAPI + uvicorn]
+    heart[heart_diabetes_predict.py<br/>scikit-learn]
+    sym[symptom_disease_predict.py<br/>xgboost]
+    app --> heart
+    app --> sym
   end
 
   spa <-->|"axios (withCredentials)"| server
-  utils -->|child_process.spawn| heart
-  utils -->|child_process.spawn| sym
+  utils -->|"HTTPS + X-ML-Service-Token"| app
   models <--> mongo[(MongoDB)]
 ```
 
-Two apps install and run independently — `Frontend/` via Vite (`npm run dev` on `:5173`), `Backend/` via nodemon (`npm run dev` on `:5000`). The backend invokes Python scripts on demand via `child_process.spawn`; see [ADR-0004](docs/ADRs/0004-ml-subprocess-bridge.md).
+Three deployable units: `Frontend/` (Vercel), `Backend/` (Render Web Service - Node), `ML Services02/` (Render Web Service - Python). Locally each runs independently — Frontend via Vite (`npm run dev` on `:5173`), Backend via nodemon (`npm run dev` on `:5000`), ML via `uvicorn app:app --port 8001`. The backend reaches the ML service over HTTP with a shared-secret header; see [ADR-0005](docs/ADRs/0005-ml-http-service.md).
 
 ---
 
@@ -149,15 +151,15 @@ sequenceDiagram
   participant U as User
   participant FE as Frontend dashboard<br/>(RiskPrediction page)
   participant BE as Backend API
-  participant ML as Python script<br/>(Heart&diabeties/predict.py)
+  participant ML as ML Services02<br/>(FastAPI /predict/heart-diabetes)
   participant LLM as Groq (Llama 3.3 70B)
   participant DB as MongoDB
 
   U->>FE: fills vitals form (age, BP, cholesterol, BMI, ...)
   FE->>BE: POST /api/risk-prediction/analyze (cookies)
   BE->>BE: protect → riskController
-  BE->>ML: child_process.spawn(python, predict.py)<br/>writes payload JSON to stdin
-  ML-->>BE: stdout: { heartRisk, diabetesRisk, ... }
+  BE->>ML: POST /predict/heart-diabetes<br/>JSON body + X-ML-Service-Token
+  ML-->>BE: 200 OK { heartRisk, diabetesRisk, ... }
   BE->>LLM: groqClient.reviewCandidates(MLOutput, vitals)
   LLM-->>BE: refined summary + recommendations
   BE->>DB: RiskPrediction.create({ user, input, results, recommendedDoctors, dietPlan, workoutPlan })
@@ -166,7 +168,7 @@ sequenceDiagram
   FE->>FE: render charts + recommendations + doctor list
 ```
 
-The Python subprocess design and its trade-offs are recorded in [ADR-0004](docs/ADRs/0004-ml-subprocess-bridge.md).
+The HTTP-based ML service design and its trade-offs are recorded in [ADR-0005](docs/ADRs/0005-ml-http-service.md), which supersedes the original subprocess-bridge design in [ADR-0004](docs/ADRs/0004-ml-subprocess-bridge.md).
 
 ---
 
@@ -302,9 +304,9 @@ State management is intentionally minimal: two contexts (`AuthContext`, `HealthD
 - **No automated tests.** Neither tier has Jest, Vitest, or Mocha installed. Verification is manual; CI runs lint and build only.
 - **In-process rate limiter.** `express-rate-limit` uses an in-memory store. Multi-instance deploys would need a Redis-backed store to enforce limits globally.
 - **Refresh-token revocation is signature-only.** A leaked refresh token remains valid until expiry; there is no per-token blacklist or rotation. See [ADR-0003](docs/ADRs/0003-jwt-cookie-auth.md).
-- **ML cold-start cost.** Each prediction spawns a Python interpreter; concurrent predictions do not batch. See [ADR-0004](docs/ADRs/0004-ml-subprocess-bridge.md).
+- **ML cold-start cost.** Free-tier Render dynos sleep after ~15 min idle; first prediction after wake includes Python interpreter boot + 44 MB symptom-model load (~30–60 s). Models stay in memory afterwards, so subsequent calls are network-RTT bound. See [ADR-0005](docs/ADRs/0005-ml-http-service.md).
 - **No shared schemas between client and server.** Type drift is detected at runtime, not compile time. See [ADR-0002](docs/ADRs/0002-no-shared-schemas-package.md).
-- **Implicit Python working directory.** `mlPredictor.js` inherits the Node cwd when spawning Python; relative paths inside Python scripts must account for this.
+- **ML/backend cross-service version drift.** A model retrained against newer sklearn must be redeployed on the ML service; backend has no way to detect mismatch beyond a failed prediction.
 - **In-memory caches (Groq prompts, Overpass results, RxNav lookups).** Lost on process restart; not shared across instances.
 - **No HIPAA-grade upload pipeline.** Uploads now stream to Cloudinary via `multer-storage-cloudinary` (medical reports, avatars, ticket attachments), so files survive redeploys and scale horizontally. Cloudinary's free tier is **not HIPAA-compliant** — for real PHI, swap to AWS S3 with a signed BAA. The static `/uploads/*` route remains mounted for legacy local files only.
 
