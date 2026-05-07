@@ -293,18 +293,29 @@ pip install -r requirements.txt
 
 Train models only when you need to regenerate artifacts:
 
+Inference now runs as a separate FastAPI service in `ML Services02/` (see [ADR-0005](docs/ADRs/0005-ml-http-service.md)). For local dev:
+
+```bash
+cd "ML Services02"
+pip install -r requirements-dev.txt
+uvicorn app:app --port 8001
+```
+
+Then set in `Backend/.env`:
+
+```env
+ML_SERVICE_URL=http://localhost:8001
+ML_SERVICE_TOKEN=
+```
+
+The legacy `ML Services/` directory still holds training scripts and datasets. To retrain a model, run the relevant `train_*.py` there and copy the regenerated artifact into `ML Services02/models/`.
+
 ```bash
 cd "ML Services/Heart&diabeties"
 python train_models.py
 
 cd "../Symtums_diseas"
 python train_symptom_model.py
-```
-
-Optional backend runtime override:
-
-```env
-PYTHON_BIN=python
 ```
 
 ### Optional Seed Data
@@ -552,30 +563,21 @@ node Backend/tests/testPredictApi.js
 
 ## Deployment
 
-### Backend
+Live production targets:
 
-- Railway
-- Render
-- Heroku
-- AWS EC2 / DigitalOcean
+| Tier | Host | URL |
+|---|---|---|
+| Frontend (SPA) | Vercel | https://healance-ai-orbit.vercel.app |
+| Backend (Node/Express) | Render Web Service | https://healanceai-backend.onrender.com |
+| ML inference (Python/FastAPI) | Render Web Service | https://healanceai-ml.onrender.com |
+| Database | MongoDB Atlas (M0) | — |
+| File storage | Cloudinary | — |
 
-### Frontend
+Infra-as-code: [`render.yaml`](render.yaml) at the repo root provisions both Render services via Blueprint. [`Frontend/vercel.json`](Frontend/vercel.json) configures SPA rewrites and security headers for Vercel.
 
-- Netlify (recommended)
-- Vercel
-- Cloudflare Pages
+Step-by-step deploy procedure, env var matrix, and verification checklist: [`docs/SETUP.md`](docs/SETUP.md#deployment) and [`docs/env-setup.md`](docs/env-setup.md).
 
-**Build command:**
-
-```bash
-npm run build
-```
-
-**Publish directory:**
-
-```text
-dist/
-```
+**Build command (frontend):** `npm run build` — output: `dist/`
 
 ---
 
@@ -609,11 +611,11 @@ dist/
 - Verify `VITE_API_URL` in `Frontend/.env`
 - Ensure backend and frontend ports match configured URLs (`5000` recommended)
 
-**Python / ML Errors**
+**ML / prediction errors**
 
-- Install Python dependencies in both ML folders under `ML Services`
-- If backend cannot find Python, set `PYTHON_BIN` in `Backend/.env`
-- If model files are missing, run `train_models.py` and `train_symptom_model.py`
+- Confirm `ML_SERVICE_URL` and `ML_SERVICE_TOKEN` are set in `Backend/.env` and the FastAPI service is running (`curl <url>/health` should return `{"status":"ok"}`)
+- For local dev, ensure `pip install -r requirements-dev.txt` succeeded inside `ML Services02/`
+- If model files are missing, retrain via `train_models.py` / `train_symptom_model.py` in `ML Services/` and copy the output into `ML Services02/models/`
 
 **Token/Auth Issues**
 

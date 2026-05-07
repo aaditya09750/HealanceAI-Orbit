@@ -198,7 +198,9 @@ From `Backend/.env.example`:
 | `TWILIO_ACCOUNT_SID` | No | `your_twilio_account_sid` | Twilio account SID |
 | `TWILIO_AUTH_TOKEN` | No | `your_twilio_auth_token` | Twilio auth token |
 | `TWILIO_PHONE_NUMBER` | No | `+12345678900` | Twilio sender number |
-| `PYTHON_BIN` | No | `python` (Windows) / `python3` (Unix) | Python executable path override for ML scripts |
+| `ML_SERVICE_URL` | Yes for predictions | `https://healanceai-ml.onrender.com` | Base URL of the standalone Python FastAPI ML service. Backend POSTs JSON payloads to `/predict/heart-diabetes` and `/predict/symptom-disease`. |
+| `ML_SERVICE_TOKEN` | Yes in production | (32+ random hex chars) | Shared-secret header (`X-ML-Service-Token`) sent by the backend; must match the value configured on the ML service. Leave blank locally to skip auth. |
+| `ML_TIMEOUT_MS` | No | `25000` | Backend abort timeout for the ML HTTP call. Bump if free-tier cold starts cause client errors. |
 | `CLOUDINARY_URL` | Yes for uploads | `cloudinary://<key>:<secret>@<cloud>` | Single-string credentials for Cloudinary file storage (medical reports, avatars, ticket attachments). Alternative: set the three `CLOUDINARY_*` vars below. |
 | `CLOUDINARY_CLOUD_NAME` | No (alt to URL) | `dvq1kiwqn` | Cloudinary cloud name |
 | `CLOUDINARY_API_KEY` | No (alt to URL) | `892178974735352` | Cloudinary API key |

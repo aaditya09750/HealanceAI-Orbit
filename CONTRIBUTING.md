@@ -11,10 +11,10 @@ Thanks for contributing. This guide defines the workflow and quality bar for saf
 
 ## Prerequisites
 
-- Node.js 20 LTS (minimum 18)
+- Node.js 20 LTS (minimum 18.18)
 - npm 9+
-- MongoDB
-- Python 3.11+ (only if touching `ML Services/`)
+- MongoDB (Atlas free tier or local)
+- Python 3.11+ (only if running the FastAPI ML service in `ML Services02/` locally — otherwise point `ML_SERVICE_URL` at the deployed service)
 
 ## Local Development
 
@@ -91,9 +91,10 @@ npm run format:check
 - Keep controllers thin and push reusable logic into `utils/`.
 - Preserve existing API response shape unless versioning/migration is planned.
 
-### Python (ML Services)
-- Keep scripts stdin/stdout JSON-compatible where backend invokes them.
-- Avoid breaking model artifact paths used by backend bridge.
+### Python (ML Services02)
+- The runtime path is FastAPI in `ML Services02/`; backend reaches it over HTTP (`ML_SERVICE_URL` + `X-ML-Service-Token`).
+- Keep request/response shapes in `app.py` stable — controllers in `Backend/controllers/predictController.js` depend on them.
+- Avoid breaking model artifact paths under `ML Services02/models/`. Training scripts live in legacy `ML Services/`; copy regenerated artifacts over.
 
 ## Documentation Policy
 

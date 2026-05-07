@@ -10,13 +10,14 @@ Improve maintainability and delivery quality without breaking existing functiona
 
 - `Frontend/` - React 19 + Vite SPA (website and dashboard)
 - `Backend/` - Express API, MongoDB models, business logic, third-party integrations
-- `ML Services/` - Python model training/inference scripts invoked by backend subprocess
+- `ML Services02/` - FastAPI Python inference service (called over HTTP by backend)
+- `ML Services/` - Legacy: training scripts, datasets, and original models (not on runtime path)
 
 ## Architectural Boundaries
 
 1. Frontend must not import backend files.
 2. Backend must not directly import Python modules.
-3. Backend-to-ML communication happens via subprocess calls in `Backend/utils/mlPredictor.js`.
+3. Backend-to-ML communication happens over HTTP via `Backend/utils/mlPredictor.js` (uses global `fetch`; reads `ML_SERVICE_URL` and `ML_SERVICE_TOKEN` from env). The ML service itself lives in `ML Services02/` (FastAPI).
 4. Route paths and response fields are externally consumed; avoid breaking shape changes.
 
 ## Core Entry Points
@@ -26,7 +27,8 @@ Improve maintainability and delivery quality without breaking existing functiona
 - Auth middleware: `Backend/middleware/authMiddleware.js`
 - Frontend app shell/router: `Frontend/src/App.jsx`
 - Frontend API client: `Frontend/src/services/api.js`
-- ML bridge: `Backend/utils/mlPredictor.js`
+- ML bridge (HTTP client): `Backend/utils/mlPredictor.js`
+- ML service entrypoint: `ML Services02/app.py`
 
 ## Working Rules
 

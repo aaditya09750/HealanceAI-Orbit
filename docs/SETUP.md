@@ -100,27 +100,38 @@ Useful scripts:
 
 ## ML Services
 
-The backend invokes Python scripts on demand via `child_process.spawn` (see [ADR-0004](ADRs/0004-ml-subprocess-bridge.md)). Without a Python environment, ML-backed endpoints (`/api/predict/*`, `/api/risk-prediction/analyze`) will fail at request time, but the rest of the app works.
+The backend calls a separate Python FastAPI service over HTTP (see [ADR-0005](ADRs/0005-ml-http-service.md)). The service lives in `ML Services02/`. The legacy `ML Services/` directory still holds training scripts and datasets but is no longer on the runtime path.
+
+You have two choices for local development:
+
+### Option A — Run the ML service locally (full local parity)
 
 ```bash
-cd "ML Services/Heart&diabeties"
-python -m venv .venv
-# Windows
-.venv\Scripts\activate
-# macOS/Linux
-source .venv/bin/activate
-pip install -r requirements.txt
+cd "ML Services02"
+pip install -r requirements-dev.txt   # looser pins for newer Python (3.12+/3.14)
+# or: pip install -r requirements.txt  # strict pins matching production (Python 3.11)
+uvicorn app:app --port 8001
 ```
 
-Repeat for `ML Services/Symtums_diseas/`.
+You should see `INFO: Application startup complete.` after the 44 MB symptom artifact finishes loading.
 
-Override the Python binary the backend uses by setting `PYTHON_BIN` in `Backend/.env`:
+Then in `Backend/.env`:
 
 ```env
-PYTHON_BIN=C:\path\to\.venv\Scripts\python.exe
+ML_SERVICE_URL=http://localhost:8001
+ML_SERVICE_TOKEN=          # leave blank locally; the service skips auth when empty
 ```
 
-If unset, the backend defaults to `python` on Windows and `python3` elsewhere.
+### Option B — Point local backend at the deployed ML service
+
+```env
+ML_SERVICE_URL=https://healanceai-ml.onrender.com
+ML_SERVICE_TOKEN=<paste the same token configured on Render>
+```
+
+No Python install required. Predictions are slightly slower (network RTT + free-tier cold starts) but adequate for dev work.
+
+Without either option configured, `/api/predict/*` and `/api/risk-prediction/analyze` return errors but the rest of the app works.
 
 <!-- TODO: screenshot of a successful heart-disease prediction in the dashboard -->
 
@@ -276,11 +287,27 @@ If any of these fail, check `Backend` stdout for the controller-level error and 
 
 ## Deployment
 
-Deployment targets are not prescribed by this repository. The backend is a standard Node 20 + Express process; the frontend is a static Vite build. Common pairings:
+Production targets:
 
-- **Frontend:** Vercel, Netlify, Cloudflare Pages, S3 + CloudFront.
-- **Backend:** Render, Railway, Fly.io, ECS, a VM, or a container host. Mongo runs anywhere; MongoDB Atlas is the lowest-friction managed option.
+- **Frontend (SPA):** Vercel — https://healance-ai-orbit.vercel.app
+- **Backend (Node):** Render Web Service — https://healanceai-backend.onrender.com
+- **ML inference (Python):** Render Web Service — https://healanceai-ml.onrender.com
+- **Database:** MongoDB Atlas (M0 free)
+- **Uploads:** Cloudinary (avatars, medical reports, support attachments)
 
-When you commit to a target, append a `## Deployment — <target>` section here documenting the production-only env vars, build commands, and any reverse-proxy or cookie-domain configuration required.
+Infrastructure is declared in [`render.yaml`](../render.yaml) at the repo root — Render's Blueprint feature reads this file and provisions both services. Vercel is configured via [`Frontend/vercel.json`](../Frontend/vercel.json) for SPA rewrites and security headers.
 
-<!-- TODO: deployment instructions for chosen target -->
+### Deploy order (matters)
+
+1. Render → New → Blueprint → connect repo → apply `render.yaml`. The ML service deploys first (it has no dependencies); the backend deploys in parallel but boots only after `ML_SERVICE_URL` is filled in.
+2. Fill in env vars marked `sync: false` in the Render dashboard for both services. `ML_SERVICE_TOKEN` must be **identical** on both.
+3. Vercel → Import project → Root Directory `Frontend` → Framework `Vite` → set `VITE_API_URL=https://healanceai-backend.onrender.com/api`.
+4. After the Vercel deploy gets a URL, set `CLIENT_URL` on the Render backend to the Vercel domain (no trailing slash). Without this, CORS rejects the production frontend.
+
+### Production-only configuration
+
+- Backend cookies switch to `SameSite=None; Secure` automatically when `NODE_ENV=production` (required for Vercel↔Render cross-domain auth — see `Backend/utils/generateToken.js`).
+- Render free tier sleeps after ~15 min idle; first request after wake takes 30–60 s (cold start). Surface this in the UI for prediction-heavy pages if user expectations require it.
+- The ML service authenticates backend calls via `X-ML-Service-Token` — keep `ML_SERVICE_TOKEN` long and rotate on suspected leak.
+
+A complete env var matrix (which platform each variable belongs to) is in [`docs/env-setup.md`](env-setup.md).

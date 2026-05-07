@@ -657,45 +657,61 @@ Open the frontend in your browser, log in. Open DevTools → Network tab. Outgoi
 
 ---
 
-## 6. ML / Python (`PYTHON_BIN`)
+## 6. ML service (`ML_SERVICE_URL`, `ML_SERVICE_TOKEN`, `ML_TIMEOUT_MS`)
 
-**Purpose:** Path to the Python executable used for heart/diabetes and symptom-disease prediction. The backend spawns Python as a subprocess.
-**Required?** Only if you want ML-backed predictions to work. Without it (or without Python installed), `/api/predict/*` and `/api/risk-prediction/analyze` return errors, but the rest of the app works.
+**Purpose:** Address and shared-secret for the standalone Python FastAPI inference service. The backend calls it over HTTP — there is no in-process Python anymore (see [ADR-0005](ADRs/0005-ml-http-service.md)).
+**Required?** Yes for `/api/predict/*` and `/api/risk-prediction/analyze` to work.
 **Where it's used:** [Backend/utils/mlPredictor.js](../Backend/utils/mlPredictor.js)
 
-The Python virtual environment setup itself is in [SETUP.md §ML Services](SETUP.md#ml-services). Once you've created the venv, set `PYTHON_BIN`:
+### Local development — two paths
 
-#### Find your Python executable path
+**Option A — run the FastAPI service locally** (full parity with prod):
 
 ```bash
-# Windows (PowerShell or CMD):
-where python
-
-# macOS / Linux:
-which python3
+cd "ML Services02"
+pip install -r requirements-dev.txt   # newer Python wheels available
+uvicorn app:app --port 8001
 ```
 
-Inside the project's venv, prefer the venv-scoped binary:
+In `Backend/.env`:
 
-| OS | Example value |
+```env
+ML_SERVICE_URL=http://localhost:8001
+ML_SERVICE_TOKEN=
+```
+
+A blank `ML_SERVICE_TOKEN` skips the auth check — fine for local dev.
+
+**Option B — point local backend at the deployed ML** (no Python install needed):
+
+```env
+ML_SERVICE_URL=https://healanceai-ml.onrender.com
+ML_SERVICE_TOKEN=<the same token configured on Render>
+```
+
+### Production
+
+| Variable | Value |
 |---|---|
-| Windows | `C:\Users\you\Desktop\Aaditya\HealanceAI-Orbit\ML Services\Heart&diabeties\.venv\Scripts\python.exe` |
-| macOS / Linux | `/Users/you/HealanceAI-Orbit/ML Services/Heart&diabeties/.venv/bin/python` |
-
-#### Step-by-step
-
-1. Open `Backend/.env`.
-2. Add or update:
-   ```env
-   PYTHON_BIN=C:\path\to\.venv\Scripts\python.exe
-   ```
-3. Save and restart the backend.
-
-> ℹ️ If unset, the backend defaults to `python` on Windows and `python3` on macOS/Linux — which works only if Python is on your `PATH` and points to the right interpreter.
+| `ML_SERVICE_URL` | `https://healanceai-ml.onrender.com` (set on Render backend env) |
+| `ML_SERVICE_TOKEN` | Long random string. **Must be identical** on both Render services. Generate with `openssl rand -hex 32` or PowerShell `[Convert]::ToHexString((1..32 \| %{ Get-Random -Max 256 }))`. |
+| `ML_TIMEOUT_MS` | Optional, default 25000 ms. Increase if Render free-tier cold starts cause client timeouts. |
 
 #### Verify it works
 
-Open `/dashboard/risk-prediction` in the frontend. Submit the form. A successful response shows risk scores within a few seconds. Errors mentioning `mlPredictor.js` in the backend logs usually mean `PYTHON_BIN` is wrong, the venv is missing dependencies, or the model files haven't been downloaded.
+```bash
+# Health probe (no auth required)
+curl https://healanceai-ml.onrender.com/health
+# → {"status":"ok","models_loaded":true}
+
+# A real prediction (requires the token)
+curl -X POST https://healanceai-ml.onrender.com/predict/heart-diabetes \
+  -H "Content-Type: application/json" \
+  -H "X-ML-Service-Token: <token>" \
+  -d '{"modelType":"diabetes","features":{"age":50,"glucose":180,"bmi":35}}'
+```
+
+A 401 means token mismatch; a 503 means the symptom artifact didn't load (check Render logs).
 
 ---
 

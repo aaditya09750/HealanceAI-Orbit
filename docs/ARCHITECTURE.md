@@ -7,9 +7,10 @@ This document describes the current runtime architecture and request/data flow o
 The platform is a multi-tier application:
 - Frontend SPA (`Frontend/`) for public pages and authenticated dashboard experiences
 - Backend API (`Backend/`) for auth, business logic, persistence, and integrations
-- Python ML scripts (`ML Services/`) called from backend process
+- Python ML inference service (`ML Services02/`, FastAPI) reached over HTTP
+- Legacy `ML Services/` retained for training scripts, datasets, and model artifacts (not invoked at runtime)
 
-No dedicated ML HTTP server exists; inference is subprocess-based.
+The backend talks to the ML service over HTTP. There is no in-process Python.
 
 ## 2. Backend Architecture
 
@@ -55,21 +56,29 @@ Primary route groups:
 
 ## 3.1 Bridge
 
-`Backend/utils/mlPredictor.js` spawns Python scripts and exchanges JSON over stdin/stdout.
+`Backend/utils/mlPredictor.js` calls the ML service over HTTP via the built-in `fetch`. It reads `ML_SERVICE_URL` and `ML_SERVICE_TOKEN` from env and routes by script-path basename so existing controller call sites do not change.
 
 Contracts:
-- Backend writes JSON payload to stdin
-- Python script returns a single JSON object to stdout
-- Non-zero exit or invalid JSON is treated as prediction failure
+- Backend POSTs a JSON payload (with `X-ML-Service-Token` header) to one of the ML endpoints
+- ML service returns a single JSON object
+- Non-2xx response or invalid JSON is treated as prediction failure
+- Configurable timeout (`ML_TIMEOUT_MS`, default 25 s) protects the request path
 
-## 3.2 Model Services
+## 3.2 ML Service
 
-- `ML Services/Heart&diabeties/predict.py`
-  - loads joblib model bundles
-  - predicts diabetes/heart classes and probabilities
-- `ML Services/Symtums_diseas/predict_symptom_disease.py`
-  - accepts symptom + optional contextual feature payload
-  - returns top predictions and disease detail payload
+`ML Services02/app.py` (FastAPI) loads model artifacts once at startup and exposes:
+- `GET /health` — readiness probe (returns `models_loaded` flag)
+- `POST /predict/heart-diabetes` — `{modelType, features}` for diabetes/heart classification
+- `POST /predict/symptom-disease` — `{features?, context?, symptoms?}` for symptom-to-disease prediction with top-K alternatives and structured details
+
+Inference helpers live alongside the entrypoint:
+- `ML Services02/heart_diabetes_predict.py` (joblib bundles, lazy-loaded)
+- `ML Services02/symptom_disease_predict.py` (44 MB pickle, loaded once at lifespan startup)
+- `ML Services02/models/` — `.joblib` and `.pkl` artifacts
+
+## 3.3 Training pipeline (out of band)
+
+Model training scripts and datasets remain in the original `ML Services/` directory and are not part of the runtime path. To retrain, run the relevant `train_*.py` there and copy the regenerated artifact into `ML Services02/models/`.
 
 ## 4. Frontend Architecture
 

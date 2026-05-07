@@ -1,8 +1,10 @@
 # ADR-0004: ML inference via Python subprocess, not HTTP microservice or Node-native runtime
 
-- **Status:** Accepted
+- **Status:** Superseded by [ADR-0005](0005-ml-http-service.md) on 2026-05-08
 - **Date:** 2026-04-25
 - **Deciders:** maintainers
+
+> The "Revisit when" criteria below were triggered by free-tier deployment constraints — Render's Node runtime ships no Python, and a 512 MB dyno can't safely host Node + xgboost + a 44 MB symptom-disease model in one process. The subprocess bridge has been replaced with an HTTP call to a separate Python web service.
 
 ## Context
 
