@@ -12,6 +12,9 @@ const OPEN_METEO_BASE_URL = 'https://api.open-meteo.com/v1/forecast';
 const OPEN_METEO_GEOCODE_URL = 'https://geocoding-api.open-meteo.com/v1/search';
 const OPEN_METEO_AIR_QUALITY_URL = 'https://air-quality-api.open-meteo.com/v1/air-quality';
 
+const FETCH_TIMEOUT_MS = Number(process.env.WEATHER_FETCH_TIMEOUT_MS || 20000);
+const FETCH_HEADERS = { 'User-Agent': 'HealanceAI/1.0 (+https://healance-ai-orbit.vercel.app)' };
+
 // @desc    Get health weather forecast
 // @route   GET /api/forecast
 // @access  Private
@@ -35,11 +38,17 @@ export const getHealthForecast = async (req, res) => {
 
     if (weatherApiKey && !weatherApiKey.startsWith('your-') && locationData) {
       try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
         const query = `lat=${locationData.lat}&lon=${locationData.lon}`;
         const response = await fetch(
-          `${weatherApiBaseUrl}/weather?${query}&appid=${weatherApiKey}&units=${weatherUnits}`
+          `${weatherApiBaseUrl}/weather?${query}&appid=${weatherApiKey}&units=${weatherUnits}`,
+          { signal: controller.signal, headers: FETCH_HEADERS }
         );
-        if (response.ok) {
+        clearTimeout(timeout);
+        if (!response.ok) {
+          console.log(`[forecast] OpenWeather returned ${response.status}, falling back`);
+        } else {
           const data = await response.json();
           weatherData = {
             temperature: data?.main?.temp,
@@ -48,20 +57,31 @@ export const getHealthForecast = async (req, res) => {
             windSpeed: data?.wind?.speed,
             location: data?.name || locationData.name,
           };
+          console.log('[forecast] OpenWeather succeeded');
         }
       } catch (err) {
-        console.log('OpenWeather API error, trying Open-Meteo:', err.message);
+        console.log('[forecast] OpenWeather error:', err.name, err.message);
       }
     }
 
     if (!weatherData && locationData) {
       try {
-        const response = await fetch(
-          `${OPEN_METEO_BASE_URL}?latitude=${locationData.lat}&longitude=${locationData.lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code,uv_index&timezone=auto`
-        );
-
-        if (response.ok) {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+        const url = `${OPEN_METEO_BASE_URL}?latitude=${locationData.lat}&longitude=${locationData.lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code,uv_index&timezone=auto`;
+        console.log('[forecast] Fetching Open-Meteo:', url);
+        const response = await fetch(url, { signal: controller.signal, headers: FETCH_HEADERS });
+        clearTimeout(timeout);
+        console.log(`[forecast] Open-Meteo status: ${response.status}`);
+        if (!response.ok) {
+          const text = await response.text();
+          console.log('[forecast] Open-Meteo non-OK body:', text.slice(0, 200));
+        } else {
           const data = await response.json();
+          console.log(
+            '[forecast] Open-Meteo current keys:',
+            Object.keys(data?.current || {})
+          );
           weatherData = {
             temperature: data?.current?.temperature_2m,
             humidity: data?.current?.relative_humidity_2m,
@@ -70,9 +90,10 @@ export const getHealthForecast = async (req, res) => {
             uvIndexValue: data?.current?.uv_index,
             location: locationData.name,
           };
+          console.log('[forecast] Open-Meteo weatherData:', JSON.stringify(weatherData));
         }
       } catch (err) {
-        console.log('Open-Meteo API error, using defaults:', err.message);
+        console.log('[forecast] Open-Meteo error:', err.name, err.message);
       }
     }
 
@@ -262,11 +283,17 @@ export const getWeeklyForecast = async (req, res) => {
       });
     }
 
-    const response = await fetch(
-      `${OPEN_METEO_BASE_URL}?latitude=${locationData.lat}&longitude=${locationData.lon}&daily=temperature_2m_max,temperature_2m_min,weather_code,relative_humidity_2m_mean,precipitation_probability_max,precipitation_sum&timezone=auto&forecast_days=7`
-    );
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+    const url = `${OPEN_METEO_BASE_URL}?latitude=${locationData.lat}&longitude=${locationData.lon}&daily=temperature_2m_max,temperature_2m_min,weather_code,relative_humidity_2m_mean,precipitation_probability_max,precipitation_sum&timezone=auto&forecast_days=7`;
+    console.log('[weekly] Fetching Open-Meteo:', url);
+    const response = await fetch(url, { signal: controller.signal, headers: FETCH_HEADERS });
+    clearTimeout(timeout);
+    console.log(`[weekly] Open-Meteo status: ${response.status}`);
 
     if (!response.ok) {
+      const text = await response.text();
+      console.log('[weekly] Open-Meteo non-OK body:', text.slice(0, 200));
       throw new Error('Unable to fetch weekly weather data');
     }
 
