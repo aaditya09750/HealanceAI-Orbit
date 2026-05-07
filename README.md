@@ -501,7 +501,7 @@ The dashboard AI Chatbot page is a full personal health assistant. All new integ
 
 - **Report Analysis:** Upload a medical report (PDF/DOCX) through the chat paperclip. The backend extracts text (`pdf-parse` / `mammoth`), sends it to Groq Llama 3.3 70B with a strict JSON schema, and returns a structured payload: `reportType`, `summary`, `keyFindings[]`, `flags[]`, `recommendedActions[]`, `suggestedMedications[]`, `suggestedSpecialists[]`. The frontend renders a `ReportSummaryCard` with action buttons (Explain medications / Find nearby specialist).
 - **Medicine Explanation:** Any drug name is enriched with openFDA label fields (uses, dosage, side effects, warnings, interactions, contraindications) + RxNav drug class. `fdaTextCleaner.js` strips FDA cross-references like `[see Warnings and Precautions (5.1)]`, section prefixes, and duplicate sentences. Interactions are keyword-matched against the logged-in user's `profile.medications` and a red banner is shown for any hit.
-- **Nearby Specialists:** A seeded `Doctor` MongoDB collection (2dsphere index) is queried by `$geoNear`. If fewer than 4 seeded doctors match in the radius, OpenStreetMap Overpass is queried for `amenity=hospital|clinic|doctors`. Results are merged and rendered in a `DoctorGrid` with Call / Map / Book action buttons. Location comes from browser geolocation or a manual city input (geocoded via Open-Meteo).
+- **Nearby Specialists:** A seeded `Doctor` MongoDB collection (758 records across 21 Indian metros, 32 specialties, 2dsphere indexed) is queried by `$geoNear`. Suburb names (e.g. Dombivali, Whitefield, Pimpri-Chinchwad) and GPS coordinates within 50 km of a major metro are snapped to the parent metro via a city alias map for accurate results. If fewer than 4 seeded doctors match and the location is not metro-resolved, OpenStreetMap Overpass is queried for `amenity=hospital|clinic|doctors` as a fallback. Results are merged and rendered in a `DoctorGrid` with Call / Map / Book action buttons. Location comes from browser geolocation or a manual city input (geocoded via Open-Meteo).
 
 ### Free data sources (no API key required)
 
@@ -521,7 +521,7 @@ cd Backend
 node seeds/seedDoctors.js
 ```
 
-Seeds ~25 curated specialists across Mumbai, Delhi, Bengaluru, Pune, Chennai, and Hyderabad. Idempotent — safe to re-run.
+Seeds 758 doctors across 21 Indian metros covering 32 specialties (25 curated + 565 high-volume + 288 niche super-specialties such as neurosurgeon, oncologist, plastic surgeon). Loads `Backend/data/generatedDoctors.json` and `Backend/data/nicheDoctors.json` alongside the inline curated set. Idempotent — safe to re-run.
 
 ---
 

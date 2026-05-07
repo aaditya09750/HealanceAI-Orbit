@@ -21,7 +21,7 @@ Backend API for Healance AI, built with Express and MongoDB. It powers authentic
 - Health data tracking and dashboard stats APIs
 - Dashboard aggregator: composite health score, streak counter, next-action picker, multi-metric trends series, and LLM-backed Smart Insights with in-memory cache and rule-based fallback
 - AI health assistant and medicine information chatbot
-- AI Personal Health Assistant: PDF/DOCX report analysis (Groq Llama 3.3), medicine explanation with drug-drug interaction checks (openFDA + NIH RxNav), nearby specialist lookup (seeded doctors + OpenStreetMap Overpass)
+- AI Personal Health Assistant: PDF/DOCX report analysis (Groq Llama 3.3), medicine explanation with drug-drug interaction checks (openFDA + NIH RxNav), nearby specialist lookup over 758 seeded doctors with metro alias resolver + OpenStreetMap Overpass fallback
 - Risk analysis and recommendation APIs
 - Python ML integration for heart/diabetes and symptom-disease predictions
 - Body Explorer catalog: 34 parts across 12 systems with search, system filter, gender filter, and systems-meta endpoint
@@ -94,9 +94,16 @@ Backend/
 |   +-- dashboardRoutes.js
 |   +-- bodyExplorerRoutes.js
 |   +-- ...
++-- data/
+|   +-- allowedDiseases.json
+|   +-- cityAliases.json              (metro centers + suburb -> metro aliases)
+|   +-- generatedDoctors.json         (565 high-volume specialty records)
+|   +-- nicheDoctors.json             (288 niche-specialty records)
+|   +-- symptomFollowUps.js
 +-- seeds/
 |   +-- seedData.js
 |   +-- seedDoctors.js
+|   +-- generateNicheDoctorsLocal.js  (regenerates nicheDoctors.json, no LLM)
 +-- tests/
 |   +-- testFdaApi.js
 +-- utils/
@@ -107,7 +114,7 @@ Backend/
 |   +-- groqClient.js
 |   +-- rxNavApi.js
 |   +-- osmOverpass.js
-|   +-- geocode.js
+|   +-- geocode.js                    (alias-aware city resolver + GPS metro snap)
 |   +-- generateToken.js
 |   +-- sendEmail.js
 +-- .env.example
@@ -304,7 +311,7 @@ Base URL: `http://localhost:5000/api`
 | DELETE | `/chatbot/sessions/:sessionId` | Protected | Delete one chat session |
 | POST | `/chatbot/analyze-report/:reportId` | Protected | Extract text + run Groq structured analysis on an uploaded report |
 | POST | `/chatbot/explain-medicine` | Protected | Enrich a drug with openFDA label + RxNav class + interaction check vs `userMedications` |
-| POST | `/chatbot/nearby-doctors` | Protected | `$geoNear` seeded doctors; OSM Overpass fallback when under the threshold |
+| POST | `/chatbot/nearby-doctors` | Protected | `$geoNear` over 758 seeded doctors with metro alias resolver (suburb names + GPS coords snap to nearest metro within 50 km); OSM Overpass fallback when off-metro |
 | POST | `/chatbot/geocode` | Protected | Resolve a city name to `{lat, lon, name}` via Open-Meteo |
 
 ### Dashboard
@@ -730,7 +737,13 @@ This seeds:
 node seeds/seedDoctors.js
 ```
 
-Seeds ~25 curated specialists across Mumbai, Delhi, Bengaluru, Pune, Chennai, and Hyderabad with 2dsphere-indexed locations. Idempotent — safe to re-run.
+Seeds 758 doctors across 21 Indian metros covering 32 specialties (25 curated + 565 high-volume + 288 niche super-specialties). Loads `data/generatedDoctors.json` and `data/nicheDoctors.json` in addition to the inline curated set. 2dsphere-indexed locations. Idempotent — safe to re-run.
+
+To regenerate the niche-specialty dataset locally (no LLM, deterministic):
+
+```bash
+node seeds/generateNicheDoctorsLocal.js
+```
 
 ### Test Medicine API Integration
 
