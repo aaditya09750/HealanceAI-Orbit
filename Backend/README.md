@@ -199,8 +199,11 @@ From `Backend/.env.example`:
 | `TWILIO_AUTH_TOKEN` | No | `your_twilio_auth_token` | Twilio auth token |
 | `TWILIO_PHONE_NUMBER` | No | `+12345678900` | Twilio sender number |
 | `PYTHON_BIN` | No | `python` (Windows) / `python3` (Unix) | Python executable path override for ML scripts |
-| `MAX_FILE_SIZE` | No | `10485760` | Upload size limit in bytes |
-| `UPLOAD_PATH` | No | `./uploads` | Upload path reference |
+| `CLOUDINARY_URL` | Yes for uploads | `cloudinary://<key>:<secret>@<cloud>` | Single-string credentials for Cloudinary file storage (medical reports, avatars, ticket attachments). Alternative: set the three `CLOUDINARY_*` vars below. |
+| `CLOUDINARY_CLOUD_NAME` | No (alt to URL) | `dvq1kiwqn` | Cloudinary cloud name |
+| `CLOUDINARY_API_KEY` | No (alt to URL) | `892178974735352` | Cloudinary API key |
+| `CLOUDINARY_API_SECRET` | No (alt to URL) | `xxxxxxxxxxxxxxxxxxxxxxxxxxx` | Cloudinary API secret |
+| `MAX_FILE_SIZE` | No | `10485760` | Upload size limit in bytes (Multer enforces) |
 
 ---
 
@@ -692,17 +695,20 @@ curl -X POST http://localhost:5000/api/health-data/reports \
 
 ## File Uploads
 
-Upload middleware supports:
+Upload middleware streams files to **Cloudinary** via `multer-storage-cloudinary`. After upload, `req.file.path` is the Cloudinary HTTPS URL (saved in DB as the file path) and `req.file.filename` is the Cloudinary public_id.
+
+Supported types:
 
 - JPEG, PNG, GIF, SVG images
-- PDF
-- DOC, DOCX
+- PDF (Cloudinary auto-resource type — gets previews + transformations)
+- DOC, DOCX (stored as Cloudinary `raw` resource — opaque storage, no previews)
 
 Limits:
 
-- max size: `MAX_FILE_SIZE` (default 10MB)
+- max size: `MAX_FILE_SIZE` (default 10 MB)
 - support ticket attachments: max 5 files
-- upload directory: `Backend/uploads` (served as `/uploads/*`)
+
+Read-side compatibility: `utils/textExtractor.js` fetches HTTPS URLs via `fetch()` and falls back to local-disk reads for any legacy `/uploads/*` paths still in the DB. The `Backend/uploads/` directory and the static `/uploads/*` route remain mounted only for that backwards compatibility — new uploads no longer touch local disk.
 
 ---
 

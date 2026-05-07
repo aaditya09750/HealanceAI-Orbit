@@ -22,12 +22,9 @@ import { analyzeReport as llmAnalyze, isGroqAvailable as isLLMAvailable } from '
 const __filename = fileURLToPath(import.meta.url);
 const backendRoot = path.join(path.dirname(__filename), '..');
 
-// The uploads directory (honours UPLOAD_PATH env var if set)
-const uploadsDir = (() => {
-  const configured = process.env.UPLOAD_PATH?.trim();
-  if (!configured) return path.join(backendRoot, 'uploads');
-  return path.isAbsolute(configured) ? configured : path.join(backendRoot, configured);
-})();
+// Legacy local uploads dir — only used to find files saved BEFORE the
+// Cloudinary migration. New uploads live on Cloudinary and bypass this.
+const uploadsDir = path.join(backendRoot, 'uploads');
 
 const DISCLAIMER =
   'AI-generated analysis for educational purposes only. This is not a medical diagnosis. Please consult a qualified healthcare professional before making any medical decisions.';
@@ -223,22 +220,23 @@ function resolveReportFilePath(report) {
   const stored = report.file?.path;
   const filename = report.file?.filename;
 
+  // Cloudinary URLs (or any HTTPS-hosted file) pass through as-is. The text
+  // extractor handles fetching. No local-disk lookup attempted.
+  if (stored && /^https?:\/\//i.test(stored)) {
+    return stored;
+  }
+
+  // Legacy local-disk reports (pre-Cloudinary migration). Try a few candidates.
   const candidates = [];
 
-  // Try the filename directly inside the uploads dir (most reliable)
   if (filename) {
     candidates.push(path.join(uploadsDir, filename));
   }
 
   if (stored) {
-    // Absolute path stored? try as-is
     if (path.isAbsolute(stored)) candidates.push(stored);
-
-    // Stored as `/uploads/xxx.pdf` or `uploads/xxx.pdf` — map to backend root
     const cleaned = stored.replace(/^[\\/]+/, '');
     candidates.push(path.join(backendRoot, cleaned));
-
-    // Fallback: just the basename dropped into uploadsDir
     candidates.push(path.join(uploadsDir, path.basename(stored)));
   }
 
@@ -250,7 +248,6 @@ function resolveReportFilePath(report) {
     }
   }
 
-  // Log what we tried to aid debugging
   console.error('[reportAnalyzer] file not found. Tried paths:', candidates);
   return null;
 }

@@ -149,8 +149,8 @@ export const uploadReport = async (req, res) => {
       title: req.body.title || 'Medical Report',
       type: req.body.type || 'general',
       file: {
-        filename: req.file.filename,
-        path: `/uploads/${req.file.filename}`,
+        filename: req.file.originalname || req.file.filename,
+        path: req.file.path, // Cloudinary HTTPS URL
         mimetype: req.file.mimetype,
         size: req.file.size,
       },
@@ -162,7 +162,13 @@ export const uploadReport = async (req, res) => {
 
     res.status(201).json({ success: true, report });
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    console.error('[uploadReport] failed:', error);
+    if (error?.stack) console.error(error.stack);
+    const message =
+      error?.message ||
+      error?.error?.message ||
+      (typeof error === 'string' ? error : 'Upload failed');
+    res.status(500).json({ success: false, message, name: error?.name });
   }
 };
 

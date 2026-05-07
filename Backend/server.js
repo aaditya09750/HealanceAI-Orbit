@@ -1,9 +1,12 @@
+// Load env vars FIRST — must happen before any other module that reads
+// process.env at import time (e.g. uploadMiddleware → cloudinary.config()).
+// ES modules hoist all imports, so the only reliable way is dotenv/config.
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
-import dotenv from 'dotenv';
 import rateLimit from 'express-rate-limit';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -27,8 +30,6 @@ import whatsappRoutes from './routes/whatsappRoutes.js';
 import smsRoutes from './routes/smsRoutes.js';
 import predictRoutes from './routes/predictRoutes.js';
 import dashboardRoutes from './routes/dashboardRoutes.js';
-
-dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

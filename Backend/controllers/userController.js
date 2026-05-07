@@ -40,12 +40,15 @@ export const uploadProfileAvatar = async (req, res) => {
 
     const user = await User.findById(req.user._id);
     const previousAvatar = user.avatar;
-    const avatarPath = `/uploads/${req.file.filename}`;
+    // req.file.path is now a Cloudinary HTTPS URL (multer-storage-cloudinary).
+    const avatarPath = req.file.path;
     user.avatar = avatarPath;
 
     const updatedUser = await user.save();
 
-    // Delete previous local upload file after successful avatar update.
+    // Backwards-compat: clean up legacy local-disk avatars if any user still has one.
+    // Cloudinary-hosted avatars are not deleted here (would need cloudinary.uploader.destroy
+    // with the public_id; deferred since avatars rarely churn).
     if (previousAvatar && previousAvatar.startsWith('/uploads/') && previousAvatar !== avatarPath) {
       const previousFileName = path.basename(previousAvatar);
       const previousFilePath = path.join(backendRoot, 'uploads', previousFileName);
@@ -53,7 +56,6 @@ export const uploadProfileAvatar = async (req, res) => {
       try {
         await fs.promises.unlink(previousFilePath);
       } catch (unlinkError) {
-        // Ignore missing-file errors to avoid blocking successful profile updates.
         if (unlinkError.code !== 'ENOENT') {
           console.warn(`Failed to delete old avatar: ${previousFilePath}`, unlinkError.message);
         }

@@ -254,6 +254,9 @@ WHATSAPP_PHONE_NUMBER_ID=your-whatsapp-phone-number-id
 TWILIO_ACCOUNT_SID=your_twilio_account_sid
 TWILIO_AUTH_TOKEN=your_twilio_auth_token
 TWILIO_PHONE_NUMBER=+12345678900
+
+# Cloudinary (file uploads — medical reports, avatars, ticket attachments)
+CLOUDINARY_URL=cloudinary://your_api_key:your_api_secret@your_cloud_name
 ```
 
 ### Frontend Setup

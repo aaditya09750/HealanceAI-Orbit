@@ -13,17 +13,34 @@ const require = createRequire(import.meta.url);
 // Dynamic-import inside the function so test suites that don't touch
 // extraction don't have to resolve pdf-parse (it eagerly reads a sample
 // file on import and throws in some CI environments).
+//
+// `filePath` may be:
+//   - a Cloudinary HTTPS URL (current upload path)
+//   - a local absolute or relative path (legacy uploads pre-Cloudinary)
+async function readBufferFromSource(source) {
+  if (typeof source === 'string' && /^https?:\/\//i.test(source)) {
+    const res = await fetch(source);
+    if (!res.ok) {
+      throw new Error(`Remote fetch ${res.status}: ${source}`);
+    }
+    return Buffer.from(await res.arrayBuffer());
+  }
+  const absolutePath = path.resolve(source);
+  if (!fs.existsSync(absolutePath)) {
+    const err = new Error('file-missing');
+    err.code = 'FILE_MISSING';
+    throw err;
+  }
+  return fs.readFileSync(absolutePath);
+}
+
 export async function extractText(filePath, mimetype = '') {
   if (!filePath) {
     return { ok: false, reason: 'no-file', text: '' };
   }
 
-  const absolutePath = path.resolve(filePath);
-  if (!fs.existsSync(absolutePath)) {
-    return { ok: false, reason: 'file-missing', text: '' };
-  }
-
-  const ext = path.extname(absolutePath).toLowerCase();
+  const isRemote = /^https?:\/\//i.test(filePath);
+  const ext = path.extname(isRemote ? new URL(filePath).pathname : filePath).toLowerCase();
   const mime = (mimetype || '').toLowerCase();
   const isPdf = mime.includes('pdf') || ext === '.pdf';
   const isDocx = mime.includes('officedocument.wordprocessingml') || ext === '.docx';
@@ -48,10 +65,11 @@ export async function extractText(filePath, mimetype = '') {
   }
 
   try {
+    const dataBuffer = await readBufferFromSource(filePath);
+
     if (isPdf) {
       // Use CJS require from ESM so pdf-parse initializes in normal module mode.
       const pdfParse = require('pdf-parse');
-      const dataBuffer = fs.readFileSync(absolutePath);
       const result = await pdfParse(dataBuffer);
       const text = (result?.text || '').trim();
       if (text.length < 20) {
@@ -62,7 +80,7 @@ export async function extractText(filePath, mimetype = '') {
 
     if (isDocx) {
       const mammoth = await import('mammoth');
-      const result = await mammoth.extractRawText({ path: absolutePath });
+      const result = await mammoth.extractRawText({ buffer: dataBuffer });
       const text = (result.value || '').trim();
       if (text.length < 20) {
         return { ok: false, reason: 'empty-text', text: '' };
@@ -72,6 +90,9 @@ export async function extractText(filePath, mimetype = '') {
 
     return { ok: false, reason: 'unsupported-type', text: '' };
   } catch (err) {
+    if (err?.code === 'FILE_MISSING') {
+      return { ok: false, reason: 'file-missing', text: '' };
+    }
     const message = String(err?.message || '').toLowerCase();
     let reason = 'extraction-error';
 

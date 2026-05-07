@@ -81,7 +81,7 @@ Operators deploying this project should:
 - Restrict `CLIENT_URL` to the exact frontend origin (no wildcards).
 - Monitor the `/api/auth/*` rate limiter and lower `AUTH_RATE_LIMIT_MAX` if
   you see brute-force traffic.
-- Review uploaded files on a schedule and clear stale `Backend/uploads/`.
+- Review uploaded files on a schedule via the Cloudinary Media Library (`healance/uploads/` folder) and remove stale assets to control quota usage.
 
 ---
 

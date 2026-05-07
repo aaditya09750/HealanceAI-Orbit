@@ -214,8 +214,8 @@ curl -X PUT http://localhost:5000/api/users/profile \
 - **Auth:** protected
 - **Purpose:** Upload an avatar image (multer; image MIME types only; 10 MB cap).
 - **Request body:** multipart/form-data with field `avatar`.
-- **Response (200):** `{ success: true, user, avatar: "/uploads/<filename>" }`
-- **Side effects:** Writes file under `Backend/uploads/`. Deletes the previous local avatar if any.
+- **Response (200):** `{ success: true, user, avatar: "https://res.cloudinary.com/<cloud>/image/upload/.../healance/uploads/avatar-<id>" }`
+- **Side effects:** Streams the file to Cloudinary (`healance/uploads/` folder). Cleans up legacy local-disk avatars if a previous `/uploads/*` value is still in the user document.
 
 ```bash
 curl -X POST http://localhost:5000/api/users/profile/avatar \
@@ -958,6 +958,6 @@ curl http://localhost:5000/api/dashboard/insights -b cookies.txt
 ## Notes for consumers
 
 - All list endpoints sort by `createdAt` descending unless documented otherwise.
-- File uploads use `multer` with a 10 MB cap. Allowed MIME types vary per endpoint; check the controller for details.
+- File uploads use `multer` + `multer-storage-cloudinary` with a 10 MB cap. Files stream to Cloudinary; the saved `path` is a Cloudinary HTTPS URL. Allowed MIME types vary per endpoint; check the controller for details.
 - `userMedications` (medicine-explainer), `bookmarkedBlogs` (user), and `medicalConditions` / `medications` (profile) are arrays of free-form strings persisted on the User document.
 - The frontend's axios instance ([Frontend/src/services/api.js](../Frontend/src/services/api.js)) automatically retries `429` with backoff and refreshes on `401`. Server-side, the global rate limiter keys on IP and is in-memory (single-instance only).

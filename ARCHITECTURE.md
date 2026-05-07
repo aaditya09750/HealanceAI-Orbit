@@ -306,7 +306,7 @@ State management is intentionally minimal: two contexts (`AuthContext`, `HealthD
 - **No shared schemas between client and server.** Type drift is detected at runtime, not compile time. See [ADR-0002](docs/ADRs/0002-no-shared-schemas-package.md).
 - **Implicit Python working directory.** `mlPredictor.js` inherits the Node cwd when spawning Python; relative paths inside Python scripts must account for this.
 - **In-memory caches (Groq prompts, Overpass results, RxNav lookups).** Lost on process restart; not shared across instances.
-- **Local file uploads.** `multer` writes to `./uploads`. No object-storage abstraction; deploying behind multiple instances requires a shared volume or a refactor.
+- **No HIPAA-grade upload pipeline.** Uploads now stream to Cloudinary via `multer-storage-cloudinary` (medical reports, avatars, ticket attachments), so files survive redeploys and scale horizontally. Cloudinary's free tier is **not HIPAA-compliant** — for real PHI, swap to AWS S3 with a signed BAA. The static `/uploads/*` route remains mounted for legacy local files only.
 
 ---
 
@@ -314,7 +314,7 @@ State management is intentionally minimal: two contexts (`AuthContext`, `HealthD
 
 These are not commitments — they are the natural next steps the architecture leaves room for:
 
-- **Object storage** for uploads (S3 / R2) when running more than one backend instance.
+- **HIPAA-grade upload storage** (AWS S3 with BAA) when handling real protected health information; current Cloudinary tier is fine for dev/MVP but not regulated PHI.
 - **Redis** for the rate limiter, session blacklist, and Groq prompt cache.
 - **OpenAPI generation** from the existing `docs/API.md` once a routing-time schema layer is introduced.
 - **TypeScript** on either tier — deferred today to keep the doc-only pass zero-touch (see [ADR-0002](docs/ADRs/0002-no-shared-schemas-package.md)).

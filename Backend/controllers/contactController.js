@@ -127,11 +127,11 @@ export const submitSupportTicket = async (req, res) => {
       message,
     };
 
-    // Handle file attachments
+    // Handle file attachments. file.path is now a Cloudinary HTTPS URL.
     if (req.files && req.files.length > 0) {
       ticketData.attachments = req.files.map((file) => ({
         filename: file.originalname,
-        path: `/uploads/${file.filename}`,
+        path: file.path,
         mimetype: file.mimetype,
       }));
     }

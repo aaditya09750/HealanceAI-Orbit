@@ -558,6 +558,57 @@ You should receive a WhatsApp message with the OTP. If not:
 
 ---
 
+### Cloudinary — `CLOUDINARY_URL`
+
+**Purpose:** Stores user-uploaded files (medical reports, profile avatars, support ticket attachments) in Cloudinary instead of the local `Backend/uploads/` directory. Required because hosts like Render and Heroku have ephemeral filesystems — local uploads disappear on every redeploy.
+**Required?** Yes if you want uploads to survive deployments. Without it, the upload middleware will throw on every upload attempt.
+**Where it's used:** [Backend/middleware/uploadMiddleware.js](../Backend/middleware/uploadMiddleware.js) (Cloudinary storage adapter), [Backend/utils/textExtractor.js](../Backend/utils/textExtractor.js) (fetches the URL when Groq analyzes a report).
+**Cost:** Free tier — 25 monthly credits (≈ 25 GB storage + 25 GB bandwidth). No credit card required.
+
+#### Step-by-step
+
+1. Open https://cloudinary.com/users/register/free.
+2. Sign up — email + password is enough; no credit card.
+3. Verify your email when Cloudinary mails you the link.
+4. You land on the **Dashboard**. Note the **Cloud name** in the top-left "Product Environment" card (e.g. `dvq1kiwqn`).
+5. Click **Go to API Keys** (top-right of that card).
+6. The API Keys page shows three values:
+   - **Cloud name** — already known
+   - **API Key** — a 15-digit number
+   - **API Secret** — click **Reveal** to show it. Treat this like a database password.
+7. Cloudinary also prints a single-string `CLOUDINARY_URL=cloudinary://...` on the same page. Copy that.
+8. Paste in `Backend/.env`:
+   ```env
+   CLOUDINARY_URL=cloudinary://your_api_key:your_api_secret@your_cloud_name
+   ```
+9. Save and restart the backend (`rs` in nodemon, or Ctrl+C then `npm run dev`).
+
+> ℹ️ **Single string vs three vars:** the SDK accepts either format. `CLOUDINARY_URL` is the recommended one because it's a single secret to manage. If you prefer split vars, use `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` instead — don't set both.
+
+#### Verify it works
+
+Upload a small PDF as a medical report from the frontend, then:
+
+1. Open https://console.cloudinary.com/console/media_library
+2. Look in the `healance/uploads/` folder
+3. Your file should appear there with a public URL
+
+Or via curl (requires a valid auth token):
+
+```bash
+curl -X POST http://localhost:5000/api/health-data/reports \
+  -H "Authorization: Bearer <jwt>" \
+  -F "report=@sample.pdf" \
+  -F "title=Test report" \
+  -F "type=blood_test"
+```
+
+Inspect the response — the saved report's `file.path` should be a `https://res.cloudinary.com/...` URL.
+
+If you see `Must supply api_key` in the backend logs → `CLOUDINARY_URL` isn't loaded. Re-check `.env` formatting (no spaces, no quotes around the URL) and restart.
+
+---
+
 ## 4. Variables with safe defaults
 
 You can leave all of these as-is unless you have a specific reason to change them.
@@ -569,7 +620,6 @@ You can leave all of these as-is unless you have a specific reason to change the
 | `JWT_REFRESH_EXPIRE` | `30d` | Decrease for stricter security (e.g. `7d`). |
 | `WEATHER_API_BASE_URL` | `https://api.openweathermap.org/data/2.5` | Don't change unless you're proxying OpenWeather. |
 | `WEATHER_UNITS` | `metric` | Set `imperial` for Fahrenheit. |
-| `UPLOAD_PATH` | `./uploads` | Use an absolute path on production servers. |
 | `MAX_FILE_SIZE` | `10485760` (10 MB) | Increase for larger medical reports — note: Multer enforces this. |
 | `API_RATE_LIMIT_MAX` | `1200` per 15 min | Raise for larger production traffic. |
 | `AUTH_RATE_LIMIT_MAX` | `60` per 15 min | Lower for stricter abuse protection; only raise during testing. |
@@ -700,9 +750,9 @@ TWILIO_ACCOUNT_SID=ACabc123...
 TWILIO_AUTH_TOKEN=def456...
 TWILIO_PHONE_NUMBER=+15551234567
 
-# ─── File uploads ──────────────────────────────────────
+# ─── File uploads (Cloudinary) ─────────────────────────
+CLOUDINARY_URL=cloudinary://your_api_key:your_api_secret@your_cloud_name
 MAX_FILE_SIZE=10485760
-UPLOAD_PATH=./uploads
 
 # ─── ML / Python ───────────────────────────────────────
 PYTHON_BIN=C:\path\to\.venv\Scripts\python.exe

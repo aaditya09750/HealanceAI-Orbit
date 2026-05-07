@@ -7,6 +7,12 @@ export const notFound = (req, res, next) => {
 };
 
 export const errorHandler = (err, req, res, next) => {
+  // Log the error so middleware-level failures (multer, multer-storage-cloudinary, etc.)
+  // are visible in the terminal — without this, errors thrown before route controllers
+  // are silently swallowed and the response is just { success: false }.
+  console.error(`[errorHandler] ${req.method} ${req.originalUrl}:`, err);
+  if (err?.stack) console.error(err.stack);
+
   let statusCode = res.statusCode === 200 ? 500 : res.statusCode;
   let message = err.message;
 

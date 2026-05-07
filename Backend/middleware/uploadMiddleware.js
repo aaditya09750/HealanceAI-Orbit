@@ -1,43 +1,58 @@
+/**
+ * Upload middleware — streams files to Cloudinary instead of local disk.
+ *
+ * Cloudinary auto-reads credentials from env in this order:
+ *   1. CLOUDINARY_URL=cloudinary://<api_key>:<api_secret>@<cloud_name>
+ *   2. CLOUDINARY_CLOUD_NAME + CLOUDINARY_API_KEY + CLOUDINARY_API_SECRET
+ *
+ * After upload:
+ *   req.file.path     → Cloudinary HTTPS URL (saved in DB as the file path)
+ *   req.file.filename → Cloudinary public_id ("healance/uploads/<id>")
+ *   req.file.size     → bytes
+ *   req.file.mimetype → original mime
+ *
+ * Local disk uploads are no longer used. Backwards compatibility for
+ * already-stored local paths is handled at the read sites
+ * (textExtractor.js, reportAnalyzer.js).
+ */
+
 import multer from 'multer';
-import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { v2 as cloudinary } from 'cloudinary';
+import { CloudinaryStorage } from 'multer-storage-cloudinary';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// Cloudinary v1 SDK only auto-detects CLOUDINARY_URL, not the three split
+// vars. Read both formats so devs can use whichever they prefer in .env.
+if (process.env.CLOUDINARY_URL) {
+  // Auto-parsed by the SDK from the URL.
+  cloudinary.config();
+} else {
+  cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+    secure: true,
+  });
+}
 
-const backendRoot = path.join(__dirname, '..');
-
-const resolveUploadPath = () => {
-  const configuredPath = process.env.UPLOAD_PATH?.trim();
-
-  if (!configuredPath) {
-    return path.join(backendRoot, 'uploads');
-  }
-
-  return path.isAbsolute(configuredPath) ? configuredPath : path.join(backendRoot, configuredPath);
-};
-
-const ensureUploadDirectory = (uploadPath) => {
-  if (!fs.existsSync(uploadPath)) {
-    fs.mkdirSync(uploadPath, { recursive: true });
-  }
-};
-
-// Configure storage
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    const uploadPath = resolveUploadPath();
-    ensureUploadDirectory(uploadPath);
-    cb(null, uploadPath);
-  },
-  filename: function (req, file, cb) {
-    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
-    cb(null, `${file.fieldname}-${uniqueSuffix}${path.extname(file.originalname)}`);
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: async (req, file) => {
+    const ext = path.extname(file.originalname).toLowerCase().replace('.', '');
+    const isImage = file.mimetype.startsWith('image/');
+    const isPdf = file.mimetype === 'application/pdf';
+    // 'auto' → image/video/raw chosen per file (PDFs get previews, images get optimization).
+    // 'raw'  → DOCX/DOC → stored as opaque files, no transformations.
+    const resourceType = isImage || isPdf ? 'auto' : 'raw';
+    return {
+      folder: 'healance/uploads',
+      resource_type: resourceType,
+      public_id: `${file.fieldname}-${Date.now()}-${Math.round(Math.random() * 1e9)}`,
+      format: ext || undefined,
+    };
   },
 });
 
-// File filter
 const fileFilter = (req, file, cb) => {
   const allowedTypes = [
     'image/jpeg',
@@ -56,12 +71,11 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-// Upload middleware
 export const upload = multer({
   storage,
   fileFilter,
   limits: {
-    fileSize: parseInt(process.env.MAX_FILE_SIZE) || 10 * 1024 * 1024, // 10MB default
+    fileSize: parseInt(process.env.MAX_FILE_SIZE, 10) || 10 * 1024 * 1024, // 10MB default
   },
 });
 
