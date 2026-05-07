@@ -1,0 +1,242 @@
+{
+  "Arthritis": {
+    "description": "Arthritis is a medical condition that affects the body and may require proper diagnosis and treatment.",
+    "diets": [],
+    "workouts": [],
+    "precautions": [
+      "Avoid crowded places",
+      "Drink plenty of fluids",
+      "Follow healthy diet",
+      "Take prescribed medicines"
+    ],
+    "medications": [],
+    "riskFactors": [
+      "Family history",
+      "Previous joint injury",
+      "older age",
+      "being woman",
+      "obesity"
+    ]
+  },
+  "Asthma": {
+    "description": "Asthma is a medical condition that affects the body and may require proper diagnosis and treatment.",
+    "diets": [
+      "Anti-inflammatory foods (blueberries, kale, turmeric)",
+      "Magnesium-rich foods (pumpkin seeds, spinach)",
+      "Omega-3s (wild salmon, chia seeds)",
+      "Avoid dairy if sensitive",
+      "Vitamin D-rich foods (egg yolks, fortified milk)"
+    ],
+    "workouts": [
+      "Breathing exercises: Improve lung function",
+      "Yoga: Combines breathing and movement",
+      "Swimming: Low-impact cardio good for lungs",
+      "Avoid strenuous workouts during flare-ups: Prevent attacks"
+    ],
+    "precautions": [
+      "Monitor health regularly",
+      "Maintain hygiene",
+      "Take prescribed medicines",
+      "Follow healthy diet"
+    ],
+    "medications": [
+      "Inhaled corticosteroids (e.g., Fluticasone)",
+      "Beta-agonists (e.g., Albuterol)",
+      "Leukotriene modifiers (e.g., Montelukast)",
+      "Anticholinergics (e.g., Ipratropium)",
+      "Omalizumab"
+    ],
+    "riskFactors": [
+      "Wheezing when exhaling",
+      "Shortness of breath",
+      "Chest tightness or pain."
+    ]
+  },
+  "COVID-19": {
+    "description": "COVID-19 is a medical condition that affects the body and may require proper diagnosis and treatment.",
+    "diets": [],
+    "workouts": [],
+    "precautions": [
+      "Follow healthy diet",
+      "Consult a doctor",
+      "Avoid crowded places",
+      "Drink plenty of fluids"
+    ],
+    "medications": [],
+    "riskFactors": []
+  },
+  "Chickenpox": {
+    "description": "Chickenpox is a medical condition that affects the body and may require proper diagnosis and treatment.",
+    "diets": [],
+    "workouts": [],
+    "precautions": [
+      "Follow healthy diet",
+      "Monitor health regularly",
+      "Avoid junk food",
+      "Consult a doctor"
+    ],
+    "medications": [],
+    "riskFactors": []
+  },
+  "Cold": {
+    "description": "Cold is a medical condition that affects the body and may require proper diagnosis and treatment.",
+    "diets": [],
+    "workouts": [],
+    "precautions": [
+      "Exercise regularly",
+      "Drink plenty of fluids",
+      "Take proper rest",
+      "Avoid junk food"
+    ],
+    "medications": [],
+    "riskFactors": []
+  },
+  "Dengue": {
+    "description": "Dengue is a medical condition that affects the body and may require proper diagnosis and treatment.",
+    "diets": [],
+    "workouts": [],
+    "precautions": [
+      "Consult a doctor",
+      "Follow healthy diet",
+      "Monitor health regularly",
+      "Take prescribed medicines"
+    ],
+    "medications": [],
+    "riskFactors": [
+      "Living or traveling in tropical areas",
+      "Prior infection with a dengue fever virus"
+    ]
+  },
+  "Diabetes": {
+    "description": "Diabetes is a medical condition that affects the body and may require proper diagnosis and treatment.",
+    "diets": [],
+    "workouts": [],
+    "precautions": [
+      "Take proper rest",
+      "Consult a doctor",
+      "Drink plenty of fluids",
+      "Maintain hygiene"
+    ],
+    "medications": [],
+    "riskFactors": [
+      "coronary artery disease with chest pain",
+      "heart attack",
+      "stroke and narrowing of arteries"
+    ]
+  },
+  "Flu": {
+    "description": "Flu is a medical condition that affects the body and may require proper diagnosis and treatment.",
+    "diets": [],
+    "workouts": [],
+    "precautions": [
+      "Consult a doctor",
+      "Take prescribed medicines",
+      "Avoid junk food",
+      "Follow healthy diet"
+    ],
+    "medications": [],
+    "riskFactors": []
+  },
+  "Food Poisoning": {
+    "description": "Food Poisoning is a medical condition that affects the body and may require proper diagnosis and treatment.",
+    "diets": [],
+    "workouts": [],
+    "precautions": [
+      "Drink plenty of fluids",
+      "Avoid crowded places",
+      "Follow healthy diet",
+      "Take proper rest"
+    ],
+    "medications": [],
+    "riskFactors": []
+  },
+  "Jaundice": {
+    "description": "Jaundice is a medical condition that affects the body and may require proper diagnosis and treatment.",
+    "diets": [],
+    "workouts": [],
+    "precautions": [
+      "Take proper rest",
+      "Drink plenty of fluids",
+      "Consult a doctor",
+      "Monitor health regularly"
+    ],
+    "medications": [],
+    "riskFactors": [
+      "Premature birth",
+      "Significant bruising during birth",
+      "Blood type",
+      "Breast-feeding",
+      "Race"
+    ]
+  },
+  "Malaria": {
+    "description": "Malaria is a medical condition that affects the body and may require proper diagnosis and treatment.",
+    "diets": [],
+    "workouts": [],
+    "precautions": [
+      "Monitor health regularly",
+      "Take proper rest",
+      "Maintain hygiene",
+      "Consult a doctor"
+    ],
+    "medications": [],
+    "riskFactors": [
+      "Availability of mosquito breeding site or stagnant water near the home",
+      "staying outdoors overnight."
+    ]
+  },
+  "Measles": {
+    "description": "Measles is a medical condition that affects the body and may require proper diagnosis and treatment.",
+    "diets": [],
+    "workouts": [],
+    "precautions": [
+      "Avoid crowded places",
+      "Exercise regularly",
+      "Maintain hygiene",
+      "Avoid junk food"
+    ],
+    "medications": [],
+    "riskFactors": [
+      "Being unvaccinated",
+      "Having a vitamin A deficiency",
+      "travelling to places where measles is common"
+    ]
+  },
+  "Migraine": {
+    "description": "Migraine is a medical condition that affects the body and may require proper diagnosis and treatment.",
+    "diets": [],
+    "workouts": [],
+    "precautions": [
+      "Consult a doctor",
+      "Maintain hygiene",
+      "Monitor health regularly",
+      "Follow healthy diet"
+    ],
+    "medications": [],
+    "riskFactors": [
+      "Skipping meals",
+      "Too much or too little sleep",
+      "Stress",
+      "Smoking",
+      "Depression",
+      "anxiety",
+      "excessive alcohol"
+    ]
+  },
+  "Typhoid": {
+    "description": "Typhoid is a medical condition that affects the body and may require proper diagnosis and treatment.",
+    "diets": [],
+    "workouts": [],
+    "precautions": [
+      "Monitor health regularly",
+      "Consult a doctor",
+      "Take prescribed medicines",
+      "Take proper rest"
+    ],
+    "medications": [],
+    "riskFactors": [
+      "Work in or travel to areas where typhoid fever is established",
+      "Drink contaminated water"
+    ]
+  }
+}

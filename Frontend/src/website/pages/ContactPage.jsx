@@ -2,8 +2,7 @@ import { useState } from 'react';
 import SectionTitle from '../components/SectionTitle';
 import PageHeader from '../components/PageHeader';
 import { motion } from 'framer-motion';
-
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+import { API_URL } from '../../constants/config';
 
 const initialState = {
   name: '',

@@ -1,57 +1,58 @@
 import path from 'path';
-import { spawn } from 'child_process';
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const ML_SERVICE_URL = (process.env.ML_SERVICE_URL || '').replace(/\/$/, '');
+const ML_SERVICE_TOKEN = process.env.ML_SERVICE_TOKEN || '';
+const ML_TIMEOUT_MS = Number(process.env.ML_TIMEOUT_MS || 25000);
 
-const modelScriptPath = path.resolve(__dirname, '../../ML Services/Heart&diabeties/predict.py');
-
-export const runPythonScript = (scriptPath, payload) => {
-  return new Promise((resolve, reject) => {
-    const pythonCommand =
-      process.env.PYTHON_BIN || (process.platform === 'win32' ? 'python' : 'python3');
-    const pyProcess = spawn(pythonCommand, [scriptPath], {
-      stdio: ['pipe', 'pipe', 'pipe'],
+const callMlService = async (endpoint, payload) => {
+  if (!ML_SERVICE_URL) {
+    throw new Error('ML_SERVICE_URL is not configured');
+  }
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), ML_TIMEOUT_MS);
+  try {
+    const res = await fetch(`${ML_SERVICE_URL}${endpoint}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(ML_SERVICE_TOKEN ? { 'X-ML-Service-Token': ML_SERVICE_TOKEN } : {}),
+      },
+      body: JSON.stringify(payload),
+      signal: controller.signal,
     });
-
-    let stdout = '';
-    let stderr = '';
-
-    pyProcess.stdout.on('data', (chunk) => {
-      stdout += chunk.toString();
-    });
-
-    pyProcess.stderr.on('data', (chunk) => {
-      stderr += chunk.toString();
-    });
-
-    pyProcess.on('error', (err) => {
-      reject(new Error(`Failed to start Python process: ${err.message}`));
-    });
-
-    pyProcess.on('close', (code) => {
-      if (code !== 0) {
-        const msg = stderr || stdout || 'Unknown Python execution error';
-        return reject(new Error(msg.trim()));
-      }
-
-      try {
-        const parsed = JSON.parse(stdout.trim());
-        if (parsed.error) {
-          return reject(new Error(parsed.error));
-        }
-        resolve(parsed);
-      } catch (parseError) {
-        reject(new Error(`Invalid prediction output: ${parseError.message}`));
-      }
-    });
-
-    pyProcess.stdin.write(JSON.stringify(payload));
-    pyProcess.stdin.end();
-  });
+    const text = await res.text();
+    let json = null;
+    try {
+      json = JSON.parse(text);
+    } catch {
+      json = null;
+    }
+    if (!res.ok) {
+      const msg = json?.detail || json?.error || text || `ML service ${res.status}`;
+      throw new Error(typeof msg === 'string' ? msg : JSON.stringify(msg));
+    }
+    if (json?.error) {
+      throw new Error(json.error);
+    }
+    return json;
+  } catch (err) {
+    if (err.name === 'AbortError') {
+      throw new Error(`ML service timed out after ${ML_TIMEOUT_MS}ms`);
+    }
+    throw err;
+  } finally {
+    clearTimeout(timeout);
+  }
 };
 
-const runPythonPrediction = (payload) => runPythonScript(modelScriptPath, payload);
+export const runPythonScript = (scriptPath, payload) => {
+  const base = path.basename(scriptPath || '').toLowerCase();
+  if (base.includes('symptom')) {
+    return callMlService('/predict/symptom-disease', payload);
+  }
+  return callMlService('/predict/heart-diabetes', payload);
+};
+
+const runPythonPrediction = (payload) => runPythonScript('predict.py', payload);
 
 export default runPythonPrediction;

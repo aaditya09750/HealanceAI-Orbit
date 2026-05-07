@@ -1,0 +1,130 @@
+# Render blueprint — defines BOTH backend services as code.
+# When you connect this repo to Render and choose "New Blueprint",
+# Render reads this file and provisions both services automatically.
+#
+# After provisioning, fill in the env vars marked `sync: false` from
+# the Render dashboard (each service → Environment).
+#
+# Region note: backend and ML must share a region to keep the
+# inter-service hop fast. Singapore is closest to India users.
+
+services:
+  # ────────────────────────────────────────────────────────────────
+  # 1) Python ML inference (FastAPI) — DEPLOY THIS FIRST
+  # ────────────────────────────────────────────────────────────────
+  - type: web
+    name: healanceai-ml
+    runtime: python
+    region: singapore
+    plan: free
+    branch: main
+    rootDir: "ML Services02"
+    buildCommand: pip install --no-cache-dir -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT --workers 1
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: ML_SERVICE_TOKEN
+        sync: false   # set in dashboard; MUST match the backend value
+
+  # ────────────────────────────────────────────────────────────────
+  # 2) Node Express backend — DEPLOY AFTER ML IS LIVE
+  # ────────────────────────────────────────────────────────────────
+  - type: web
+    name: healanceai-backend
+    runtime: node
+    region: singapore   # MUST match ML region
+    plan: free
+    branch: main
+    rootDir: Backend
+    buildCommand: npm ci --omit=dev
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 20.18.0
+
+      # Filled in from dashboard after each step finishes
+      - key: CLIENT_URL
+        sync: false   # Vercel domain — set after frontend deploy
+      - key: ML_SERVICE_URL
+        sync: false   # https://healanceai-ml.onrender.com
+      - key: ML_SERVICE_TOKEN
+        sync: false   # MUST equal the ML service token above
+      - key: ML_TIMEOUT_MS
+        value: 25000
+
+      # Database
+      - key: MONGO_URI
+        sync: false
+
+      # JWT — Render auto-generates strong random values
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: JWT_EXPIRE
+        value: 15m
+      - key: JWT_REFRESH_EXPIRE
+        value: 30d
+
+      # Cloudinary (file uploads)
+      - key: CLOUDINARY_URL
+        sync: false
+      - key: MAX_FILE_SIZE
+        value: "10485760"
+
+      # AI / LLM
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+
+      # Weather
+      - key: WEATHER_API_KEY
+        sync: false
+      - key: OPENWEATHER_API_KEY
+        sync: false
+      - key: WEATHER_API_BASE_URL
+        value: https://api.openweathermap.org/data/2.5
+      - key: WEATHER_UNITS
+        value: metric
+
+      # Email (Nodemailer / Gmail)
+      - key: EMAIL_HOST
+        value: smtp.gmail.com
+      - key: EMAIL_PORT
+        value: "587"
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+
+      # WhatsApp Cloud API
+      - key: WHATSAPP_ACCESS_TOKEN
+        sync: false
+      - key: WHATSAPP_PHONE_NUMBER_ID
+        sync: false
+
+      # Twilio SMS
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_PHONE_NUMBER
+        sync: false
+
+      # Rate limits (optional overrides)
+      - key: API_RATE_LIMIT_MAX
+        value: "1200"
+      - key: AUTH_RATE_LIMIT_MAX
+        value: "60"

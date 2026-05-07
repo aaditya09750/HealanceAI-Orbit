@@ -6,13 +6,13 @@ import { authService } from '../../services/api';
 import { useToast } from '../../context/ToastContext';
 import DashReveal from '../../shared/ui/DashReveal';
 import Avatar from '../../shared/ui/Avatar';
+import { API_URL } from '../../constants/config';
 
 const Profile = () => {
   const { user, updateUser } = useAuth();
   const avatarInputRef = useRef(null);
   const { toast } = useToast();
-  const apiBase = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
-  const backendBase = apiBase.replace(/\/api\/?$/, '');
+  const backendBase = API_URL.replace(/\/api\/?$/, '');
   const avatarSrc = user?.avatar
     ? user.avatar.startsWith('http')
       ? user.avatar

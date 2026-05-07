@@ -8,8 +8,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import rateLimit from 'express-rate-limit';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import mongoose from 'mongoose';
 import connectDB from './config/db.js';
 import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 
@@ -30,9 +29,6 @@ import whatsappRoutes from './routes/whatsappRoutes.js';
 import smsRoutes from './routes/smsRoutes.js';
 import predictRoutes from './routes/predictRoutes.js';
 import dashboardRoutes from './routes/dashboardRoutes.js';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -100,13 +96,14 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-// Static file serving for uploads
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
 // ==================== ROUTES ====================
 
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Healance AI Backend is running 🚀' });
+  const mongoOk = mongoose.connection.readyState === 1;
+  if (!mongoOk) {
+    return res.status(503).json({ status: 'DEGRADED', mongo: 'disconnected' });
+  }
+  res.json({ status: 'OK', mongo: 'connected', message: 'Healance AI Backend is running' });
 });
 
 app.use('/api/auth', authRoutes);

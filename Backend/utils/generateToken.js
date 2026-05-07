@@ -14,18 +14,20 @@ export const generateRefreshToken = (id) => {
   });
 };
 
+const isProd = () => process.env.NODE_ENV === 'production';
+
 export const getAccessCookieOptions = () => ({
   httpOnly: true,
-  secure: process.env.NODE_ENV === 'production',
-  sameSite: 'lax',
+  secure: isProd(),
+  sameSite: isProd() ? 'none' : 'lax',
   path: '/',
   maxAge: 15 * 60 * 1000,
 });
 
 export const getRefreshCookieOptions = () => ({
   httpOnly: true,
-  secure: process.env.NODE_ENV === 'production',
-  sameSite: 'lax',
+  secure: isProd(),
+  sameSite: isProd() ? 'none' : 'lax',
   path: '/',
   maxAge: 30 * 24 * 60 * 60 * 1000,
 });

@@ -18,14 +18,14 @@ import {
 import { useAuth } from '../../context/AuthContext';
 import { cn } from '../../lib/utils';
 import Avatar from '../../shared/ui/Avatar';
+import { API_URL } from '../../constants/config';
 
 const Sidebar = ({ isOpen, onClose }) => {
   const { user, logout } = useAuth();
   const location = useLocation();
   const isRiskRoute = location.pathname.startsWith('/dashboard/risk-prediction');
   const [riskDropdownOpen, setRiskDropdownOpen] = React.useState(isRiskRoute);
-  const apiBase = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
-  const backendBase = apiBase.replace(/\/api\/?$/, '');
+  const backendBase = API_URL.replace(/\/api\/?$/, '');
   const resolvedAvatar = user?.avatar
     ? user.avatar.startsWith('http')
       ? user.avatar
