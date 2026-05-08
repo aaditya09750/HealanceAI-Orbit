@@ -3,7 +3,7 @@ import RiskPrediction from '../models/RiskPrediction.js';
 import SymptomPrediction from '../models/SymptomPrediction.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import runPythonPrediction, { runPythonScript } from '../utils/mlPredictor.js';
+import runPythonPrediction, { runPythonScript, warmupMlService } from '../utils/mlPredictor.js';
 import {
   normalizeWhatsAppNumber,
   isValidWhatsAppNumber,
@@ -765,4 +765,9 @@ export const sharePredictionOnWhatsApp = async (req, res) => {
   } catch (error) {
     return res.status(500).json({ success: false, message: error.message });
   }
+};
+
+export const warmupMl = (req, res) => {
+  warmupMlService();
+  return res.json({ success: true });
 };

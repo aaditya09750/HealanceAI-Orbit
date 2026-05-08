@@ -289,6 +289,16 @@ export const riskService = {
     return response.data;
   },
 
+  // Fire-and-forget — wakes the ML dyno before the user clicks Predict.
+  // Errors are intentionally swallowed; this is a hint, not a contract.
+  warmupMl: async () => {
+    try {
+      await api.get('/predict/warmup', { timeout: 5000 });
+    } catch {
+      /* ignore */
+    }
+  },
+
   predictSymptomsDisease: async (data) => {
     const response = await api.post('/predict/symptoms-disease', data);
     return response.data;

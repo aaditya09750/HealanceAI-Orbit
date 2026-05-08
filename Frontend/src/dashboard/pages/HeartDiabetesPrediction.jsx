@@ -78,6 +78,31 @@ const HeartDiabetesPrediction = () => {
     }));
   }, [user]);
 
+  // Wake the ML dyno on free tier as soon as the user lands on the page.
+  // By the time they finish filling the form, the service is already warm.
+  useEffect(() => {
+    riskService.warmupMl?.();
+  }, []);
+
+  // Show contextual loading messages so 30-60s cold starts feel like progress.
+  const [loadingPhase, setLoadingPhase] = useState('');
+  useEffect(() => {
+    if (!isLoading) {
+      setLoadingPhase('');
+      return undefined;
+    }
+    setLoadingPhase('Analyzing your health data...');
+    const t1 = setTimeout(
+      () => setLoadingPhase('AI service is warming up. Please wait...'),
+      6000
+    );
+    const t2 = setTimeout(() => setLoadingPhase('Almost there, finalizing prediction...'), 18000);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [isLoading]);
+
   const bmi = useMemo(() => {
     const weight = parseNumber(formData.weight);
     const height = parseNumber(formData.height);
@@ -144,7 +169,17 @@ const HeartDiabetesPrediction = () => {
         setResults(response);
       }
     } catch (error) {
-      setMessage(error.response?.data?.message || 'Prediction failed. Please try again.');
+      const raw = error.response?.data?.message || error.message || '';
+      const isWarming =
+        /warming up|timed out|502|503|504/i.test(raw) ||
+        error.response?.status === 502 ||
+        error.response?.status === 503 ||
+        error.response?.status === 504;
+      setMessage(
+        isWarming
+          ? 'AI service is warming up. Please retry in ~30 seconds.'
+          : raw || 'Prediction failed. Please try again.'
+      );
     } finally {
       setIsLoading(false);
     }
@@ -320,7 +355,7 @@ const HeartDiabetesPrediction = () => {
                 {isLoading ? (
                   <span className="inline-flex items-center gap-2">
                     <Loader2 size={16} className="animate-spin" />
-                    Predicting...
+                    {loadingPhase || 'Predicting...'}
                   </span>
                 ) : (
                   'Predict Risk'

@@ -8,12 +8,17 @@ import {
   sharePredictionOnWhatsApp,
   shareSymptomsPredictionOnWhatsApp,
   getAdaptiveQuestions,
+  warmupMl,
 } from '../controllers/predictController.js';
 import { protect } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
 router.use(protect);
+
+// Fire-and-forget ping that wakes the ML dyno so the user's actual prediction
+// click does not eat the cold-start. Returns immediately.
+router.get('/warmup', warmupMl);
 
 router.post('/diabetes', predictDiabetes);
 router.post('/heart', predictHeart);
