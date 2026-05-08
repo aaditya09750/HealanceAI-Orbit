@@ -29,7 +29,7 @@ const supportTicketSchema = new mongoose.Schema(
     email: { type: String, required: true },
     subject: {
       type: String,
-      enum: ['General Inquiry', 'Technical Issue', 'Billing Question', 'Feature Request'],
+      enum: ['General Inquiry', 'Technical Issue', 'Billing Question', 'Feature Request', 'Account Issue', 'Bug Report', 'Other'],
       required: true,
     },
     message: { type: String, required: true },
