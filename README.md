@@ -579,6 +579,15 @@ Step-by-step deploy procedure, env var matrix, and verification checklist: [`doc
 
 **Build command (frontend):** `npm run build` — output: `dist/`
 
+### Free-tier cold-start mitigation (production)
+
+Render free-tier dynos sleep after ~15 minutes of inactivity, costing 30–60 s on the next request. The deploy layers four free, ToS-compliant mitigations so most users never see a cold start:
+
+1. **`<link rel="preconnect">` hints** in [`Frontend/index.html`](Frontend/index.html) — DNS + TCP + TLS handshakes to both Render domains start while the page is still parsing.
+2. **On-mount wake-up pings** from [`Frontend/src/lib/wakeProductionServices.js`](Frontend/src/lib/wakeProductionServices.js) — `main.jsx` fires `GET /health` to backend and ML on every page load (production only via `import.meta.env.PROD`). The ML FastAPI service has CORS configured to allow the Vercel origin.
+3. **Per-feature pre-warm** — the prediction page calls authenticated `GET /api/predict/warmup` on mount so ML is awake by the time the user clicks Predict.
+4. **Auto-retry + clean error surface** — [`Backend/utils/mlPredictor.js`](Backend/utils/mlPredictor.js) detects Render's HTML 502 page and 5xx transient codes, retries once after 2 s, and returns a structured `ML_WARMING` error. The frontend translates this to "AI service is warming up — retry in ~30 s" instead of leaking raw HTML.
+
 ---
 
 ## NPM Scripts

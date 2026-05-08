@@ -122,9 +122,14 @@ Backend utilities integrate with:
 ## 7. Operational Concerns
 
 - Security middleware enabled (headers, rate limiting, CORS)
-- Uploaded files served via backend static mount
+- Uploads served via Cloudinary (medical reports, avatars, ticket attachments) — Render disk is ephemeral
 - Build path is frontend Vite `dist/`
 - Known large chunks in frontend build output; tracked as optimization opportunity, not a runtime error
+- **Free-tier cold-start mitigation** — Render dynos sleep after ~15 min idle. Layered fixes (none of which require paid hosting or external uptime pingers):
+  - `Frontend/index.html` declares `<link rel="preconnect">` to both Render domains so DNS + TCP + TLS warm up during HTML parse.
+  - `Frontend/src/lib/wakeProductionServices.js` fires `GET /health` to both services from `main.jsx` on every production page load. ML's FastAPI app has `CORSMiddleware` allowing the Vercel origin.
+  - The prediction page calls `GET /api/predict/warmup` on mount (authenticated; backend forwards to ML's `/health` fire-and-forget).
+  - `Backend/utils/mlPredictor.js` detects Render's HTML 502 page and 5xx transient codes, auto-retries once after 2 s, and returns a structured `ML_WARMING` error code that the frontend translates into a user-friendly "warming up — retry shortly" message.
 
 ## 8. Standards and Tooling Baseline
 

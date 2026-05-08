@@ -200,7 +200,9 @@ From `Backend/.env.example`:
 | `TWILIO_PHONE_NUMBER` | No | `+12345678900` | Twilio sender number |
 | `ML_SERVICE_URL` | Yes for predictions | `https://healanceai-ml.onrender.com` | Base URL of the standalone Python FastAPI ML service. Backend POSTs JSON payloads to `/predict/heart-diabetes` and `/predict/symptom-disease`. |
 | `ML_SERVICE_TOKEN` | Yes in production | (32+ random hex chars) | Shared-secret header (`X-ML-Service-Token`) sent by the backend; must match the value configured on the ML service. Leave blank locally to skip auth. |
-| `ML_TIMEOUT_MS` | No | `25000` | Backend abort timeout for the ML HTTP call. Bump if free-tier cold starts cause client errors. |
+| `ML_TIMEOUT_MS` | No | `45000` | Backend abort timeout for the ML HTTP call. Sized to absorb Render free-tier cold starts. |
+| `ML_RETRY_COUNT` | No | `1` | Number of retries when the ML call returns a transient error (HTML 502 page, 502/503/504, or AbortError). The retry waits `ML_RETRY_DELAY_MS` between attempts. |
+| `ML_RETRY_DELAY_MS` | No | `2000` | Delay between ML retry attempts. Tuned so the dyno has time to finish booting before the second try. |
 | `CLOUDINARY_URL` | Yes for uploads | `cloudinary://<key>:<secret>@<cloud>` | Single-string credentials for Cloudinary file storage (medical reports, avatars, ticket attachments). Alternative: set the three `CLOUDINARY_*` vars below. |
 | `CLOUDINARY_CLOUD_NAME` | No (alt to URL) | `dvq1kiwqn` | Cloudinary cloud name |
 | `CLOUDINARY_API_KEY` | No (alt to URL) | `892178974735352` | Cloudinary API key |
