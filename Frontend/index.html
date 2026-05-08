@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Wake Render free-tier dynos as early as possible. -->
+    <!-- preconnect handles DNS + TCP + TLS in parallel with the rest of the page load. -->
+    <link rel="preconnect" href="https://healanceai-backend.onrender.com" crossorigin />
+    <link rel="preconnect" href="https://healanceai-ml.onrender.com" crossorigin />
+    <link rel="dns-prefetch" href="https://healanceai-backend.onrender.com" />
+    <link rel="dns-prefetch" href="https://healanceai-ml.onrender.com" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" />

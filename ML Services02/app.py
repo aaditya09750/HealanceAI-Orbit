@@ -20,6 +20,7 @@ from contextlib import asynccontextmanager
 from typing import Any, Dict, List, Optional
 
 from fastapi import FastAPI, Header, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from heart_diabetes_predict import run_prediction as run_hd
@@ -29,6 +30,15 @@ from symptom_disease_predict import (
 )
 
 ML_SERVICE_TOKEN = os.environ.get("ML_SERVICE_TOKEN", "")
+
+# CORS allowlist — Vercel production frontend + local dev origins.
+# /health is anonymous; predictions still authenticate via the
+# X-ML-Service-Token header listed below.
+ALLOWED_ORIGINS = [
+    "https://healance-ai-orbit.vercel.app",
+    "http://localhost:5173",
+    "http://localhost:5174",
+]
 
 _state: Dict[str, Any] = {}
 
@@ -43,6 +53,15 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="HealanceAI ML", version="1.0.0", lifespan=lifespan)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=ALLOWED_ORIGINS,
+    allow_credentials=False,
+    allow_methods=["GET", "POST"],
+    allow_headers=["Content-Type", "X-ML-Service-Token"],
+    max_age=3600,
+)
 
 
 def _check_token(token: Optional[str]) -> None:
